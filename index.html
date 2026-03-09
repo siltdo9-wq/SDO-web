@@ -34,6 +34,7 @@
   --muted: #64748B;
   --border: #E2E8F0;
   --instagram: #E4405F;
+  --freecash: #00D084;
   --gradient-hero: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%);
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -213,6 +214,16 @@ nav.scrolled {
   padding: 8rem 5vw 5rem;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,208C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+  background-size: cover;
+  z-index: 1;
 }
 
 .hero-bg {
@@ -220,8 +231,8 @@ nav.scrolled {
   inset: 0; 
   z-index: 0;
   background:
-    radial-gradient(ellipse 80% 70% at 80% 20%, rgba(124, 58, 237, 0.12) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 60% at 20% 80%, rgba(56, 189, 248, 0.1) 0%, transparent 60%);
+    radial-gradient(ellipse 80% 70% at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 60% at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
   animation: pulse-bg 8s ease-in-out infinite;
 }
 
@@ -234,27 +245,28 @@ nav.scrolled {
   position: absolute; 
   inset: 0; 
   z-index: 0; 
-  opacity: 0.03;
+  opacity: 0.05;
   background-image:
-    linear-gradient(var(--ink) 1px, transparent 1px),
-    linear-gradient(90deg, var(--ink) 1px, transparent 1px);
+    linear-gradient(#fff 1px, transparent 1px),
+    linear-gradient(90deg, #fff 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
 .hero-content { 
   position: relative; 
-  z-index: 1; 
+  z-index: 2; 
   max-width: 900px; 
   text-align: center;
+  color: #fff;
 }
 
 .hero-badge {
   display: inline-flex; 
   align-items: center; 
   gap: 0.5rem;
-  background: rgba(124, 58, 237, 0.08); 
-  border: 1px solid rgba(124, 58, 237, 0.25);
-  color: var(--purple); 
+  background: rgba(255, 255, 255, 0.15); 
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff; 
   padding: 0.5rem 1rem; 
   border-radius: 100px;
   font-size: var(--text-xs);
@@ -264,20 +276,22 @@ nav.scrolled {
   margin-bottom: 2rem;
   animation: fadeUp 0.8s ease both;
   font-family: var(--font-sans);
+  backdrop-filter: blur(10px);
 }
 
 .hero-badge::before { 
   content: ''; 
   width: 6px; 
   height: 6px; 
-  background: var(--purple); 
+  background: #00D084; 
   border-radius: 50%; 
   animation: pulse 2s infinite; 
+  box-shadow: 0 0 10px #00D084;
 }
 
 @keyframes pulse { 
   0%, 100% { opacity: 1; transform: scale(1); } 
-  50% { opacity: 0.5; transform: scale(1.2); } 
+  50% { opacity: 0.6; transform: scale(1.3); } 
 }
 
 h1 {
@@ -288,30 +302,31 @@ h1 {
   margin-bottom: 1.5rem;
   animation: fadeUp 0.8s 0.1s ease both;
   letter-spacing: -0.03em;
-  color: var(--ink);
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.1);
 }
 
 h1 em { 
   font-style: normal; 
-  color: var(--purple);
+  color: #00D084;
   position: relative;
 }
 
 h1 em::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -4px;
   left: 0;
   width: 100%;
-  height: 30%;
-  background: rgba(124, 58, 237, 0.1);
+  height: 8px;
+  background: rgba(0, 208, 132, 0.3);
   z-index: -1;
-  transform: skewX(-10deg);
+  border-radius: 4px;
 }
 
 .hero-sub {
   font-size: var(--text-lg);
-  color: var(--muted); 
+  color: rgba(255, 255, 255, 0.9); 
   max-width: 600px;
   margin: 0 auto 2.5rem; 
   font-weight: 400;
@@ -329,15 +344,15 @@ h1 em::after {
 }
 
 .btn-primary {
-  background: var(--purple); 
-  color: #fff;
+  background: #fff; 
+  color: var(--purple);
   padding: 1rem 2rem; 
   border-radius: 8px;
   font-weight: 600; 
   text-decoration: none; 
   font-size: var(--text-base);
   transition: all 0.3s ease; 
-  box-shadow: var(--shadow-purple);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -348,8 +363,8 @@ h1 em::after {
 
 .btn-primary:hover { 
   transform: translateY(-2px); 
-  box-shadow: 0 12px 40px rgba(124, 58, 237, 0.35);
-  background: #6D28D9;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+  background: rgba(255,255,255,0.95);
 }
 
 .btn-instagram {
@@ -361,7 +376,7 @@ h1 em::after {
   text-decoration: none; 
   font-size: var(--text-base);
   transition: all 0.3s ease; 
-  box-shadow: 0 8px 24px rgba(220, 39, 67, 0.25);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -372,7 +387,7 @@ h1 em::after {
 
 .btn-instagram:hover { 
   transform: translateY(-2px); 
-  box-shadow: 0 12px 32px rgba(220, 39, 67, 0.35);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.3);
   filter: brightness(1.1);
 }
 
@@ -383,13 +398,13 @@ h1 em::after {
 
 .btn-secondary {
   background: transparent; 
-  color: var(--ink);
+  color: #fff;
   padding: 1rem 2rem; 
   border-radius: 8px;
   font-weight: 600; 
   text-decoration: none; 
   font-size: var(--text-base);
-  border: 2px solid var(--border); 
+  border: 2px solid rgba(255,255,255,0.4); 
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
@@ -398,10 +413,9 @@ h1 em::after {
 }
 
 .btn-secondary:hover { 
-  border-color: var(--purple); 
-  color: var(--purple);
+  border-color: #fff; 
+  background: rgba(255,255,255,0.1);
   transform: translateY(-2px);
-  background: rgba(124, 58, 237, 0.05);
 }
 
 .hero-stats {
@@ -409,7 +423,7 @@ h1 em::after {
   gap: 4rem; 
   margin-top: 4rem;
   padding-top: 2rem; 
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255,255,255,0.2);
   animation: fadeUp 0.8s 0.4s ease both;
   justify-content: center;
 }
@@ -418,14 +432,14 @@ h1 em::after {
   font-family: var(--font-display);
   font-size: 2.5rem; 
   font-weight: 700; 
-  color: var(--ink);
+  color: #fff;
   letter-spacing: -0.02em;
   line-height: 1;
 }
 
 .stat-label { 
   font-size: var(--text-sm); 
-  color: var(--muted); 
+  color: rgba(255,255,255,0.8); 
   font-weight: 500;
   margin-top: 0.5rem;
   letter-spacing: 0;
@@ -635,6 +649,9 @@ section {
   border: 1px solid var(--border);
   transition: all 0.4s ease;
   position: relative;
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .portfolio-card:hover { 
@@ -650,7 +667,26 @@ section {
   justify-content: center;
   position: relative; 
   overflow: hidden;
-  background: linear-gradient(135deg, var(--ink), var(--purple));
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+}
+
+/* Chaymassama special styling */
+.portfolio-card.chaymassama .portfolio-img {
+  background: linear-gradient(135deg, #2d1b4e 0%, #1a1a2e 100%);
+  position: relative;
+}
+
+.portfolio-card.chaymassama .portfolio-img::before {
+  content: '📸';
+  position: absolute;
+  font-size: 8rem;
+  opacity: 0.1;
+  transform: rotate(-15deg);
+}
+
+.portfolio-card.chaymassama .mockup-screen {
+  background: rgba(255, 255, 255, 0.98);
+  border: 2px solid rgba(0, 208, 132, 0.3);
 }
 
 .mockup-screen {
@@ -722,6 +758,11 @@ section {
   font-family: var(--font-sans);
 }
 
+.portfolio-card.chaymassama .portfolio-tag {
+  background: rgba(0, 208, 132, 0.15);
+  color: #00a868;
+}
+
 .portfolio-info h3 { 
   font-family: var(--font-display);
   font-weight: 600; 
@@ -736,6 +777,102 @@ section {
   color: var(--muted);
   line-height: 1.6;
   letter-spacing: 0;
+}
+
+.portfolio-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 1rem;
+  color: var(--purple);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition: gap 0.3s ease;
+}
+
+.portfolio-card.chaymassama .portfolio-link {
+  color: #00a868;
+}
+
+.portfolio-card:hover .portfolio-link {
+  gap: 0.5rem;
+}
+
+/* FREECASH CARD - Bouton discret sans lien visible */
+.freecash-card {
+  background: linear-gradient(135deg, #00D084 0%, #00a868 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.freecash-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 208, 132, 0.3);
+}
+
+.freecash-card::before {
+  content: '';
+  position: absolute;
+  font-size: 10rem;
+  opacity: 0.1;
+  top: -2rem;
+  right: -2rem;
+  transform: rotate(15deg);
+}
+
+.freecash-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 2rem;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.freecash-card h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.freecash-card p {
+  font-size: var(--text-base);
+  opacity: 0.95;
+  margin-bottom: 1.5rem;
+}
+
+.freecash-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: var(--text-base);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.freecash-card:hover .freecash-btn {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.05);
 }
 
 /* PROCESS */
@@ -1187,13 +1324,14 @@ footer {
   font-size: var(--text-lg);
 }
 
-.footer-social {
+.footer-links {
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-end;
 }
 
-.footer-social a {
+.footer-links a {
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   transition: all 0.3s ease;
@@ -1201,16 +1339,12 @@ footer {
   align-items: center;
   gap: 0.5rem;
   font-weight: 500;
+  font-size: var(--text-sm);
 }
 
-.footer-social a:hover {
+.footer-links a:hover {
   color: #fff;
-  transform: translateY(-2px);
-}
-
-.footer-social svg {
-  width: 24px;
-  height: 24px;
+  transform: translateX(4px);
 }
 
 .footer-instagram {
@@ -1277,7 +1411,19 @@ footer {
   border: 1px solid rgba(228, 64, 95, 0.2) !important;
 }
 
-.mobile-instagram svg {
+.mobile-freecash {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--freecash) !important;
+  margin-top: 0.5rem;
+  padding: 1rem !important;
+  background: rgba(0, 208, 132, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 208, 132, 0.2) !important;
+}
+
+.mobile-instagram svg, .mobile-freecash svg {
   width: 24px;
   height: 24px;
 }
@@ -1347,6 +1493,10 @@ footer {
     flex-direction: column;
     text-align: center;
   }
+  
+  .footer-links {
+    align-items: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1413,6 +1563,12 @@ footer {
         <span>Suivez-moi sur Instagram</span>
       </a>
     </li>
+    <li>
+      <a href="https://freecash.com/r/Chaymassama" target="_blank" rel="noopener noreferrer" class="mobile-link mobile-freecash">
+        <span style="font-size: 1.5rem;">💰</span>
+        <span>Freecash</span>
+      </a>
+    </li>
   </ul>
   <a href="https://www.instagram.com/sdo_web?igsh=bnczMThlenN0N3Y0" target="_blank" rel="noopener noreferrer" class="mobile-cta mobile-link">Me contacter sur Instagram</a>
 </div>
@@ -1434,7 +1590,7 @@ footer {
     </div>
     <div class="hero-stats">
       <div>
-        <div class="stat-val" data-count="5">0</div>
+        <div class="stat-val" data-count="6">0</div>
         <div class="stat-label">Sites livrés</div>
       </div>
       <div>
@@ -1534,8 +1690,9 @@ footer {
     <p class="section-sub">Des sites concrets, livrés à des clients réels, en ligne et fonctionnels.</p>
   </div>
   <div class="portfolio-grid">
-    <div class="portfolio-card scroll-reveal">
-      <div class="portfolio-img" style="background: linear-gradient(135deg, #0F172A, #7C3AED);">
+    <!-- Chaymassama - Site Photographe -->
+    <a href="https://chaymassama.be" target="_blank" rel="noopener noreferrer" class="portfolio-card chaymassama scroll-reveal">
+      <div class="portfolio-img">
         <div class="mockup-screen">
           <div class="mockup-bar">
             <div class="mockup-dot" style="background:#ef4444"></div>
@@ -1543,21 +1700,34 @@ footer {
             <div class="mockup-dot" style="background:#22c55e"></div>
           </div>
           <div class="mockup-body">
-            <div class="mockup-line accent" style="width:60%;height:8px;border-radius:4px;"></div>
+            <div class="mockup-line accent" style="width:70%;height:10px;border-radius:5px;background:#00D084;"></div>
             <div class="mockup-line" style="width:90%"></div>
-            <div class="mockup-line" style="width:75%"></div>
-            <div class="mockup-line" style="width:50%"></div>
-            <div class="mockup-line accent" style="width:40%;height:16px;border-radius:8px;margin-top:4px;"></div>
+            <div class="mockup-line" style="width:60%"></div>
+            <div style="display:flex;gap:6px;margin-top:8px;">
+              <div style="flex:1;height:40px;background:rgba(0,208,132,.2);border-radius:6px;"></div>
+              <div style="flex:1;height:40px;background:rgba(0,208,132,.15);border-radius:6px;"></div>
+              <div style="flex:1;height:40px;background:rgba(0,208,132,.1);border-radius:6px;"></div>
+            </div>
           </div>
         </div>
       </div>
       <div class="portfolio-info">
-        <span class="portfolio-tag">Application Mobile</span>
-        <h3>Nour – Compagnon Musulman</h3>
-        <p>Application avec prières, Qibla, Coran et abonnements. Design épuré et responsive.</p>
+        <span class="portfolio-tag">Site Vitrine</span>
+        <h3>Chaymassama – Photographe</h3>
+        <p>Portfolio élégant pour photographe professionnelle avec galerie immersive et booking intégré.</p>
+        <span class="portfolio-link">Voir le site →</span>
       </div>
-    </div>
-    <div class="portfolio-card scroll-reveal">
+    </a>
+    
+    <!-- Freecash - Bouton discret sans lien visible -->
+    <a href="https://freecash.com/r/Chaymassama" target="_blank" rel="noopener noreferrer" class="freecash-card scroll-reveal">
+      <div class="freecash-icon">💰</div>
+      <h3>Freecash</h3>
+      <p>Gagnez de l'argent en ligne avec des sondages, jeux et offres. Rejoignez la plateforme dès maintenant !</p>
+      <span class="freecash-btn">Accéder →</span>
+    </a>
+    
+    <a href="#" class="portfolio-card scroll-reveal" onclick="return false;">
       <div class="portfolio-img" style="background: linear-gradient(135deg, #0ea5e9, #0F172A);">
         <div class="mockup-screen">
           <div class="mockup-bar">
@@ -1581,32 +1751,7 @@ footer {
         <h3>NEXUS – IDE IA</h3>
         <p>Éditeur de code IA avec chat intégré, prévisualisation live et multi-personnalités.</p>
       </div>
-    </div>
-    <div class="portfolio-card scroll-reveal">
-      <div class="portfolio-img" style="background: linear-gradient(135deg, #f97316, #ef4444);">
-        <div class="mockup-screen">
-          <div class="mockup-bar">
-            <div class="mockup-dot" style="background:#ef4444"></div>
-            <div class="mockup-dot" style="background:#f59e0b"></div>
-            <div class="mockup-dot" style="background:#22c55e"></div>
-          </div>
-          <div class="mockup-body">
-            <div class="mockup-line" style="background:#f97316;opacity:.5;width:55%;height:8px;border-radius:4px;"></div>
-            <div class="mockup-line" style="width:80%"></div>
-            <div style="display:flex;gap:4px;margin-top:4px;">
-              <div style="flex:1;height:20px;background:rgba(249,115,22,.3);border-radius:4px;"></div>
-              <div style="flex:1;height:20px;background:rgba(249,115,22,.2);border-radius:4px;"></div>
-              <div style="flex:1;height:20px;background:rgba(249,115,22,.15);border-radius:4px;"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="portfolio-info">
-        <span class="portfolio-tag">Livraison</span>
-        <h3>FoodRush – Plateforme</h3>
-        <p>Marketplace food delivery avec interface client, restaurant et admin.</p>
-      </div>
-    </div>
+    </a>
   </div>
 </section>
 
@@ -1776,9 +1921,9 @@ footer {
       <span>Création de sites internet modernes</span>
       <span style="color: rgba(255,255,255,0.4); margin-top: 0.5rem;">© 2025 Silvio De Oliveira. Tous droits réservés.</span>
     </div>
-    <div class="footer-social">
-      <a href="https://www.instagram.com/sdo_web?igsh=bnczMThlenN0N3Y0" target="_blank" rel="noopener noreferrer" class="footer-instagram" aria-label="Instagram">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/sdo_web?igsh=bnczMThlenN0N3Y0" target="_blank" rel="noopener noreferrer" class="footer-instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
         <span>@sdo_web</span>
       </a>
     </div>
