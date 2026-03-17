@@ -27,7 +27,6 @@
 <!-- Preconnect -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -40,7 +39,7 @@
   "name": "SDO Web",
   "description": "Création de sites internet professionnels en Belgique",
   "url": "https://sdoweb.be",
-  "email": "contact@sdo-web.com",
+  "email": "contact.sdo.web12@gmail.com",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Bruxelles",
@@ -1063,7 +1062,7 @@ section {
   line-height: 1.7;
 }
 
-/* Contact Section */
+/* Contact Section - SIMPLIFIÉ SANS FORMULAIRE */
 #contact {
   background: var(--gradient-dark);
   color: #fff;
@@ -1087,179 +1086,110 @@ section {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 4rem;
-  max-width: 1200px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
 }
 
-.contact-info h3 {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  color: #fff;
-}
-
-.contact-methods {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.contact-method {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.contact-icon {
-  width: 48px;
-  height: 48px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  flex-shrink: 0;
-}
-
-.contact-details h4 {
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-  color: #fff;
-}
-
-.contact-details p {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.contact-details a {
-  color: var(--purple-light);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.contact-details a:hover {
-  color: #fff;
-}
-
-.response-time {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: rgba(16, 185, 129, 0.2);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  padding: 1rem;
-  border-radius: 12px;
-  margin-top: 2rem;
-}
-
-.response-time span {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-/* Contact Form */
-.contact-form {
-  background: #fff;
+.contact-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   padding: 2.5rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.form-group label {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 0.5rem;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 0.875rem 1rem;
-  border: 2px solid var(--border);
-  border-radius: 10px;
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  background: var(--bg);
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--purple);
-  background: #fff;
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.form-submit {
-  width: 100%;
-  padding: 1rem;
-  background: var(--gradient-hero);
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.form-submit:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-purple);
-}
-
-.form-success {
-  display: none;
   text-align: center;
-  padding: 3rem;
-}
-
-.form-success.active {
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #fff;
   display: block;
 }
 
-.form-success-icon {
+.contact-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(124, 58, 237, 0.5);
+  transform: translateY(-8px);
+}
+
+.contact-icon-large {
   width: 80px;
   height: 80px;
-  background: var(--success);
-  border-radius: 50%;
+  background: var(--gradient-hero);
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.5rem;
   font-size: 2.5rem;
+}
+
+.contact-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
   color: #fff;
+}
+
+.contact-card p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.contact-email {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover .contact-email {
+  background: #fff;
+  color: var(--purple);
+  border-color: #fff;
+}
+
+.contact-cta {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 2rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-cta h3 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.contact-cta p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.response-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 0.75rem 1.5rem;
+  border-radius: 100px;
+  color: #fff;
+  font-size: 0.9rem;
+  margin-top: 1rem;
 }
 
 /* SEO Content Section */
@@ -1394,6 +1324,11 @@ section {
   text-align: center; 
   color: #fff;
   padding: 4rem 5vw;
+}
+
+#cta .section-label {
+  color: #fff;
+  background: rgba(255,255,255,0.2);
 }
 
 #cta .section-title {
@@ -1552,7 +1487,6 @@ footer {
   .portfolio-grid { grid-template-columns: 1fr; }
   .process-steps { grid-template-columns: 1fr; gap: 2rem; }
   .step-num::after { display: none; }
-  .form-row { grid-template-columns: 1fr; }
   .maintenance-box { flex-direction: column; text-align: center; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
@@ -1564,6 +1498,7 @@ footer {
   .hero-btns { flex-direction: column; }
   .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
   .stats-bar { flex-direction: column; gap: 1.5rem; }
+  .contact-card { padding: 1.5rem; }
 }
 </style>
 </head>
@@ -1578,7 +1513,7 @@ footer {
     <li><a href="#process">Processus</a></li>
     <li><a href="#pricing">Tarifs</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li><a href="#contact" class="nav-cta">Demander un devis</a></li>
+    <li><a href="#contact" class="nav-cta">Me contacter</a></li>
   </ul>
   <div class="burger" id="burger" aria-label="Menu mobile">
     <span></span>
@@ -1608,7 +1543,7 @@ footer {
       <h1>Création de sites internet <span class="highlight">modernes et performants</span> pour entreprises et indépendants</h1>
       <p class="hero-sub">Je conçois des sites web professionnels, rapides et optimisés SEO à Bruxelles et en Belgique. De la vitrine au e-commerce, boostez votre présence en ligne avec un site qui convertit vos visiteurs en clients.</p>
       <div class="hero-btns">
-        <a href="#contact" class="btn-primary">Demander un devis gratuit</a>
+        <a href="mailto:devis.sdo.web@gmail.com?subject=Demande%20de%20devis%20-%20Création%20site%20internet&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20obtenir%20un%20devis%20pour%20la%20création%20d'un%20site%20internet.%0D%0A%0D%0A---%20Informations%20---%0D%0ANom%20:%20%0D%0AEntreprise%20:%20%0D%0ATéléphone%20:%20%0D%0A%0D%0A---%20Projet%20---%0D%0AType%20de%20site%20:%20(vitrine%20/%20e-commerce%20/%20landing%20page%20/%20refonte)%0D%0ABudget%20estimé%20:%20%0D%0ADélai%20souhaité%20:%20%0D%0A%0D%0ADescription%20du%20projet%20:%20%0D%0A" class="btn-primary">Demander un devis gratuit</a>
         <a href="#portfolio" class="btn-secondary">Voir mes réalisations</a>
       </div>
       <div class="stats-bar">
@@ -1750,9 +1685,10 @@ footer {
     <p class="section-sub">Des sites concrets, livrés à des clients réels en Belgique et ailleurs.</p>
   </div>
   <div class="portfolio-grid">
+    <!-- Chaymassama - VRAI SITE -->
     <a href="https://chaymassama.be" target="_blank" class="portfolio-card" rel="noopener noreferrer">
       <div class="portfolio-img" style="background: linear-gradient(135deg, #2d1b4e, #1a1a2e);">
-        <div class="portfolio-overlay"><span>Voir le site</span></div>
+        <div class="portfolio-overlay"><span>Voir le site →</span></div>
       </div>
       <div class="portfolio-info">
         <span class="portfolio-tag">Site Vitrine</span>
@@ -1760,16 +1696,20 @@ footer {
         <p>Portfolio élégant pour photographe professionnelle avec galerie immersive et système de booking.</p>
       </div>
     </a>
-    <a href="#" class="portfolio-card" onclick="return false;">
+
+    <!-- Creafida - VRAI SITE -->
+    <a href="https://creafida.be" target="_blank" class="portfolio-card" rel="noopener noreferrer">
       <div class="portfolio-img" style="background: linear-gradient(135deg, #0ea5e9, #0369a1);">
-        <div class="portfolio-overlay"><span>Projet récent</span></div>
+        <div class="portfolio-overlay"><span>Voir le site →</span></div>
       </div>
       <div class="portfolio-info">
-        <span class="portfolio-tag">E-commerce</span>
-        <h3>Boutique Artisanale</h3>
-        <p>Site e-commerce complet avec paiement en ligne, gestion des stocks et livraison intégrée.</p>
+        <span class="portfolio-tag">Site Vitrine</span>
+        <h3>Creafida</h3>
+        <p>Site professionnel pour services créatifs, avec design moderne et optimisation conversion.</p>
       </div>
     </a>
+
+    <!-- Faux sites (non cliquables) -->
     <a href="#" class="portfolio-card" onclick="return false;">
       <div class="portfolio-img" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
         <div class="portfolio-overlay"><span>Projet récent</span></div>
@@ -1866,7 +1806,7 @@ footer {
         <li>Hébergement 1 an offert</li>
         <li>Formation utilisation</li>
       </ul>
-      <a href="#contact" class="pricing-btn">Demander un devis</a>
+      <a href="mailto:devis.sdo.web@gmail.com?subject=Devis%20Site%20Vitrine%20-%20600€&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20obtenir%20un%20devis%20pour%20un%20site%20vitrine%20(600€).%0D%0A%0D%0ANom%20:%20%0D%0AEntreprise%20:%20%0D%0ATéléphone%20:%20%0D%0A%0D%0ADescription%20du%20projet%20:%20" class="pricing-btn">Demander ce devis</a>
     </div>
     <div class="pricing-card featured">
       <div class="featured-badge">Plus populaire</div>
@@ -1884,7 +1824,7 @@ footer {
         <li>Analytics & tracking</li>
         <li>Support 30 jours inclus</li>
       </ul>
-      <a href="#contact" class="pricing-btn">Demander un devis</a>
+      <a href="mailto:devis.sdo.web@gmail.com?subject=Devis%20Site%20Pro%20-%201200€&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20obtenir%20un%20devis%20pour%20un%20site%20professionnel%20(1200€).%0D%0A%0D%0ANom%20:%20%0D%0AEntreprise%20:%20%0D%0ATéléphone%20:%20%0D%0A%0D%0ADescription%20du%20projet%20:%20" class="pricing-btn">Demander ce devis</a>
     </div>
     <div class="pricing-card">
       <div class="pricing-header">
@@ -1901,7 +1841,7 @@ footer {
         <li>SEO e-commerce avancé</li>
         <li>Formation complète</li>
       </ul>
-      <a href="#contact" class="pricing-btn">Demander un devis</a>
+      <a href="mailto:devis.sdo.web@gmail.com?subject=Devis%20E-commerce%20-%202000€&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20obtenir%20un%20devis%20pour%20une%20boutique%20en%20ligne%20(2000€).%0D%0A%0D%0ANom%20:%20%0D%0AEntreprise%20:%20%0D%0ATéléphone%20:%20%0D%0ANombre%20de%20produits%20:%20%0D%0A%0D%0ADescription%20du%20projet%20:%20" class="pricing-btn">Demander ce devis</a>
     </div>
   </div>
   
@@ -2044,122 +1984,57 @@ footer {
   </div>
 </section>
 
-<!-- Contact Section -->
+<!-- Contact Section - SIMPLIFIÉ AVEC VOS VRAIS EMAILS -->
 <section id="contact">
   <div class="section-header">
     <div class="section-label">Contact</div>
     <h2 class="section-title">Discutons de votre projet</h2>
-    <p class="section-sub">Remplissez le formulaire ci-dessous ou contactez-moi directement. Réponse sous 24h garantie.</p>
+    <p class="section-sub">Cliquez sur l'option qui vous correspond. Je vous réponds sous 24h garantie.</p>
   </div>
+  
   <div class="contact-grid">
-    <div class="contact-info">
-      <h3>📧 Mes coordonnées</h3>
-      <div class="contact-methods">
-        <div class="contact-method">
-          <div class="contact-icon">📧</div>
-          <div class="contact-details">
-            <h4>Email général</h4>
-            <p><a href="mailto:contact@sdo-web.com">contact@sdo-web.com</a></p>
-            <small>Pour toute question générale</small>
-          </div>
-        </div>
-        <div class="contact-method">
-          <div class="contact-icon">💰</div>
-          <div class="contact-details">
-            <h4>Demande de devis</h4>
-            <p><a href="mailto:devis@sdo-web.com">devis@sdo-web.com</a></p>
-            <small>Pour obtenir un prix personnalisé</small>
-          </div>
-        </div>
-        <div class="contact-method">
-          <div class="contact-icon">🔧</div>
-          <div class="contact-details">
-            <h4>Support client</h4>
-            <p><a href="mailto:support@sdo-web.com">support@sdo-web.com</a></p>
-            <small>Pour les clients avec site en ligne</small>
-          </div>
-        </div>
-        <div class="contact-method">
-          <div class="contact-icon">📍</div>
-          <div class="contact-details">
-            <h4>Localisation</h4>
-            <p>Bruxelles, Belgique</p>
-            <small>Intervention sur toute la Belgique</small>
-          </div>
-        </div>
-      </div>
-      <div class="response-time">
+    <!-- Demande de devis -->
+    <a href="mailto:devis.sdo.web@gmail.com?subject=Demande%20de%20devis%20-%20Création%20site%20internet&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20obtenir%20un%20devis%20pour%20la%20création%20d'un%20site%20internet.%0D%0A%0D%0A---%20Informations%20---%0D%0ANom%20:%20%0D%0AEntreprise%20:%20%0D%0ATéléphone%20:%20%0D%0A%0D%0A---%20Projet%20---%0D%0AType%20de%20site%20:%20(vitrine%20/%20e-commerce%20/%20landing%20page%20/%20refonte)%0D%0ABudget%20estimé%20:%20%0D%0ADélai%20souhaité%20:%20%0D%0A%0D%0ADescription%20du%20projet%20:%20%0D%0A" class="contact-card">
+      <div class="contact-icon-large">💰</div>
+      <h3>Demander un devis</h3>
+      <p>Vous avez un projet de site web ? Obtenez un devis personnalisé gratuit sous 24h.</p>
+      <span class="contact-email">devis.sdo.web@gmail.com</span>
+    </a>
+
+    <!-- Contact général -->
+    <a href="mailto:contact.sdo.web12@gmail.com?subject=Prise%20de%20contact%20-%20SDO%20Web&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20prendre%20contact%20avec%20vous.%0D%0A%0D%0ANom%20:%20%0D%0AEntreprise%20:%20%0D%0ATéléphone%20:%20%0D%0A%0D%0AMessage%20:%20" class="contact-card">
+      <div class="contact-icon-large">📧</div>
+      <h3>Contact général</h3>
+      <p>Questions, informations, collaboration... Je suis à votre écoute.</p>
+      <span class="contact-email">contact.sdo.web12@gmail.com</span>
+    </a>
+
+    <!-- Support client -->
+    <a href="mailto:support.sdo.web@gmail.com?subject=Support%20client%20-%20Site%20en%20ligne&body=Bonjour,%0D%0A%0D%0AJe%20suis%20client%20et%20j'ai%20besoin%20d'aide%20sur%20mon%20site.%0D%0A%0D%0ANom%20:%20%0D%0ANom%20du%20site%20:%20%0D%0A%0D%0ADescription%20du%20problème%20:%20" class="contact-card">
+      <div class="contact-icon-large">🔧</div>
+      <h3>Support client</h3>
+      <p>Vous avez déjà un site avec moi ? Contactez le support technique.</p>
+      <span class="contact-email">support.sdo.web@gmail.com</span>
+    </a>
+
+    <!-- Administration -->
+    <a href="mailto:admin.sdo.web@gmail.com?subject=Administration%20-%20SDO%20Web&body=Bonjour,%0D%0A%0D%0ACette%20adresse%20est%20réservée%20à%20la%20gestion%20interne.%0D%0A%0D%0ASujet%20:%20" class="contact-card">
+      <div class="contact-icon-large">⚙️</div>
+      <h3>Administration</h3>
+      <p>Pour la gestion interne, facturation et questions administratives.</p>
+      <span class="contact-email">admin.sdo.web@gmail.com</span>
+    </a>
+
+    <!-- CTA Final -->
+    <div class="contact-cta">
+      <h3>Prêt à démarrer votre projet ?</h3>
+      <p>Ne laissez pas vos concurrents prendre de l'avance. Discutons de votre projet et créons ensemble un site qui convertit vos visiteurs en clients.</p>
+      <a href="mailto:devis.sdo.web@gmail.com?subject=Je%20suis%20prêt%20à%20démarrer%20mon%20projet&body=Bonjour,%0D%0A%0D%0AJe%20suis%20prêt%20à%20démarrer%20mon%20projet%20de%20site%20web.%0D%0A%0D%0ANom%20:%20%0D%0AEntreprise%20:%20%0D%0ATéléphone%20:%20%0D%0A%0D%0ADescription%20rapide%20du%20projet%20:%20" class="btn-primary" style="font-size:1.125rem;padding:1.25rem 2.5rem;display:inline-block;margin-top:1rem;">
+        Démarrer mon projet maintenant →
+      </a>
+      <div class="response-badge">
         <span>⚡</span>
-        <span>Réponse garantie sous 24h ouvrées à tous les messages</span>
-      </div>
-    </div>
-    
-    <div class="contact-form-container">
-      <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Nom complet *</label>
-            <input type="text" id="name" name="name" required placeholder="Jean Dupont">
-          </div>
-          <div class="form-group">
-            <label for="email">Email *</label>
-            <input type="email" id="email" name="email" required placeholder="jean@entreprise.be">
-          </div>
-        </div>
-        
-        <div class="form-row">
-          <div class="form-group">
-            <label for="company">Entreprise</label>
-            <input type="text" id="company" name="company" placeholder="Nom de votre entreprise">
-          </div>
-          <div class="form-group">
-            <label for="phone">Téléphone</label>
-            <input type="tel" id="phone" name="phone" placeholder="+32 470 12 34 56">
-          </div>
-        </div>
-        
-        <div class="form-row">
-          <div class="form-group">
-            <label for="type">Type de site *</label>
-            <select id="type" name="type" required>
-              <option value="">Sélectionnez...</option>
-              <option value="vitrine">Site vitrine</option>
-              <option value="ecommerce">E-commerce</option>
-              <option value="landing">Landing page</option>
-              <option value="refonte">Refonte de site</option>
-              <option value="autre">Autre projet</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="budget">Budget estimé</label>
-            <select id="budget" name="budget">
-              <option value="">Sélectionnez...</option>
-              <option value="500-1000">500€ - 1 000€</option>
-              <option value="1000-2000">1 000€ - 2 000€</option>
-              <option value="2000-5000">2 000€ - 5 000€</option>
-              <option value="5000+">Plus de 5 000€</option>
-            </select>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="message">Description de votre projet *</label>
-          <textarea id="message" name="message" required placeholder="Décrivez votre projet, vos objectifs et vos besoins spécifiques..."></textarea>
-        </div>
-        
-        <input type="hidden" name="_subject" value="Nouvelle demande de devis - SDO Web">
-        <input type="hidden" name="_next" value="https://sdoweb.be/merci.html">
-        
-        <button type="submit" class="form-submit">
-          Envoyer ma demande
-          <span>→</span>
-        </button>
-      </form>
-      
-      <div class="form-success" id="formSuccess">
-        <div class="form-success-icon">✓</div>
-        <h3>Message envoyé !</h3>
-        <p>Merci pour votre demande. Je vous réponds dans les 24h avec un devis personnalisé.</p>
+        <span>Réponse garantie sous 24h</span>
       </div>
     </div>
   </div>
@@ -2167,10 +2042,12 @@ footer {
 
 <!-- CTA Section -->
 <section id="cta">
-  <div class="section-label" style="background:rgba(255,255,255,0.2);color:#fff;">Prêt à démarrer ?</div>
+  <div class="section-label">Prêt à démarrer ?</div>
   <h2 class="section-title">Transformez votre présence en ligne dès aujourd'hui</h2>
   <p class="cta-sub">Ne laissez pas vos concurrents prendre de l'avance. Discutons de votre projet et créons ensemble un site qui convertit vos visiteurs en clients.</p>
-  <a href="#contact" class="btn-primary" style="font-size:1.125rem;padding:1.25rem 2.5rem;">Demander mon devis gratuit →</a>
+  <a href="mailto:devis.sdo.web@gmail.com?subject=Demande%20de%20devis%20urgente&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20obtenir%20un%20devis%20pour%20mon%20projet." class="btn-primary" style="font-size:1.125rem;padding:1.25rem 2.5rem;">
+    Demander mon devis gratuit →
+  </a>
 </section>
 
 <!-- Footer -->
@@ -2202,8 +2079,9 @@ footer {
     <div>
       <div class="footer-title">Contact</div>
       <ul class="footer-links">
-        <li><a href="mailto:contact@sdo-web.com">contact@sdo-web.com</a></li>
-        <li><a href="mailto:devis@sdo-web.com">devis@sdo-web.com</a></li>
+        <li><a href="mailto:contact.sdo.web12@gmail.com">contact.sdo.web12@gmail.com</a></li>
+        <li><a href="mailto:devis.sdo.web@gmail.com">devis.sdo.web@gmail.com</a></li>
+        <li><a href="mailto:support.sdo.web@gmail.com">support.sdo.web@gmail.com</a></li>
         <li>Bruxelles, Belgique</li>
       </ul>
     </div>
@@ -2261,58 +2139,18 @@ document.querySelectorAll('.faq-question').forEach(question => {
   });
 });
 
-// Form handling
-const form = document.getElementById('contactForm');
-const formSuccess = document.getElementById('formSuccess');
-
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  
-  const formData = new FormData(form);
-  const type = formData.get('type');
-  
-  // Determine recipient based on type
-  let recipient = 'contact@sdo-web.com';
-  if (type === 'vitrine' || type === 'ecommerce' || type === 'landing' || type === 'refonte') {
-    recipient = 'devis@sdo-web.com';
-  }
-  
-  // Update form action or subject
-  const subject = type ? `Nouvelle demande: ${type} - SDO Web` : 'Nouvelle demande de contact - SDO Web';
-  form.querySelector('input[name="_subject"]').value = subject;
-  
-  try {
-    const response = await fetch(form.action, {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'Accept': 'application/json'
-      }
-    });
-    
-    if (response.ok) {
-      form.style.display = 'none';
-      formSuccess.classList.add('active');
-    } else {
-      alert('Une erreur est survenue. Veuillez réessayer ou me contacter directement par email.');
-    }
-  } catch (error) {
-    // For demo purposes, show success
-    form.style.display = 'none';
-    formSuccess.classList.add('active');
-  }
-});
-
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+    if (this.getAttribute('href').startsWith('#')) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
     }
   });
 });
@@ -2333,7 +2171,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Animate elements on scroll
-document.querySelectorAll('.service-card, .portfolio-card, .why-card, .testi-card, .pricing-card, .process-step').forEach(el => {
+document.querySelectorAll('.service-card, .portfolio-card, .why-card, .testi-card, .pricing-card, .process-step, .contact-card').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(20px)';
   el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
