@@ -23,9 +23,9 @@ if (!nom || typeof nom !== ‘string’ || nom.trim().length < 2)
 errors.push(‘Nom invalide.’);
 if (!email || !/^[^\s@]+@[^\s@]+.[^\s@]+$/.test(email))
 errors.push(‘Email invalide.’);
-if (!service || ![‘vitrine’, ‘ecommerce’, ‘refonte’, ‘automatisation’, ‘landing’].includes(service))
+if (!service || typeof service !== ‘string’ || service.trim().length === 0)
 errors.push(‘Service invalide.’);
-if (!budget || ![’<500’, ‘500-1000’, ‘1000-2000’, ‘2000-5000’, ‘>5000’].includes(budget))
+if (!budget || typeof budget !== ‘string’ || budget.trim().length === 0)
 errors.push(‘Budget invalide.’);
 if (!description || description.trim().length < 20)
 errors.push(‘Description trop courte (20 caractères minimum).’);
@@ -155,29 +155,34 @@ return res.status(405).json({ error: ‘Méthode non autorisée.’ });
 }
 
 try {
-const body = typeof req.body === ‘string’ ? JSON.parse(req.body) : req.body;
+// Robustly parse body
+let body = req.body;
+if (typeof body === ‘string’) {
+try { body = JSON.parse(body); } catch { body = {}; }
+}
+if (!body || typeof body !== ‘object’) {
+return res.status(400).json({ error: ‘Corps de requête invalide.’ });
+}
 
 ```
 // Validate
 const errors = validate(body);
 if (errors.length > 0) {
-  return res.status(400).json({ error: 'Données invalides.', details: errors });
+  return res.status(400).json({ error: errors.join(' '), details: errors });
 }
 
 // Sanitize
 const safe = {
-  nom: body.nom.trim().slice(0, 100),
-  email: body.email.trim().slice(0, 200),
-  service: body.service,
-  budget: body.budget,
-  description: body.description.trim().slice(0, 2000),
+  nom: String(body.nom).trim().slice(0, 100),
+  email: String(body.email).trim().slice(0, 200),
+  service: String(body.service).trim().slice(0, 50),
+  budget: String(body.budget).trim().slice(0, 20),
+  description: String(body.description).trim().slice(0, 2000),
 };
 
 // Call Claude
 const result = await callClaude(buildPrompt(safe));
 
-// Return only client-safe fields (hide internal notes in prod)
-const isProd = process.env.NODE_ENV === 'production';
 return res.status(200).json({
   success: true,
   qualification: result.qualification,
@@ -187,14 +192,13 @@ return res.status(200).json({
   delai: result.delai,
   message: result.message,
   nextStep: result.nextStep,
-  ...(isProd ? {} : { notes_internes: result.notes_internes }),
 });
 ```
 
 } catch (err) {
 console.error(’[SDO/devis]’, err.message);
 return res.status(500).json({
-error: ‘Erreur serveur. Veuillez réessayer ou contacter contact@sdo-web.be’,
+error: ’Erreur serveur : ’ + err.message,
 });
 }
 }
