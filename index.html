@@ -1,2182 +1,2351 @@
 <!DOCTYPE html>
-<html lang="fr-BE">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SDO Web | Création de sites internet Belgique & Bruxelles - Développeur Web Freelance</title>
-<meta name="description" content="Développeur web freelance en Belgique. Création de sites internet professionnels à Bruxelles : vitrine, e-commerce, SEO. Devis gratuit sous 24h.">
-<meta name="keywords" content="création site internet, développeur web freelance, création site Belgique, création site Bruxelles, prix site internet, agence web, refonte site, SEO">
-<meta name="author" content="Silvio De Oliveira - SDO Web">
+<title>SDO Web – Création de Sites Internet Belgique | Freelance Bruxelles</title>
+<meta name="description" content="SDO Web, développeur web freelance en Belgique. Sites internet modernes, rapides et optimisés SEO. Devis gratuit sous 24h. À partir de 300€.">
+<meta name="keywords" content="création site internet, développeur web freelance, création site Belgique, création site Bruxelles, site vitrine Belgique, e-commerce Belgique, prix site internet">
+<meta name="author" content="Silvio De Oliveira – SDO Web">
 <meta name="robots" content="index, follow">
-<meta name="language" content="fr-BE">
-<link rel="canonical" href="https://sdoweb.be">
-
-<!-- Open Graph -->
-<meta property="og:title" content="SDO Web | Création de sites internet professionnels Belgique">
-<meta property="og:description" content="Développeur web freelance spécialisé en création de sites modernes, rapides et optimisés SEO. Basé à Bruxelles, intervention en Belgique.">
+<link rel="canonical" href="https://sdo-web.be">
+<meta property="og:title" content="SDO Web – Création de Sites Internet en Belgique">
+<meta property="og:description" content="Développeur web freelance en Belgique. Sites vitrines, landing pages et e-commerce à partir de 300€. Livraison en 48h.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://sdoweb.be">
-<meta property="og:image" content="https://sdoweb.be/og-image.jpg">
-<meta property="og:locale" content="fr_BE">
+<meta property="og:url" content="https://sdo-web.be">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"SDO Web","url":"https://sdo-web.be","areaServed":["Belgique","Bruxelles","Wallonie"],"priceRange":"€€","contactPoint":{"@type":"ContactPoint","email":"contact.sdo.web12@gmail.com"}}</script>
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SDO Web | Création de sites internet Belgique">
-<meta name="twitter:description" content="Développeur web freelance - Sites vitrine, e-commerce & SEO à Bruxelles et en Belgique.">
-
-<!-- Preconnect -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<!-- Schema.org JSON-LD -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "SDO Web",
-  "description": "Création de sites internet professionnels en Belgique",
-  "url": "https://sdoweb.be",
-  "email": "contact.sdo.web12@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Bruxelles",
-    "addressCountry": "BE"
-  },
-  "serviceType": ["Création de sites web", "SEO", "Développement web"],
-  "priceRange": "€€"
-}
-</script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+/* ── VARIABLES ─────────────────────────────── */
 :root {
-  --ink: #0F172A;
-  --purple: #7C3AED;
-  --purple-light: #A78BFA;
-  --purple-dark: #5B21B6;
-  --blue: #38BDF8;
-  --bg: #F8FAFC;
-  --card: #ffffff;
-  --muted: #64748B;
-  --border: #E2E8F0;
-  --success: #10B981;
-  --gradient-hero: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%);
-  --gradient-dark: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  --shadow-purple: 0 8px 32px rgba(124, 58, 237, 0.25);
-  
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --bg:    #0c0c0e;
+  --bg-2:  #121215;
+  --card:  #18181c;
+  --card-2:#1e1e23;
+  --b0:    rgba(255,255,255,0.04);
+  --b1:    rgba(255,255,255,0.08);
+  --b2:    rgba(255,255,255,0.15);
+  --text:  #fafafa;
+  --text-2:#a1a1aa;
+  --text-3:#71717a;
+  --accent:#fbbf24;
+  --accent-2:#f59e0b;
+  --accent-dim: rgba(251,191,36,0.08);
+  --accent-med: rgba(251,191,36,0.15);
+  --accent-glow: rgba(251,191,36,0.12);
+  --success: #22c55e;
+  --error:   #ef4444;
+  --r:       12px;
+  --r-sm:    8px;
+  --ease:    cubic-bezier(0.16, 1, 0.3, 1);
   --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
 }
 
-*, *::before, *::after { 
-  box-sizing: border-box; 
-  margin: 0; 
-  padding: 0; 
-}
-
-html { 
-  scroll-behavior: smooth; 
-  scroll-padding-top: 80px;
-  font-size: 16px;
-}
-
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; scroll-padding-top: 80px; }
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   background: var(--bg);
-  color: var(--ink);
+  color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
 
-/* Navigation */
+/* ── NAV ───────────────────────────────────── */
 nav {
   position: fixed; 
   top: 0; 
   left: 0; 
   right: 0; 
-  z-index: 1000;
+  z-index: 100;
   display: flex; 
   align-items: center; 
   justify-content: space-between;
   padding: 1rem 5vw;
-  background: rgba(248, 250, 252, 0.95);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  transition: all 0.3s ease;
+  transition: background 0.3s var(--ease), backdrop-filter 0.3s var(--ease);
 }
-
 nav.scrolled {
-  padding: 0.75rem 5vw;
-  box-shadow: var(--shadow-md);
+  background: rgba(12,12,14,0.9);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--b0);
 }
-
-.logo { 
+.logo {
   font-family: var(--font-display);
-  font-weight: 700; 
-  font-size: 1.75rem; 
-  color: var(--ink);
-  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
   letter-spacing: -0.02em;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
+  white-space: nowrap;
+  margin-right: 2rem;
+  z-index: 102;
 }
-
-.logo span { color: var(--purple); }
-
+.logo span {
+  color: var(--accent);
+  font-weight: 600;
+}
 .nav-links { 
   display: flex; 
   gap: 2rem; 
-  list-style: none; 
   align-items: center;
+  margin-left: auto;
+  margin-right: 1.5rem;
 }
-
-.nav-links a { 
-  color: var(--muted); 
-  text-decoration: none; 
-  font-size: 0.9rem;
-  font-weight: 500; 
-  transition: color 0.3s ease;
+.nav-links a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-2);
+  transition: color 0.2s ease;
   position: relative;
+  white-space: nowrap;
 }
-
-.nav-links a:hover { color: var(--purple); }
-
 .nav-links a::after {
   content: '';
   position: absolute;
   bottom: -4px;
   left: 0;
   width: 0;
-  height: 2px;
-  background: var(--purple);
-  transition: width 0.3s ease;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s var(--ease);
 }
-
-.nav-links a:hover::after { width: 100%; }
-
+.nav-links a:hover {
+  color: var(--text);
+}
+.nav-links a:hover::after {
+  width: 100%;
+}
 .nav-cta {
-  background: var(--gradient-hero);
-  color: #fff !important;
-  padding: 0.6rem 1.25rem;
-  border-radius: 8px;
+  background: var(--text);
+  color: var(--bg);
+  padding: 0.625rem 1.25rem;
+  border-radius: 100px;
+  font-size: 0.875rem;
   font-weight: 600;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: var(--font-body);
+  transition: all 0.3s var(--ease);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-right: 1rem;
 }
-
 .nav-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-purple);
+  background: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px var(--accent-glow);
 }
-
-.nav-cta::after { display: none !important; }
-
 .burger { 
   display: none; 
   flex-direction: column; 
   gap: 5px; 
   cursor: pointer; 
-  z-index: 1001;
+  z-index: 101; 
+  padding: 0.5rem;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
 }
-
 .burger span { 
   display: block; 
   width: 24px; 
   height: 2px; 
-  background: var(--ink); 
+  background: var(--text); 
   border-radius: 2px; 
-  transition: all 0.3s ease; 
-}
-
-/* Hero Section */
-.hero {
-  min-height: 100vh;
-  display: flex; 
-  align-items: center; 
-  padding: 8rem 5vw 4rem;
-  position: relative;
-  overflow: hidden;
-  background: var(--gradient-dark);
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: 
-    radial-gradient(ellipse 80% 70% at 80% 20%, rgba(124, 58, 237, 0.3) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 60% at 20% 80%, rgba(56, 189, 248, 0.2) 0%, transparent 60%);
-  animation: pulse-bg 8s ease-in-out infinite;
-}
-
-@keyframes pulse-bg {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  max-width: 1400px;
-  margin: 0 auto;
-  width: 100%;
-  align-items: center;
-  position: relative;
-  z-index: 2;
-}
-
-.hero-content { color: #fff; }
-
-.hero-badge {
-  display: inline-flex; 
-  align-items: center; 
-  gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.1); 
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff; 
-  padding: 0.5rem 1rem; 
-  border-radius: 100px;
-  font-size: 0.75rem;
-  font-weight: 600; 
-  letter-spacing: 0.05em; 
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-  backdrop-filter: blur(10px);
-}
-
-.hero-badge::before { 
-  content: ''; 
-  width: 6px; 
-  height: 6px; 
-  background: var(--success); 
-  border-radius: 50%; 
-  animation: pulse 2s infinite; 
-}
-
-@keyframes pulse { 
-  0%, 100% { opacity: 1; transform: scale(1); } 
-  50% { opacity: 0.6; transform: scale(1.3); } 
-}
-
-h1 {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
-  font-weight: 700; 
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.03em;
-  color: #fff;
-}
-
-h1 .highlight { 
-  color: var(--purple-light);
-  position: relative;
-}
-
-.hero-sub {
-  font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.85); 
-  max-width: 500px;
-  margin-bottom: 2rem; 
-  line-height: 1.7;
-}
-
-.hero-btns { 
-  display: flex; 
-  gap: 1rem; 
-  flex-wrap: wrap; 
-}
-
-.btn-primary {
-  background: #fff; 
-  color: var(--purple);
-  padding: 1rem 2rem; 
-  border-radius: 12px;
-  font-weight: 600; 
-  text-decoration: none; 
-  font-size: 1rem;
-  transition: all 0.3s ease; 
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  border: 2px solid transparent;
-}
-
-.btn-primary:hover { 
-  transform: translateY(-3px); 
-  box-shadow: 0 12px 32px rgba(0,0,0,0.3);
-}
-
-.btn-secondary {
-  background: transparent; 
-  color: #fff;
-  padding: 1rem 2rem; 
-  border-radius: 12px;
-  font-weight: 600; 
-  text-decoration: none; 
-  font-size: 1rem;
-  border: 2px solid rgba(255,255,255,0.3); 
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.btn-secondary:hover { 
-  border-color: #fff; 
-  background: rgba(255,255,255,0.1);
-  transform: translateY(-3px);
-}
-
-/* Hero Visual */
-.hero-visual {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.mockup-container {
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-}
-
-.mockup-browser {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.mockup-header {
-  background: linear-gradient(to right, #f1f5f9, #e2e8f0);
-  padding: 0.75rem 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.mockup-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-
-.mockup-dot.red { background: #ef4444; }
-.mockup-dot.yellow { background: #f59e0b; }
-.mockup-dot.green { background: #22c55e; }
-
-.mockup-body {
-  padding: 2rem;
-  background: #fff;
-  min-height: 300px;
-}
-
-.mockup-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.mockup-line {
-  height: 12px;
-  background: #e2e8f0;
-  border-radius: 6px;
-}
-
-.mockup-line.short { width: 60%; }
-.mockup-line.medium { width: 80%; }
-.mockup-line.accent { 
-  background: linear-gradient(90deg, var(--purple), var(--blue));
-  height: 40px;
-  width: 100%;
-  margin: 1rem 0;
-}
-
-/* Stats Bar */
-.stats-bar {
-  display: flex;
-  gap: 3rem;
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255,255,255,0.2);
-}
-
-.stat-item {
-  text-align: left;
-}
-
-.stat-value { 
-  font-family: var(--font-display);
-  font-size: 2rem; 
-  font-weight: 700; 
-  color: #fff;
-  line-height: 1;
-}
-
-.stat-label { 
-  font-size: 0.875rem; 
-  color: rgba(255,255,255,0.7); 
-  margin-top: 0.25rem;
-}
-
-/* Section Styles */
-section { 
-  padding: 5rem 5vw; 
-  position: relative;
-}
-
-.section-header {
-  max-width: 800px;
-  margin: 0 auto 3rem;
-  text-align: center;
-}
-
-.section-label {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 700; 
-  letter-spacing: 0.15em; 
-  text-transform: uppercase;
-  color: var(--purple); 
-  margin-bottom: 1rem;
-  padding: 0.5rem 1rem;
-  background: rgba(124, 58, 237, 0.1);
-  border-radius: 100px;
-}
-
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3vw, 2.5rem);
-  font-weight: 700; 
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  color: var(--ink);
-  letter-spacing: -0.02em;
-}
-
-.section-sub { 
-  color: var(--muted); 
-  font-size: 1.125rem;
-  line-height: 1.7;
-}
-
-/* Why Choose Section */
-#why-choose {
-  background: #fff;
-}
-
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.why-card {
-  background: var(--bg); 
-  border: 1px solid var(--border);
-  border-radius: 16px; 
-  padding: 2rem;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.why-card:hover { 
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--purple-light);
-}
-
-.why-icon { 
-  width: 64px;
-  height: 64px;
-  background: var(--gradient-hero);
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.5rem;
-  font-size: 1.75rem;
-  color: #fff;
-}
-
-.why-card h3 { 
-  font-family: var(--font-display);
-  font-size: 1.25rem; 
-  font-weight: 600; 
-  margin-bottom: 0.75rem;
-  color: var(--ink);
-}
-
-.why-card p { 
-  font-size: 0.95rem; 
-  color: var(--muted); 
-  line-height: 1.6;
-}
-
-/* Services Section */
-#services { 
-  background: var(--ink); 
-  color: #fff; 
-  position: relative;
-  overflow: hidden;
-}
-
-#services::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.3) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-#services .section-title { color: #fff; }
-#services .section-sub { color: rgba(255, 255, 255, 0.7); }
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  max-width: 1000px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-.service-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 2.5rem;
-  border-radius: 16px;
-  transition: all 0.4s ease;
-}
-
-.service-card:hover { 
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(124, 58, 237, 0.5);
-  transform: translateY(-4px);
-}
-
-.service-icon {
-  width: 56px; 
-  height: 56px;
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.5), rgba(56, 189, 248, 0.5));
-  border-radius: 12px; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center;
-  font-size: 1.5rem; 
-  margin-bottom: 1.5rem;
-}
-
-.service-card h3 { 
-  font-family: var(--font-display);
-  font-size: 1.5rem; 
-  font-weight: 600; 
-  margin-bottom: 1rem; 
-  color: #fff;
-}
-
-.service-card p { 
-  font-size: 1rem; 
-  color: rgba(255, 255, 255, 0.7); 
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.service-features {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.service-features li {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.service-features li::before {
-  content: '✓';
-  color: var(--success);
-  font-weight: 700;
-}
-
-/* Portfolio Section */
-#portfolio { background: var(--bg); }
-
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.portfolio-card {
-  border-radius: 16px; 
-  overflow: hidden;
-  background: #fff; 
-  border: 1px solid var(--border);
-  transition: all 0.4s ease;
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.portfolio-card:hover { 
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-xl);
-  border-color: transparent;
-}
-
-.portfolio-img {
-  height: 200px;
-  position: relative; 
-  overflow: hidden;
-  background: linear-gradient(135deg, var(--purple), var(--purple-dark));
-}
-
-.portfolio-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.portfolio-card:hover .portfolio-img img {
-  transform: scale(1.05);
-}
-
-.portfolio-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.portfolio-card:hover .portfolio-overlay {
-  opacity: 1;
-}
-
-.portfolio-overlay span {
-  color: #fff;
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  border: 2px solid #fff;
-  border-radius: 8px;
-}
-
-.portfolio-info { 
-  padding: 1.5rem; 
-}
-
-.portfolio-tag {
-  display: inline-block;
-  font-size: 0.75rem; 
-  font-weight: 600; 
-  text-transform: uppercase; 
-  letter-spacing: 0.05em;
-  color: var(--purple); 
-  background: rgba(124, 58, 237, 0.1);
-  padding: 0.25rem 0.75rem; 
-  border-radius: 100px; 
-  margin-bottom: 0.75rem;
-}
-
-.portfolio-info h3 { 
-  font-family: var(--font-display);
-  font-weight: 600; 
-  margin-bottom: 0.5rem;
-  font-size: 1.25rem;
-  color: var(--ink);
-}
-
-.portfolio-info p { 
-  font-size: 0.95rem; 
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-/* Process Section */
-#process { 
-  background: #fff;
-  position: relative;
-}
-
-.process-steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.process-steps::before {
-  content: '';
-  position: absolute;
-  top: 40px;
-  left: 12.5%;
-  right: 12.5%;
-  height: 2px;
-  background: linear-gradient(90deg, var(--purple), var(--blue));
-  z-index: 0;
-}
-
-.process-step { 
-  text-align: center; 
-  position: relative; 
-  z-index: 1; 
-}
-
-.step-num {
-  width: 80px; 
-  height: 80px;
-  background: #fff; 
-  border: 3px solid var(--purple);
-  border-radius: 50%; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center;
-  font-family: var(--font-display);
-  font-size: 1.5rem; 
-  font-weight: 700; 
-  color: var(--purple);
-  margin: 0 auto 1.5rem;
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15);
-  position: relative;
-}
-
-.step-num::after {
-  content: attr(data-step);
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  width: 28px;
-  height: 28px;
-  background: var(--success);
-  color: #fff;
-  border-radius: 50%;
-  font-size: 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.process-step h3 { 
-  font-family: var(--font-display);
-  font-size: 1.25rem; 
-  font-weight: 600; 
-  margin-bottom: 0.75rem;
-  color: var(--ink);
-}
-
-.process-step p { 
-  font-size: 0.95rem; 
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-/* Pricing Section */
-#pricing { 
-  background: var(--bg);
-  position: relative;
-}
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  align-items: start;
-}
-
-.pricing-card {
-  background: #fff; 
-  border: 1px solid var(--border);
-  border-radius: 20px; 
-  padding: 2.5rem 2rem;
-  transition: all 0.3s ease;
-  position: relative; 
-}
-
-.pricing-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-xl);
-  border-color: transparent;
-}
-
-.pricing-card.featured {
-  background: var(--ink); 
-  color: #fff; 
-  border-color: var(--ink);
-  transform: scale(1.05);
-  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.3);
-  z-index: 2;
-}
-
-.pricing-card.featured:hover {
-  transform: scale(1.05) translateY(-8px);
-}
-
-.featured-badge {
-  position: absolute; 
-  top: -12px; 
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--purple); 
-  color: #fff;
-  font-size: 0.75rem; 
-  font-weight: 700; 
-  letter-spacing: 0.05em;
-  padding: 0.5rem 1rem; 
-  border-radius: 100px; 
-  text-transform: uppercase;
-}
-
-.pricing-header {
-  text-align: center;
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border);
-}
-
-.pricing-card.featured .pricing-header {
-  border-bottom-color: rgba(255,255,255,0.1);
-}
-
-.pricing-name {
-  font-size: 0.875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  margin-bottom: 1rem;
-}
-
-.pricing-card.featured .pricing-name {
-  color: rgba(255,255,255,0.7);
-}
-
-.pricing-price { 
-  font-family: var(--font-display);
-  font-size: 3rem; 
-  font-weight: 700; 
-  color: var(--ink);
-  line-height: 1;
-  margin-bottom: 0.5rem;
-}
-
-.pricing-card.featured .pricing-price {
-  color: #fff;
-}
-
-.pricing-note { 
-  font-size: 0.875rem; 
-  color: var(--muted); 
-}
-
-.pricing-card.featured .pricing-note {
-  color: rgba(255,255,255,0.6);
-}
-
-.pricing-features {
-  list-style: none;
-  margin-bottom: 2rem;
-}
-
-.pricing-features li {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 0;
-  font-size: 0.95rem;
-  color: var(--muted);
-  border-bottom: 1px solid var(--border);
-}
-
-.pricing-card.featured .pricing-features li {
-  color: rgba(255,255,255,0.8);
-  border-bottom-color: rgba(255,255,255,0.1);
-}
-
-.pricing-features li::before {
-  content: '✓';
-  color: var(--success);
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.pricing-btn {
-  display: block;
-  width: 100%;
-  padding: 1rem;
-  background: var(--gradient-hero);
-  color: #fff;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 12px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.pricing-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-purple);
-}
-
-.pricing-card.featured .pricing-btn {
-  background: #fff;
-  color: var(--purple);
-}
-
-.maintenance-box {
-  max-width: 800px;
-  margin: 3rem auto 0;
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(56, 189, 248, 0.1));
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
-.maintenance-info h3 {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: var(--ink);
-}
-
-.maintenance-info p {
-  color: var(--muted);
-}
-
-.maintenance-price {
-  text-align: right;
-}
-
-.maintenance-price .price {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--purple);
-}
-
-.maintenance-price .period {
-  color: var(--muted);
-  font-size: 0.875rem;
-}
-
-/* FAQ Section */
-#faq {
-  background: #fff;
-}
-
-.faq-container {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.faq-item {
-  border-bottom: 1px solid var(--border);
-  padding: 1.5rem 0;
-}
-
-.faq-question {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  font-family: var(--font-display);
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--ink);
-  transition: color 0.3s ease;
-}
-
-.faq-question:hover {
-  color: var(--purple);
-}
-
-.faq-icon {
-  width: 32px;
-  height: 32px;
-  background: var(--bg);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-  margin-left: 1rem;
-}
-
-.faq-item.active .faq-icon {
-  background: var(--purple);
-  color: #fff;
-  transform: rotate(180deg);
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-}
-
-.faq-item.active .faq-answer {
-  max-height: 500px;
-  padding-top: 1rem;
-}
-
-.faq-answer p {
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-/* Contact Section - SIMPLIFIÉ SANS FORMULAIRE */
-#contact {
-  background: var(--gradient-dark);
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-}
-
-#contact::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -20%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-#contact .section-title { color: #fff; }
-#contact .section-sub { color: rgba(255, 255, 255, 0.8); }
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-.contact-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 2.5rem;
-  text-align: center;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  color: #fff;
-  display: block;
-}
-
-.contact-card:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(124, 58, 237, 0.5);
-  transform: translateY(-8px);
-}
-
-.contact-icon-large {
-  width: 80px;
-  height: 80px;
-  background: var(--gradient-hero);
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.5rem;
-  font-size: 2.5rem;
-}
-
-.contact-card h3 {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  margin-bottom: 0.75rem;
-  color: #fff;
-}
-
-.contact-card p {
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-.contact-email {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 0.75rem 1.5rem;
-  border-radius: 12px;
-  font-weight: 600;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-}
-
-.contact-card:hover .contact-email {
-  background: #fff;
-  color: var(--purple);
-  border-color: #fff;
-}
-
-.contact-cta {
-  grid-column: 1 / -1;
-  text-align: center;
-  margin-top: 2rem;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.contact-cta h3 {
-  font-family: var(--font-display);
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
-  color: #fff;
-}
-
-.contact-cta p {
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 1.5rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.response-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(16, 185, 129, 0.2);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  padding: 0.75rem 1.5rem;
-  border-radius: 100px;
-  color: #fff;
-  font-size: 0.9rem;
-  margin-top: 1rem;
-}
-
-/* SEO Content Section */
-#seo-content {
-  background: var(--bg);
-  padding: 4rem 5vw;
-}
-
-.seo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.seo-card {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-}
-
-.seo-card h3 {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  color: var(--ink);
-}
-
-.seo-card p {
-  color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.7;
-}
-
-/* Testimonials */
-#testimonials { 
-  background: var(--ink); 
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-}
-
-#testimonials::before {
-  content: '';
-  position: absolute;
-  bottom: -20%;
-  left: -10%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.2) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-#testimonials .section-title { color: #fff; }
-#testimonials .section-sub { color: rgba(255, 255, 255, 0.6); }
-
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-.testi-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px; 
-  padding: 2rem;
-  transition: all 0.3s ease;
-}
-
-.testi-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(124, 58, 237, 0.3);
-}
-
-.stars { 
-  color: #FBBF24; 
-  margin-bottom: 1rem; 
-  font-size: 1rem;
-  letter-spacing: 0.1em;
-}
-
-.testi-text { 
-  font-size: 1rem; 
-  color: rgba(255, 255, 255, 0.9); 
-  line-height: 1.7; 
-  margin-bottom: 1.5rem;
-  font-style: italic;
-}
-
-.testi-author { 
-  display: flex; 
-  align-items: center; 
-  gap: 1rem; 
-}
-
-.testi-avatar {
-  width: 48px; 
-  height: 48px; 
-  border-radius: 50%;
-  background: var(--gradient-hero);
-  display: flex; 
-  align-items: center; 
-  justify-content: center;
-  font-family: var(--font-display);
-  font-weight: 600; 
-  color: #fff; 
-  font-size: 1rem;
-}
-
-.testi-name { 
-  font-family: var(--font-display);
-  font-weight: 600; 
-  font-size: 1rem; 
-  color: #fff;
-}
-
-.testi-role { 
-  font-size: 0.875rem; 
-  color: rgba(255, 255, 255, 0.5);
-}
-
-/* CTA Section */
-#cta {
-  background: var(--gradient-hero);
-  text-align: center; 
-  color: #fff;
-  padding: 4rem 5vw;
-}
-
-#cta .section-label {
-  color: #fff;
-  background: rgba(255,255,255,0.2);
-}
-
-#cta .section-title {
-  color: #fff;
-  margin-bottom: 1rem;
-}
-
-.cta-sub { 
-  color: rgba(255, 255, 255, 0.9); 
-  max-width: 600px; 
-  margin: 0 auto 2rem; 
-  font-size: 1.125rem;
-}
-
-/* Footer */
-footer {
-  background: var(--ink); 
-  color: rgba(255, 255, 255, 0.6);
-  padding: 3rem 5vw;
-  font-size: 0.875rem;
-}
-
-.footer-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 3rem;
-}
-
-.footer-brand strong { 
-  color: #fff; 
-  font-weight: 700;
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  display: block;
-  margin-bottom: 1rem;
-}
-
-.footer-brand p {
-  line-height: 1.7;
-  margin-bottom: 1rem;
-}
-
-.footer-title {
-  color: #fff;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.footer-links {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.footer-links a {
-  color: rgba(255, 255, 255, 0.6);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-  color: #fff;
-}
-
-.footer-bottom {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Mobile Menu */
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 80%;
-  max-width: 400px;
+  transition: all 0.3s var(--ease); 
+}
+.burger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.burger.open span:nth-child(2) { opacity: 0; transform: translateX(-10px); }
+.burger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+.drawer {
+  position: fixed; 
+  top: 0; 
+  right: -100%; 
+  width: min(85vw, 380px); 
   height: 100vh;
-  background: rgba(248, 250, 252, 0.98);
-  backdrop-filter: blur(20px);
-  z-index: 999;
+  background: var(--bg-2);
+  border-left: 1px solid var(--b0);
+  z-index: 100;
   padding: 6rem 2rem 2rem;
-  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-}
-
-.mobile-menu.active { right: 0; }
-
-.mobile-menu ul {
-  list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
+  transition: right 0.5s var(--ease);
 }
-
-.mobile-menu a {
-  color: var(--ink);
-  text-decoration: none;
-  font-size: 1.125rem;
-  font-weight: 600;
-  font-family: var(--font-display);
+.drawer.open { right: 0; }
+.drawer a {
+  font-size: 1.25rem;
+  font-weight: 500;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--b0);
+  color: var(--text);
+  transition: all 0.2s;
   display: block;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid var(--border);
+  font-family: var(--font-display);
 }
-
+.drawer a:hover { color: var(--accent); padding-left: 0.5rem; }
+.drawer .d-cta {
+  margin-top: 2rem;
+  background: var(--accent);
+  color: var(--bg);
+  text-align: center;
+  padding: 1rem;
+  border-radius: var(--r);
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+}
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: 998;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(4px);
+  z-index: 99;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.4s var(--ease);
+}
+.overlay.open { opacity: 1; visibility: visible; }
+
+/* ── HERO ──────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 10rem 5vw 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1200px;
+  height: 1200px;
+  background: radial-gradient(circle, var(--accent-dim) 0%, transparent 60%);
+  opacity: 0.6;
+}
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+}
+.hero-in {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-med);
+  color: var(--accent);
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+.pill::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+h1 em {
+  font-style: normal;
+  color: var(--accent);
+  position: relative;
+}
+h1 em::after {
+  content: '';
+  position: absolute;
+  bottom: 0.1em;
+  left: 0;
+  width: 100%;
+  height: 0.15em;
+  background: var(--accent-med);
+  z-index: -1;
+  border-radius: 2px;
+}
+.hero-desc {
+  font-size: 1.125rem;
+  color: var(--text-2);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+.btn-p {
+  background: var(--text);
+  color: var(--bg);
+  padding: 1rem 2rem;
+  border-radius: 100px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  transition: all 0.3s var(--ease);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+.btn-p:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px -10px var(--accent-glow);
+}
+.btn-o {
+  background: transparent;
+  color: var(--text);
+  padding: 1rem 2rem;
+  border-radius: 100px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  font-family: var(--font-body);
+  border: 1px solid var(--b1);
+  transition: all 0.3s var(--ease);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.btn-o:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+  transform: translateY(-2px);
+}
+.btn-ig-pill {
+  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 100px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  transition: all 0.3s var(--ease);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+.btn-ig-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -10px rgba(220, 39, 67, 0.4);
+  filter: brightness(1.1);
+}
+.hero-stats {
+  display: flex;
+  gap: 4rem;
+  flex-wrap: wrap;
+  padding-top: 3rem;
+  border-top: 1px solid var(--b0);
+}
+.stn {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.stn span {
+  color: var(--accent);
+}
+.stt {
+  font-size: 0.875rem;
+  color: var(--text-3);
+  margin-top: 0.5rem;
+  font-weight: 500;
 }
 
-.overlay.active {
+/* ── SHARED ────────────────────────────────── */
+section { padding: 6rem 5vw; }
+.wrap { max-width: 1200px; margin: 0 auto; width: 100%; }
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--accent-dim);
+  border-radius: 100px;
+  border: 1px solid var(--accent-med);
+}
+h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+.sh {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+.sub {
+  color: var(--text-2);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+/* ── SERVICES ──────────────────────────────── */
+#services { background: var(--bg-2); }
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+.svc {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: var(--r);
+  border: 1px solid var(--b0);
+  transition: all 0.4s var(--ease);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.svc::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.svc:hover {
+  border-color: var(--b1);
+  transform: translateY(-4px);
+  background: var(--card-2);
+}
+.svc:hover::before {
+  opacity: 0.5;
+}
+.svc-ico {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+  filter: grayscale(0.3);
+  transition: filter 0.3s;
+}
+.svc:hover .svc-ico {
+  filter: grayscale(0);
+}
+.svc h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+.svc p {
+  font-size: 0.9375rem;
+  color: var(--text-2);
+  line-height: 1.7;
+  flex-grow: 1;
+  margin-bottom: 1.25rem;
+}
+.svc-price {
+  display: inline-flex;
+  align-self: flex-start;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--accent);
+  padding: 0.5rem 1rem;
+  background: var(--accent-dim);
+  border-radius: 100px;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--accent-med);
+}
+
+/* ── PORTFOLIO ─────────────────────────────── */
+#portfolio { background: var(--bg); }
+.port-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+.port-card {
+  border-radius: var(--r);
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--b0);
+  transition: all 0.4s var(--ease);
+  display: block;
+  position: relative;
+}
+.port-card:hover {
+  border-color: var(--b1);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px -20px rgba(0,0,0,0.5);
+}
+.port-card::after {
+  content: '→';
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  background: var(--text);
+  color: var(--bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s var(--ease);
+  z-index: 10;
+}
+.port-card:hover::after {
   opacity: 1;
-  visibility: visible;
+  transform: translateY(0);
+}
+.port-thumb {
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--bg-2);
+  position: relative;
+}
+.port-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+.port-card:hover .port-thumb img {
+  transform: scale(1.05);
+}
+.port-thumb::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 100%);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.port-card:hover .port-thumb::before {
+  opacity: 1;
+}
+.port-body {
+  padding: 1.75rem;
+}
+.port-tag {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-dim);
+  padding: 0.375rem 0.875rem;
+  border-radius: 100px;
+  display: inline-block;
+  margin-bottom: 0.875rem;
+  border: 1px solid var(--accent-med);
+}
+.port-body h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+.port-body p {
+  font-size: 0.9375rem;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+.port-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--accent);
+  transition: gap 0.3s;
+}
+.port-card:hover .port-link {
+  gap: 0.5rem;
+}
+.port-card.fc {
+  background: linear-gradient(135deg, #059669, #047857);
+  border-color: transparent;
+}
+.port-card.fc:hover {
+  box-shadow: 0 20px 50px -20px rgba(5, 150, 105, 0.4);
+}
+.fc-in {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  color: white;
+}
+.fc-ico {
+  width: 56px;
+  height: 56px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.port-card.fc .port-tag {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border-color: rgba(255,255,255,0.2);
+}
+.port-card.fc h3 {
+  font-size: 1.5rem;
+  color: #fff;
+}
+.port-card.fc p {
+  color: rgba(255,255,255,0.9);
+}
+.port-card.fc .port-link {
+  color: #fff;
+  margin-top: auto;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .hero-grid { grid-template-columns: 1fr; text-align: center; }
-  .hero-sub { margin: 0 auto 2rem; }
-  .stats-bar { justify-content: center; }
-  .hero-visual { order: -1; margin-bottom: 2rem; }
-  .why-grid { grid-template-columns: repeat(2, 1fr); }
-  .services-grid { grid-template-columns: 1fr; }
-  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-  .process-steps { grid-template-columns: repeat(2, 1fr); }
-  .process-steps::before { display: none; }
-  .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
-  .pricing-card.featured { transform: none; }
-  .testimonials-grid { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; }
-  .seo-grid { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
+/* ── PRICING ───────────────────────────────── */
+#pricing { background: var(--bg-2); }
+.price-hd { text-align: center; max-width: 600px; margin: 0 auto 3.5rem; }
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.pc {
+  background: var(--card);
+  border: 1px solid var(--b0);
+  border-radius: var(--r);
+  padding: 2rem;
+  transition: all 0.4s var(--ease);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.pc:hover {
+  border-color: var(--b1);
+  transform: translateY(-4px);
+}
+.pc.star {
+  background: var(--bg);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent-med), 0 25px 60px -20px rgba(0,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+}
+.pc.star::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+.pbadge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--accent);
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  display: inline-flex;
+  align-self: flex-start;
+  margin-bottom: 1.25rem;
+  align-items: center;
+  gap: 0.375rem;
+}
+.pbadge::before {
+  content: '★';
+}
+.pc h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+.pval {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.pper {
+  font-size: 0.9375rem;
+  color: var(--text-3);
+  margin-bottom: 1.25rem;
+}
+.pc > p {
+  font-size: 1rem;
+  color: var(--text-2);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.pfs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+.pf {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  color: var(--text-2);
+}
+.pf::before {
+  content: '—';
+  color: var(--accent);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.pc .btn-p, .pc .btn-o {
+  width: 100%;
+  justify-content: center;
+  margin-top: auto;
+}
+.maint {
+  background: var(--card);
+  border: 1px solid var(--b0);
+  border-radius: var(--r);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.maint h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+}
+.maint p {
+  font-size: 0.9375rem;
+  color: var(--text-2);
+}
+.maint-price {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.maint-per {
+  font-size: 0.875rem;
+  color: var(--text-3);
 }
 
-@media (max-width: 768px) {
-  .nav-links, .nav-cta { display: none; }
+/* ── FAQ ───────────────────────────────────── */
+#faq { background: var(--bg); }
+.faq-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 6rem;
+  align-items: start;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.faq-item {
+  background: var(--card);
+  border: 1px solid var(--b0);
+  border-radius: var(--r);
+  overflow: hidden;
+  transition: all 0.3s var(--ease);
+}
+.faq-item:hover {
+  border-color: var(--b1);
+}
+.faq-item.open {
+  border-color: var(--accent-med);
+  background: var(--card-2);
+}
+.faq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  cursor: pointer;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: var(--text);
+  transition: color 0.2s;
+  gap: 1rem;
+  line-height: 1.4;
+  font-family: var(--font-display);
+}
+.faq-q:hover {
+  color: var(--accent);
+}
+.faq-ico {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--b1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all 0.3s var(--ease);
+  color: var(--text-3);
+  font-weight: 300;
+}
+.faq-item.open .faq-ico {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: rotate(45deg);
+}
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s var(--ease), padding 0.5s var(--ease);
+  font-size: 0.9375rem;
+  color: var(--text-2);
+  line-height: 1.8;
+}
+.faq-item.open .faq-a {
+  max-height: 300px;
+  padding: 0 1.5rem 1.5rem;
+}
+
+/* ── CONTACT ───────────────────────────────── */
+#contact { background: var(--bg-2); }
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: start;
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: sticky;
+  top: 100px;
+}
+.cc {
+  background: var(--card);
+  border: 1px solid var(--b0);
+  border-radius: var(--r);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s var(--ease);
+}
+.cc:hover {
+  border-color: var(--accent-med);
+  background: var(--card-2);
+  transform: translateX(4px);
+}
+.cc-ico {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-med);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: all 0.3s;
+}
+.cc:hover .cc-ico {
+  background: var(--accent);
+  transform: scale(1.05);
+}
+.cc-lbl {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--text-3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+.cc-val {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* Form */
+.cform {
+  background: var(--card);
+  border: 1px solid var(--b0);
+  border-radius: var(--r);
+  padding: 2rem;
+}
+.cf-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+.cf-sub {
+  font-size: 1rem;
+  color: var(--text-2);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+.cf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-med);
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  margin-bottom: 2rem;
+}
+.fs-lbl {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--b0);
+  font-family: var(--font-display);
+}
+.fs-lbl span {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-med);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.fsec { margin-bottom: 2rem; }
+.frow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.fd {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.fd:last-child { margin-bottom: 0; }
+.fd label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-2);
+  letter-spacing: -0.01em;
+}
+.fd label em {
+  color: var(--accent);
+  font-style: normal;
+  margin-left: 2px;
+}
+.fd input, .fd textarea {
+  background: var(--bg);
+  border: 1px solid var(--b0);
+  border-radius: var(--r-sm);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  padding: 0.875rem 1rem;
+  transition: all 0.2s;
+  line-height: 1.5;
+}
+.fd input:focus, .fd textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+.fd textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+.fd input::placeholder, .fd textarea::placeholder {
+  color: var(--text-3);
+}
+.fd input.err, .fd textarea.err {
+  border-color: var(--error) !important;
+  box-shadow: 0 0 0 3px rgba(239,68,68,0.1) !important;
+}
+.fd-err {
+  font-size: 0.8125rem;
+  color: var(--error);
+  margin-top: 0.25rem;
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+}
+.fd-err::before {
+  content: '•';
+}
+.fd.has-err .fd-err { display: flex; }
+
+/* Radio grids */
+.svc-r {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+.sr-opt { position: relative; }
+.sr-opt input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.sr-opt label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  background: var(--bg);
+  border: 1px solid var(--b0);
+  border-radius: var(--r-sm);
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text);
+}
+.sr-opt label .si {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+.sr-opt label .sp {
+  font-size: 0.8125rem;
+  color: var(--text-3);
+  font-weight: 400;
+}
+.sr-opt input:checked + label {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.sr-opt label:hover {
+  border-color: var(--b2);
+}
+.r-err {
+  font-size: 0.8125rem;
+  color: var(--error);
+  margin-top: 0.5rem;
+  display: none;
+}
+.bgt-r {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.br-opt { position: relative; }
+.br-opt input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.br-opt label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg);
+  border: 1px solid var(--b0);
+  border-radius: var(--r-sm);
+  padding: 0.875rem 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9375rem;
+}
+.br-opt label .brange {
+  font-size: 0.8125rem;
+  color: var(--text-3);
+}
+.br-opt input:checked + label {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.br-opt label:hover {
+  border-color: var(--b2);
+}
+
+.btn-submit {
+  background: var(--text);
+  color: var(--bg);
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  letter-spacing: -0.01em;
+}
+.btn-submit:hover:not(:disabled) {
+  background: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -10px var(--accent-glow);
+}
+.btn-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+.btn-submit .spin {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--bg);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: rot 0.7s linear infinite;
+  display: none;
+  flex-shrink: 0;
+}
+.btn-submit.ld .spin { display: block; }
+.btn-submit.ld .st { display: none; }
+@keyframes rot { to { transform: rotate(360deg); } }
+
+.analyzing {
+  display: none;
+  text-align: center;
+  padding: 3rem;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-med);
+  border-radius: var(--r);
+  margin-top: 1.5rem;
+}
+.analyzing.show { display: block; }
+.a-spin {
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--accent-med);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: rot 1s linear infinite;
+  margin: 0 auto 1.5rem;
+}
+.a-title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.a-step {
+  font-size: 0.875rem;
+  color: var(--text-2);
+  transition: opacity 0.3s;
+}
+
+.ai-res { display: none; margin-top: 1.5rem; }
+.ai-res.show {
+  display: block;
+  animation: fup 0.6s var(--ease) both;
+}
+@keyframes fup {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+.rc {
+  border-radius: var(--r);
+  padding: 2rem;
+  border: 1px solid;
+}
+.rc.ok {
+  background: var(--accent-dim);
+  border-color: var(--accent-med);
+}
+.rc.ko {
+  background: rgba(239,68,68,0.05);
+  border-color: rgba(239,68,68,0.2);
+}
+.rc-hd {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.rc-ico {
+  font-size: 2rem;
+  line-height: 1;
+}
+.rc-hd-t strong {
+  font-size: 1.125rem;
+  font-weight: 600;
+  display: block;
+  font-family: var(--font-display);
+}
+.rc-hd-t span {
+  font-size: 0.875rem;
+  color: var(--text-2);
+}
+.qual-row { margin-bottom: 1.25rem; }
+.qb {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.375rem 1rem;
+  border-radius: 100px;
+  display: inline-block;
+}
+.qb.PREMIUM {
+  background: rgba(251,191,36,0.15);
+  color: var(--accent);
+  border: 1px solid var(--accent-med);
+}
+.qb.MOYEN {
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-color: var(--accent-med);
+}
+.qb.FAIBLE {
+  background: rgba(239,68,68,0.1);
+  color: var(--error);
+  border: 1px solid rgba(239,68,68,0.2);
+}
+.pbox {
+  background: var(--bg);
+  border: 1px solid var(--b0);
+  border-radius: var(--r-sm);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.pb-lbl {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--text-3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.pb-val {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+.pb-del {
+  font-size: 0.875rem;
+  color: var(--text-2);
+  margin-top: 0.5rem;
+}
+.ai-msg {
+  font-size: 0.9375rem;
+  color: var(--text);
+  line-height: 1.8;
+  padding: 1.25rem;
+  background: var(--bg);
+  border-radius: var(--r-sm);
+  border: 1px solid var(--b0);
+  white-space: pre-wrap;
+  margin-bottom: 1.25rem;
+}
+.nxt {
+  padding: 1rem 1.25rem;
+  background: var(--bg);
+  border: 1px solid var(--b0);
+  border-radius: var(--r-sm);
+  font-size: 0.875rem;
+  color: var(--text);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.nxt::before {
+  content: '→';
+  color: var(--accent);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.rc-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.btn-ig {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(45deg,#f09433,#dc2743,#bc1888);
+  color: #fff;
+  padding: 0.875rem 1.5rem;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-ig:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -10px rgba(220,39,67,0.4);
+}
+.btn-reset {
+  background: transparent;
+  border: 1px solid var(--b1);
+  color: var(--text-2);
+  padding: 0.875rem 1.5rem;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+.btn-reset:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+
+/* ── FOOTER ────────────────────────────────── */
+footer {
+  background: var(--bg);
+  border-top: 1px solid var(--b0);
+  padding: 3rem 5vw;
+}
+.fin {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.fbrand strong {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.02em;
+}
+.fbrand strong span { color: var(--accent); }
+.fbrand span {
+  font-size: 0.875rem;
+  color: var(--text-3);
+}
+.fnav {
+  display: flex;
+  gap: 2rem;
+}
+.fnav a {
+  font-size: 0.875rem;
+  color: var(--text-2);
+  transition: color 0.2s;
+  font-weight: 500;
+}
+.fnav a:hover { color: var(--accent); }
+.fig {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #E4405F;
+  transition: transform 0.2s;
+}
+.fig:hover {
+  transform: translateY(-2px);
+}
+
+/* ── STRIP ─────────────────────────────────── */
+.strip {
+  background: var(--bg-2);
+  border-top: 1px solid var(--b0);
+  border-bottom: 1px solid var(--b0);
+  padding: 1.25rem 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.strip-lbl {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.strip-tags {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.strip-tag {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text-2);
+  position: relative;
+  transition: color 0.3s;
+}
+.strip-tag:hover {
+  color: var(--accent);
+}
+.strip-tag:not(:last-child)::after {
+  content: '·';
+  position: absolute;
+  right: -1.5rem;
+  color: var(--b1);
+}
+
+/* ── SCROLL REVEAL ─────────────────────────── */
+.sr {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.sr.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── RESPONSIVE ────────────────────────────── */
+@media(max-width: 1024px) {
+  .faq-layout, .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .contact-info { position: static; }
+  .nav-links { gap: 1.5rem; }
+}
+@media(max-width: 900px) {
+  .nav-links { display: none; }
   .burger { display: flex; }
-  .why-grid { grid-template-columns: 1fr; }
-  .portfolio-grid { grid-template-columns: 1fr; }
-  .process-steps { grid-template-columns: 1fr; gap: 2rem; }
-  .step-num::after { display: none; }
-  .maintenance-box { flex-direction: column; text-align: center; }
-  .footer-grid { grid-template-columns: 1fr; }
-  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
-  section { padding: 3rem 5vw; }
+  .nav-cta { display: none; }
 }
-
-@media (max-width: 480px) {
-  h1 { font-size: 2rem; }
+@media(max-width: 768px) {
+  section { padding: 4rem 5vw; }
+  .hero { padding: 8rem 5vw 4rem; min-height: auto; }
+  .hero-stats { gap: 2.5rem; }
+  .sh { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .maint { flex-direction: column; text-align: center; gap: 1.5rem; }
+  .fin { flex-direction: column; text-align: center; }
+  .fnav { justify-content: center; flex-wrap: wrap; }
+  .fig { justify-content: center; }
+  .strip { gap: 1.5rem; }
+  .strip-tags { gap: 1.5rem; }
+  .strip-tag:not(:last-child)::after { display: none; }
+  .port-grid { grid-template-columns: 1fr; }
+}
+@media(max-width: 480px) {
+  .frow { grid-template-columns: 1fr; }
+  .svc-r { grid-template-columns: 1fr; }
   .hero-btns { flex-direction: column; }
-  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
-  .stats-bar { flex-direction: column; gap: 1.5rem; }
-  .contact-card { padding: 1.5rem; }
+  .hero-btns a { width: 100%; justify-content: center; }
+  .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+  .stn { font-size: 2rem; }
+  nav { padding: 1rem 4vw; }
+  .logo { font-size: 1.25rem; }
+}
+@media(prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  html { scroll-behavior: auto; }
+}
+::selection {
+  background: var(--accent-dim);
+  color: var(--accent);
 }
 </style>
-<base target="_blank">
+
 </head>
 <body>
 
-<!-- Navigation -->
-<nav id="navbar">
-  <a href="#home" class="logo">SDO<span>Web</span></a>
+<!-- NAV -->
+
+<nav id="nav">
+  <a href="#hero" class="logo">SDO<span>Web</span></a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#process">Processus</a></li>
-    <li><a href="#pricing">Tarifs</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#contact" class="nav-cta">Me contacter</a></li>
-  </ul>
-  <div class="burger" id="burger" aria-label="Menu mobile">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</nav>
-
-<!-- Mobile Menu -->
-<div class="overlay" id="overlay"></div>
-<div class="mobile-menu" id="mobileMenu">
-  <ul>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#process">Processus</a></li>
+    <li><a href="#portfolio">Réalisations</a></li>
     <li><a href="#pricing">Tarifs</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <a href="#contact" class="nav-cta">Devis gratuit</a>
+  <div class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="overlay" id="overlay"></div>
+<div class="drawer" id="drawer">
+  <a href="#services" class="dl">Services</a>
+  <a href="#portfolio" class="dl">Réalisations</a>
+  <a href="#pricing" class="dl">Tarifs</a>
+  <a href="#faq" class="dl">FAQ</a>
+  <a href="#contact" class="dl">Contact</a>
+  <a href="#contact" class="d-cta dl">Devis gratuit</a>
 </div>
 
-<!-- Hero Section -->
-<section class="hero" id="home">
-  <div class="hero-grid">
-    <div class="hero-content">
-      <div class="hero-badge">Développeur Web Freelance Belgique</div>
-      <h1>Création de sites internet <span class="highlight">modernes et performants</span> pour entreprises et indépendants</h1>
-      <p class="hero-sub">Je conçois des sites web professionnels, rapides et optimisés SEO à Bruxelles et en Belgique. De la vitrine au e-commerce, boostez votre présence en ligne avec un site qui convertit vos visiteurs en clients.</p>
-      <div class="hero-btns">
-        <a href="mailto:devis.sdo.web@gmail.com?subject=Demande%20de%20devis%20-%20Création%20site%20internet&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20obtenir%20un%20devis%20pour%20la%20création%20d'un%20site%20internet.%0D%0A%0D%0A---%20Informations%20---%0D%0ANom%20:%20%0D%0AEntreprise%20:%20%0D%0ATéléphone%20:%20%0D%0A%0D%0A---%20Projet%20---%0D%0AType%20de%20site%20:%20(vitrine%20/%20e-commerce%20/%20landing%20page%20/%20refonte)%0D%0ABudget%20estimé%20:%20%0D%0ADélai%20souhaité%20:%20%0D%0A%0D%0ADescription%20du%20projet%20:%20%0D%0A" class="btn-primary">Demander un devis gratuit</a>
-        <a href="#portfolio" class="btn-secondary">Voir mes réalisations</a>
+<!-- HERO -->
+
+<section class="hero" id="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-grid"></div>
+  </div>
+  <div class="hero-in">
+    <div class="pill">Développeur web freelance — Belgique</div>
+    <h1>Votre site internet,<br><em>livré en 48h,</em><br>prêt à convertir.</h1>
+    <p class="hero-desc">Sites professionnels pour indépendants et PME en Belgique. Design soigné, SEO inclus, prix clairs dès 300€. Basé à Bruxelles, intervention dans toute la Belgique.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-p">Obtenir mon devis</a>
+      <a href="#portfolio" class="btn-o">Voir les réalisations</a>
+      <a href="https://www.instagram.com/sdo_web" target="_blank" rel="noopener noreferrer" class="btn-ig-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        @sdo_web
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stn" data-count="6">0</div><div class="stt">Sites livrés</div></div>
+      <div><div class="stn">48<span>h</span></div><div class="stt">Délai moyen</div></div>
+      <div><div class="stn">100<span>%</span></div><div class="stt">Satisfaction</div></div>
+      <div><div class="stn">300<span>€</span></div><div class="stt">À partir de</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <span class="strip-lbl">Zones d'intervention</span>
+  <div class="strip-tags">
+    <span class="strip-tag">Bruxelles</span>
+    <span class="strip-tag">Liège</span>
+    <span class="strip-tag">Charleroi</span>
+    <span class="strip-tag">Namur</span>
+    <span class="strip-tag">Wallonie</span>
+    <span class="strip-tag">Toute la Belgique</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+
+<section id="services">
+  <div class="wrap">
+    <div class="sh">
+      <div>
+        <div class="tag">Services</div>
+        <h2>Ce que je crée</h2>
       </div>
-      <div class="stats-bar">
-        <div class="stat-item">
-          <div class="stat-value">15+</div>
-          <div class="stat-label">Sites livrés</div>
+      <p class="sub">Solutions web sur mesure pour indépendants et PME belges. Chaque projet est unique et traité avec attention.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc sr">
+        <span class="svc-ico">🌐</span>
+        <h3>Site vitrine</h3>
+        <p>Présenter votre activité avec élégance et convertir vos visiteurs en prospects qualifiés. Design unique reflétant votre identité.</p>
+        <span class="svc-price">À partir de 600 €</span>
+      </div>
+      <div class="svc sr">
+        <span class="svc-ico">🎯</span>
+        <h3>Landing page</h3>
+        <p>Une page de conversion optimisée pour lancer une offre, capturer des leads ou présenter un produit spécifique.</p>
+        <span class="svc-price">À partir de 300 €</span>
+      </div>
+      <div class="svc sr">
+        <span class="svc-ico">🛒</span>
+        <h3>E-commerce</h3>
+        <p>Boutique en ligne clé en main avec catalogue produits, panier sécurisé et paiement intégré. Prête à vendre.</p>
+        <span class="svc-price">À partir de 1 200 €</span>
+      </div>
+      <div class="svc sr">
+        <span class="svc-ico">🔄</span>
+        <h3>Refonte</h3>
+        <p>Moderniser votre site existant — plus rapide, plus beau, plus performant. Sans perdre votre référencement.</p>
+        <span class="svc-price">À partir de 500 €</span>
+      </div>
+      <div class="svc sr">
+        <span class="svc-ico">🔍</span>
+        <h3>SEO & Visibilité</h3>
+        <p>Améliorer votre positionnement sur Google pour les recherches locales belges. Plus de trafic qualifié.</p>
+        <span class="svc-price">À partir de 200 €</span>
+      </div>
+      <div class="svc sr">
+        <span class="svc-ico">⚙️</span>
+        <h3>Automatisation</h3>
+        <p>Formulaires intelligents, intégrations et workflows pour que votre site travaille pour vous 24h/24.</p>
+        <span class="svc-price">Sur devis</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+
+<section id="portfolio">
+  <div class="wrap">
+    <div class="sh">
+      <div>
+        <div class="tag">Réalisations</div>
+        <h2>Projets récents</h2>
+      </div>
+      <a href="https://www.instagram.com/sdo_web" target="_blank" rel="noopener noreferrer" class="btn-o" style="font-size:0.875rem;padding:0.75rem 1.5rem">Voir plus sur Instagram</a>
+    </div>
+    <div class="port-grid">
+      <!-- Chaymassama -->
+      <a href="https://chaymassama.be" target="_blank" rel="noopener noreferrer" class="port-card sr">
+        <div class="port-thumb">
+          <img src="chaymassama2026-03-1720153041.PNG" alt="Chaymassama - Site web pour photographe et vidéaste">
         </div>
-        <div class="stat-item">
-          <div class="stat-value">48h</div>
-          <div class="stat-label">Délai moyen</div>
+        <div class="port-body">
+          <span class="port-tag">Site vitrine</span>
+          <h3>Chaymassama — Photographe & Vidéaste</h3>
+          <p>Design aérien avec animations de nuages, présentation des services (mariages, sport, fêtes) et appel à l'action clair. Interface douce et professionnelle.</p>
+          <span class="port-link">chaymassama.be →</span>
         </div>
-        <div class="stat-item">
-          <div class="stat-value">100%</div>
-          <div class="stat-label">Satisfaction client</div>
+      </a>
+      
+      <!-- Creafida -->
+      <a href="https://creafida.be" target="_blank" rel="noopener noreferrer" class="port-card sr">
+        <div class="port-thumb">
+          <img src="creafida2026-03-17153204.PNG" alt="Creafida - Site web pour atelier de couture">
         </div>
-        <div class="stat-item">
-          <div class="stat-value">SEO</div>
-          <div class="stat-label">Optimisé Google</div>
+        <div class="port-body">
+          <span class="port-tag">Site vitrine</span>
+          <h3>Creafida — Atelier de Couture</h3>
+          <p>Site élégant pour un atelier de couture avec 20+ ans d'expérience. Mise en valeur des créations, informations claires et présentation chaleureuse des services.</p>
+          <span class="port-link">creafida.be →</span>
+        </div>
+      </a>
+      
+      <!-- Freecash -->
+      <a href="https://freecash.com/r/Chaymassama" target="_blank" rel="noopener noreferrer" class="port-card fc sr">
+        <div class="fc-in">
+          <span class="port-tag">Partenaire recommandé</span>
+          <div class="fc-ico">💰</div>
+          <h3>Freecash</h3>
+          <p>Plateforme fiable pour gagner de l'argent en ligne avec des sondages et offres rémunérées. Rejoignez la communauté.</p>
+          <span class="port-link">Rejoindre gratuitement →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="price-hd">
+      <div class="tag">Tarifs</div>
+      <h2>Prix transparents, sans surprise</h2>
+      <p class="sub" style="margin-top:0.75rem">Pour indépendants et PME belges. Chaque devis est personnalisé selon vos besoins spécifiques.</p>
+    </div>
+    <div class="price-grid">
+      <div class="pc sr">
+        <h3>Landing Page</h3>
+        <div class="pval">300 € – 500 €</div>
+        <div class="pper">Page unique · Livraison 48h</div>
+        <p>Idéale pour lancer un produit, un service ou capturer des leads qualifiés rapidement.</p>
+        <div class="pfs">
+          <span class="pf">Design responsive mobile-first</span>
+          <span class="pf">Formulaire de contact optimisé</span>
+          <span class="pf">SEO de base inclus</span>
+          <span class="pf">Hébergement conseillé</span>
+        </div>
+        <a href="#contact" class="btn-o">Demander un devis</a>
+      </div>
+      
+      <div class="pc star sr">
+        <div class="pbadge">Le plus populaire</div>
+        <h3>Site Vitrine Pro</h3>
+        <div class="pval">900 € – 1 200 €</div>
+        <div class="pper">3 à 5 pages · Livraison 5–7 jours</div>
+        <p>La solution complète pour établir votre présence en ligne professionnelle et générer des contacts.</p>
+        <div class="pfs">
+          <span class="pf">Design premium sur mesure</span>
+          <span class="pf">Animations subtiles & interactions</span>
+          <span class="pf">SEO avancé & Google Analytics</span>
+          <span class="pf">Formulaire intelligent & intégrations</span>
+          <span class="pf">Support 30 jours inclus</span>
+        </div>
+        <a href="#contact" class="btn-p">Commencer mon projet</a>
+      </div>
+      
+      <div class="pc sr">
+        <h3>E-commerce</h3>
+        <div class="pval">1 200 € – 2&nbsp;000 €</div>
+        <div class="pper">Boutique complète · Livraison 2 semaines</div>
+        <p>Boutique en ligne professionnelle prête à vendre avec tous les outils nécessaires.</p>
+        <div class="pfs">
+          <span class="pf">Catalogue produits illimité</span>
+          <span class="pf">Paiement Stripe & PayPal sécurisé</span>
+          <span class="pf">Gestion stocks & commandes</span>
+          <span class="pf">SEO e-commerce optimisé</span>
+        </div>
+        <a href="#contact" class="btn-o">Demander un devis</a>
+      </div>
+    </div>
+    
+    <div class="maint sr">
+      <div style="text-align:left">
+        <h4>🛠 Maintenance mensuelle</h4>
+        <p>Mises à jour de sécurité, sauvegardes automatiques et support prioritaire.</p>
+      </div>
+      <div style="text-align:center">
+        <div class="maint-price">50 € – 120 €</div>
+        <div class="maint-per">par mois</div>
+      </div>
+      <a href="#contact" class="btn-o" style="font-size:0.875rem;padding:0.75rem 1.5rem">En savoir plus</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+
+<section id="faq">
+  <div class="wrap">
+    <div class="faq-layout">
+      <div>
+        <div class="tag">FAQ</div>
+        <h2>Questions fréquentes</h2>
+        <p class="sub" style="margin-top:0.75rem;margin-bottom:2rem">Tout ce que vous devez savoir avant de démarrer votre projet. Une question spécifique ?</p>
+        <a href="#contact" class="btn-p" style="font-size:0.9375rem;padding:0.875rem 1.75rem">Me contacter directement</a>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item open">
+          <div class="faq-q" tabindex="0">
+            Combien coûte un site internet en Belgique ?
+            <span class="faq-ico">+</span>
+          </div>
+          <div class="faq-a">Landing page dès 300 €, site vitrine entre 600 € et 1 200 €, e-commerce entre 1 200 € et 2&nbsp;000 €. Chaque projet étant unique, je vous recommande d'utiliser le formulaire de devis pour une estimation précise basée sur vos besoins réels.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" tabindex="0">
+            Quel est le délai de livraison ?
+            <span class="faq-ico">+</span>
+          </div>
+          <div class="faq-a">Landing page en 48h, site vitrine en 3 à 7 jours, e-commerce en 1 à 2 semaines. Le délai dépend aussi de la rapidité avec laquelle vous fournissez les contenus (textes, logo, images). Je reste toujours disponible pour accélérer si besoin.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" tabindex="0">
+            Le SEO est-il inclus dans vos prestations ?
+            <span class="faq-ico">+</span>
+          </div>
+          <div class="faq-a">Absolument. Balises méta optimisées, structure HTML sémantique, vitesse de chargement optimisée, sitemap XML et version mobile-first sont inclus dans tous mes sites. Une stratégie SEO avancée (contenu, backlinks) est disponible en option.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" tabindex="0">
+            Travaillez-vous dans toute la Belgique ?
+            <span class="faq-ico">+</span>
+          </div>
+          <div class="faq-a">Oui — Bruxelles, Liège, Charleroi, Namur, Mons, Gand, Anvers et partout ailleurs. Basé à Bruxelles, je me déplace si nécessaire, mais la plupart des échanges se font efficacement par email, téléphone ou visioconférence.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" tabindex="0">
+            Que se passe-t-il si le design ne me convient pas ?
+            <span class="faq-ico">+</span>
+          </div>
+          <div class="faq-a">Votre satisfaction est prioritaire. Une maquette vous est présentée avant développement. Vous bénéficiez de retours et modifications inclus dans le prix jusqu'à validation finale. Pas de mauvaise surprise à la livraison.</div>
         </div>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="mockup-container">
-        <div class="mockup-browser">
-          <div class="mockup-header">
-            <div class="mockup-dot red"></div>
-            <div class="mockup-dot yellow"></div>
-            <div class="mockup-dot green"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-layout">
+
+      <!-- Infos -->
+      <div class="contact-info">
+        <div style="margin-bottom:0.5rem">
+          <div class="tag">Contact</div>
+          <h2>Parlons de votre projet</h2>
+          <p class="sub" style="margin-top:0.75rem">Remplissez le formulaire pour un devis personnalisé sous 24h. Ou contactez-moi directement par email ou Instagram.</p>
+        </div>
+        
+        <div class="cc">
+          <div class="cc-ico">📧</div>
+          <div>
+            <div class="cc-lbl">Email général</div>
+            <div class="cc-val">contact.sdo.web12@gmail.com</div>
           </div>
-          <div class="mockup-body">
-            <div class="mockup-content">
-              <div class="mockup-line accent"></div>
-              <div class="mockup-line medium"></div>
-              <div class="mockup-line short"></div>
-              <div class="mockup-line medium"></div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
-                <div style="height: 80px; background: #f1f5f9; border-radius: 8px;"></div>
-                <div style="height: 80px; background: #f1f5f9; border-radius: 8px;"></div>
+        </div>
+        
+        <div class="cc">
+          <div class="cc-ico">📋</div>
+          <div>
+            <div class="cc-lbl">Demandes de devis</div>
+            <div class="cc-val">devis.sdo.web@gmail.com</div>
+          </div>
+        </div>
+        
+        <div class="cc">
+          <div class="cc-ico">🛠</div>
+          <div>
+            <div class="cc-lbl">Support clients</div>
+            <div class="cc-val">support.sdo.web@gmail.com</div>
+          </div>
+        </div>
+        
+        <div class="cc">
+          <div class="cc-ico" style="background:rgba(228,64,95,0.1);border-color:rgba(228,64,95,0.2)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E4405F" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </div>
+          <div>
+            <div class="cc-lbl">Instagram (réponse rapide)</div>
+            <div class="cc-val" style="color:#E4405F;font-weight:600">@sdo_web</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulaire -->
+      <div class="cform sr">
+        <div class="cf-title">Demande de devis</div>
+        <p class="cf-sub">Décrivez votre projet et recevez une estimation personnalisée sous 24 heures.</p>
+        <div class="cf-badge">Réponse garantie sous 24h</div>
+
+        <form id="aiForm" novalidate>
+          <div class="fsec">
+            <div class="fs-lbl"><span>1</span> Vos coordonnées</div>
+            <div class="frow">
+              <div class="fd" id="f-nom">
+                <label for="ai-nom">Nom complet <em>*</em></label>
+                <input type="text" id="ai-nom" name="nom" placeholder="Jean Dupont" autocomplete="name">
+                <div class="fd-err">Veuillez entrer votre nom</div>
+              </div>
+              <div class="fd" id="f-email">
+                <label for="ai-email">Email <em>*</em></label>
+                <input type="email" id="ai-email" name="email" placeholder="jean@entreprise.be" autocomplete="email">
+                <div class="fd-err">Email invalide</div>
               </div>
             </div>
           </div>
+
+          <div class="fsec">
+            <div class="fs-lbl"><span>2</span> Type de projet</div>
+            <div class="svc-r">
+              <div class="sr-opt">
+                <input type="radio" name="service" id="sv1" value="vitrine">
+                <label for="sv1">
+                  <span class="si">🌐</span>
+                  Site vitrine
+                  <span class="sp">600 € – 1 200 €</span>
+                </label>
+              </div>
+              <div class="sr-opt">
+                <input type="radio" name="service" id="sv2" value="landing">
+                <label for="sv2">
+                  <span class="si">🎯</span>
+                  Landing page
+                  <span class="sp">300 € – 500 €</span>
+                </label>
+              </div>
+              <div class="sr-opt">
+                <input type="radio" name="service" id="sv3" value="ecommerce">
+                <label for="sv3">
+                  <span class="si">🛒</span>
+                  E-commerce
+                  <span class="sp">1 200 € – 2&nbsp;000 €</span>
+                </label>
+              </div>
+              <div class="sr-opt">
+                <input type="radio" name="service" id="sv4" value="refonte">
+                <label for="sv4">
+                  <span class="si">🔄</span>
+                  Refonte
+                  <span class="sp">500 € – 1 500 €</span>
+                </label>
+              </div>
+            </div>
+            <div class="r-err" id="err-svc">Veuillez sélectionner un type de projet</div>
+          </div>
+
+          <div class="fsec">
+            <div class="fs-lbl"><span>3</span> Budget estimé</div>
+            <div class="bgt-r">
+              <div class="br-opt">
+                <input type="radio" name="budget" id="bg1" value="<500">
+                <label for="bg1">Démarrage<span class="brange">Moins de 500 €</span></label>
+              </div>
+              <div class="br-opt">
+                <input type="radio" name="budget" id="bg2" value="500-1000">
+                <label for="bg2">Standard<span class="brange">500 € – 1 000 €</span></label>
+              </div>
+              <div class="br-opt">
+                <input type="radio" name="budget" id="bg3" value="1000-2000">
+                <label for="bg3">Professionnel<span class="brange">1 000 € – 2&nbsp;000 €</span></label>
+              </div>
+              <div class="br-opt">
+                <input type="radio" name="budget" id="bg4" value="2000-5000">
+                <label for="bg4">Avancé<span class="brange">2&nbsp;000 € – 5 000 €</span></label>
+              </div>
+            </div>
+            <div class="r-err" id="err-bgt">Veuillez sélectionner une tranche de budget</div>
+          </div>
+
+          <div class="fsec">
+            <div class="fs-lbl"><span>4</span> Votre projet</div>
+            <div class="fd" id="f-desc">
+              <label for="ai-desc">Décrivez vos besoins <em>*</em></label>
+              <textarea id="ai-desc" name="description" rows="4" placeholder="Ex : Je suis coach sportif à Bruxelles et j'ai besoin d'un site vitrine moderne pour présenter mes services, mon parcours et recevoir des demandes de contact. J'aimerais quelque chose d'épuré avec des photos de mes séances."></textarea>
+              <div class="fd-err">Minimum 20 caractères pour décrire votre projet</div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit" id="aiBtn">
+            <span class="st">Envoyer ma demande</span>
+            <div class="spin"></div>
+          </button>
+        </form>
+
+        <div class="analyzing" id="aiAnalyzing">
+          <div class="a-spin"></div>
+          <div class="a-title">Analyse en cours...</div>
+          <div class="a-step" id="aiStep">Lecture de votre demande</div>
         </div>
+        
+        <div class="ai-res" id="aiResult"></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Why Choose Section -->
-<section id="why-choose">
-  <div class="section-header">
-    <div class="section-label">Pourquoi me choisir</div>
-    <h2 class="section-title">Un développeur web à votre service</h2>
-    <p class="section-sub">Je combine expertise technique et accompagnement personnalisé pour créer des sites qui dépassent vos attentes.</p>
-  </div>
-  <div class="why-grid">
-    <div class="why-card">
-      <div class="why-icon">⚡</div>
-      <h3>Site rapide</h3>
-      <p>Optimisé pour charger en moins de 2 secondes. Performance garantie pour ne perdre aucun client.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">🎨</div>
-      <h3>Design moderne</h3>
-      <p>Interfaces élégantes et professionnelles qui reflètent l'image de marque de votre entreprise.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">🔍</div>
-      <h3>SEO optimisé</h3>
-      <p>Référencement naturel Google dès la conception pour apparaître dans les premiers résultats.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">🤝</div>
-      <h3>Accompagnement</h3>
-      <p>De l'idée à la mise en ligne, je vous guide à chaque étape avec réactivité et professionnalisme.</p>
-    </div>
-  </div>
-</section>
+<!-- FOOTER -->
 
-<!-- Services Section -->
-<section id="services">
-  <div class="section-header">
-    <div class="section-label">Mes services</div>
-    <h2 class="section-title">Solutions web pour votre entreprise</h2>
-    <p class="section-sub">Des prestations adaptées à vos besoins et à votre budget, de la création à la maintenance.</p>
-  </div>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-icon">🌐</div>
-      <h3>Site Vitrine</h3>
-      <p>Présentez votre activité avec élégance. Idéal pour les indépendants, artisans et PME souhaitant établir leur présence en ligne professionnelle.</p>
-      <ul class="service-features">
-        <li>Design responsive mobile-first</li>
-        <li>Formulaire de contact intégré</li>
-        <li>Optimisation SEO locale</li>
-        <li>Hébergement sécurisé SSL</li>
-      </ul>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🛒</div>
-      <h3>E-commerce</h3>
-      <p>Vendez vos produits en ligne 24/7. Boutique en ligne complète avec paiement sécurisé et gestion des stocks simplifiée.</p>
-      <ul class="service-features">
-        <li>Catalogue produits illimité</li>
-        <li>Paiement sécurisé (Stripe/PayPal)</li>
-        <li>Gestion des commandes</li>
-        <li>Emails automatiques clients</li>
-      </ul>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🎯</div>
-      <h3>Landing Page</h3>
-      <p>Page de conversion optimisée pour vos campagnes marketing. Capturez des leads qualifiés et maximisez votre ROI.</p>
-      <ul class="service-features">
-        <li>Copywriting persuasif</li>
-        <li>A/B testing ready</li>
-        <li>Intégration CRM/Email</li>
-        <li>Analytics conversion tracking</li>
-      </ul>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🔄</div>
-      <h3>Refonte & SEO</h3>
-      <p>Modernisez votre site existant et améliorez votre visibilité Google. Audit complet et optimisation technique.</p>
-      <ul class="service-features">
-        <li>Audit technique complet</li>
-        <li>Migration sans perte SEO</li>
-        <li>Optimisation Core Web Vitals</li>
-        <li>Stratégie de contenu</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- Portfolio Section -->
-<section id="portfolio">
-  <div class="section-header">
-    <div class="section-label">Portfolio</div>
-    <h2 class="section-title">Mes dernières réalisations</h2>
-    <p class="section-sub">Des sites concrets, livrés à des clients réels en Belgique et ailleurs.</p>
-  </div>
-  <div class="portfolio-grid">
-    <!-- Chaymassama - VRAI SITE -->
-    <a href="https://chaymassama.be" target="_blank" class="portfolio-card" rel="noopener noreferrer">
-      <div class="portfolio-img" style="background-image: url('chaymassama2026-03-17 153041.PNG'); background-size: cover; background-position: center;">
-        <div class="portfolio-overlay"><span>Voir le site →</span></div>
-      </div>
-      <div class="portfolio-info">
-        <span class="portfolio-tag">Site Vitrine</span>
-        <h3>Chaymassama Photography</h3>
-        <p>Portfolio élégant pour photographe professionnelle avec galerie immersive et système de booking.</p>
-      </div>
-    </a>
-
-    <!-- Creafida - VRAI SITE -->
-    <a href="https://creafida.be" target="_blank" class="portfolio-card" rel="noopener noreferrer">
-      <div class="portfolio-img" style="background-image: url('creafida 2026-03-17 153204.PNG'); background-size: cover; background-position: center;">
-        <div class="portfolio-overlay"><span>Voir le site →</span></div>
-      </div>
-      <div class="portfolio-info">
-        <span class="portfolio-tag">Site Vitrine</span>
-        <h3>Creafida</h3>
-        <p>Site professionnel pour services créatifs, avec design moderne et optimisation conversion.</p>
-      </div>
-    </a>
-
-    <!-- Faux sites (non cliquables) -->
-    <a href="#" class="portfolio-card" onclick="return false;">
-      <div class="portfolio-img" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
-        <div class="portfolio-overlay"><span>Projet récent</span></div>
-      </div>
-      <div class="portfolio-info">
-        <span class="portfolio-tag">Landing Page</span>
-        <h3>Coach Sportif Pro</h3>
-        <p>Page de conversion optimisée avec formulaire de contact et intégration calendly pour réservations.</p>
-      </div>
-    </a>
-    <a href="#" class="portfolio-card" onclick="return false;">
-      <div class="portfolio-img" style="background: linear-gradient(135deg, #10b981, #059669);">
-        <div class="portfolio-overlay"><span>Projet récent</span></div>
-      </div>
-      <div class="portfolio-info">
-        <span class="portfolio-tag">Site Corporate</span>
-        <h3>Agence Immobilière</h3>
-        <p>Site institutionnel avec catalogue de biens, filtres de recherche avancés et intégration CRM.</p>
-      </div>
-    </a>
-    <a href="#" class="portfolio-card" onclick="return false;">
-      <div class="portfolio-img" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
-        <div class="portfolio-overlay"><span>Projet récent</span></div>
-      </div>
-      <div class="portfolio-info">
-        <span class="portfolio-tag">Portfolio</span>
-        <h3>Architecte d'intérieur</h3>
-        <p>Portfolio minimaliste avec galerie de projets, témoignages clients et formulaire de contact.</p>
-      </div>
-    </a>
-    <a href="#" class="portfolio-card" onclick="return false;">
-      <div class="portfolio-img" style="background: linear-gradient(135deg, #ec4899, #db2777);">
-        <div class="portfolio-overlay"><span>Projet récent</span></div>
-      </div>
-      <div class="portfolio-info">
-        <span class="portfolio-tag">Refonte</span>
-        <h3>Restaurant Gastronomique</h3>
-        <p>Refonte complète avec menu interactif, réservation en ligne et optimisation mobile.</p>
-      </div>
-    </a>
-  </div>
-</section>
-
-<!-- Process Section -->
-<section id="process">
-  <div class="section-header">
-    <div class="section-label">Comment je travaille</div>
-    <h2 class="section-title">Un processus clair en 4 étapes</h2>
-    <p class="section-sub">De votre idée à la mise en ligne, je vous accompagne à chaque étape du projet.</p>
-  </div>
-  <div class="process-steps">
-    <div class="process-step">
-      <div class="step-num" data-step="1">01</div>
-      <h3>Discussion</h3>
-      <p>On échange sur vos objectifs, votre cible et vos besoins spécifiques. Je vous propose une solution adaptée à votre budget.</p>
-    </div>
-    <div class="process-step">
-      <div class="step-num" data-step="2">02</div>
-      <h3>Design</h3>
-      <p>Je crée une maquette unique reflétant votre image de marque. Vous validez avant le développement.</p>
-    </div>
-    <div class="process-step">
-      <div class="step-num" data-step="3">03</div>
-      <h3>Développement</h3>
-      <p>Codage du site avec les dernières technologies, optimisé pour la vitesse et le référencement Google.</p>
-    </div>
-    <div class="process-step">
-      <div class="step-num" data-step="4">04</div>
-      <h3>Mise en ligne</h3>
-      <p>Déploiement sur serveur sécurisé, configuration DNS et formation à la gestion de votre site.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Pricing Section -->
-<section id="pricing">
-  <div class="section-header">
-    <div class="section-label">Tarifs transparents</div>
-    <h2 class="section-title">Des prix clairs sans surprise</h2>
-    <p class="section-sub">Des forfaits adaptés à chaque besoin, de la startup à l'entreprise établie.</p>
-  </div>
-  <div class="pricing-grid">
-    <div class="pricing-card">
-      <div class="pricing-header">
-        <div class="pricing-name">Site Vitrine</div>
-        <div class="pricing-price">600€</div>
-        <div class="pricing-note">À partir de, paiement étalé possible</div>
-      </div>
-      <ul class="pricing-features">
-        <li>1 à 3 pages responsive</li>
-        <li>Design personnalisé</li>
-        <li>Formulaire de contact</li>
-        <li>Optimisation SEO de base</li>
-        <li>Hébergement 1 an offert</li>
-        <li>Formation utilisation</li>
-      </ul>
-      <a href="mailto:devis.sdo.web@gmail.com?subject=Devis%20Site%20Vitrine%20-%20600€&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20obtenir%20un%20devis%20pour%20un%20site%20vitrine%20(600€).%0D%0A%0D%0ANom%20:%20%0D%0AEntreprise%20:%20%0D%0ATéléphone%20:%20%0D%0A%0D%0ADescription%20du%20projet%20:%20" class="pricing-btn">Demander ce devis</a>
-    </div>
-    <div class="pricing-card featured">
-      <div class="featured-badge">Plus populaire</div>
-      <div class="pricing-header">
-        <div class="pricing-name">Site Pro</div>
-        <div class="pricing-price">1 200€</div>
-        <div class="pricing-note">Solution complète pour entreprises</div>
-      </div>
-      <ul class="pricing-features">
-        <li>5 à 8 pages incluses</li>
-        <li>Design premium sur-mesure</li>
-        <li>Animations avancées</li>
-        <li>SEO complet & blog</li>
-        <li>Multilingue (FR/NL/EN)</li>
-        <li>Analytics & tracking</li>
-        <li>Support 30 jours inclus</li>
-      </ul>
-      <a href="mailto:devis.sdo.web@gmail.com?subject=Devis%20Site%20Pro%20-%201200€&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20obtenir%20un%20devis%20pour%20un%20site%20professionnel%20(1200€).%0D%0A%0D%0ANom%20:%20%0D%0AEntreprise%20:%20%0D%0ATéléphone%20:%20%0D%0A%0D%0ADescription%20du%20projet%20:%20" class="pricing-btn">Demander ce devis</a>
-    </div>
-    <div class="pricing-card">
-      <div class="pricing-header">
-        <div class="pricing-name">E-commerce</div>
-        <div class="pricing-price">2 000€</div>
-        <div class="pricing-note">Boutique en ligne complète</div>
-      </div>
-      <ul class="pricing-features">
-        <li>Catalogue illimité</li>
-        <li>Paiement sécurisé multi-devise</li>
-        <li>Gestion stocks & commandes</li>
-        <li>Comptes clients & historique</li>
-        <li>Emails automatiques</li>
-        <li>SEO e-commerce avancé</li>
-        <li>Formation complète</li>
-      </ul>
-      <a href="mailto:devis.sdo.web@gmail.com?subject=Devis%20E-commerce%20-%202000€&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20obtenir%20un%20devis%20pour%20une%20boutique%20en%20ligne%20(2000€).%0D%0A%0D%0ANom%20:%20%0D%0AEntreprise%20:%20%0D%0ATéléphone%20:%20%0D%0ANombre%20de%20produits%20:%20%0D%0A%0D%0ADescription%20du%20projet%20:%20" class="pricing-btn">Demander ce devis</a>
-    </div>
-  </div>
-  
-  <div class="maintenance-box">
-    <div class="maintenance-info">
-      <h3>🔧 Maintenance mensuelle</h3>
-      <p>Mises à jour, sauvegardes, support technique et évolutions. Garantie de tranquillité pour votre site.</p>
-    </div>
-    <div class="maintenance-price">
-      <div class="price">50€/mois</div>
-      <div class="period">Sans engagement • Annulable à tout moment</div>
-    </div>
-  </div>
-</section>
-
-<!-- Testimonials Section -->
-<section id="testimonials">
-  <div class="section-header">
-    <div class="section-label">Témoignages</div>
-    <h2 class="section-title">Ce que disent mes clients</h2>
-    <p class="section-sub">Des entrepreneurs belges qui ont fait confiance à SDO Web.</p>
-  </div>
-  <div class="testimonials-grid">
-    <div class="testi-card">
-      <div class="stars">★★★★★</div>
-      <p class="testi-text">"Silvio a créé notre site vitrine en moins d'une semaine. Le design est moderne, le site est rapide et nous avons déjà reçu plusieurs demandes via le formulaire. Excellent rapport qualité-prix !"</p>
-      <div class="testi-author">
-        <div class="testi-avatar">ML</div>
-        <div>
-          <div class="testi-name">Marc Lefebvre</div>
-          <div class="testi-role">Consultant RH, Bruxelles</div>
-        </div>
-      </div>
-    </div>
-    <div class="testi-card">
-      <div class="stars">★★★★★</div>
-      <p class="testi-text">"J'avais besoin d'une landing page urgente pour mon lancement. Non seulement il a livré dans les temps, mais mon taux de conversion a doublé par rapport à mon ancien site. Un vrai pro !"</p>
-      <div class="testi-author">
-        <div class="testi-avatar">SC</div>
-        <div>
-          <div class="testi-name">Sophie Charron</div>
-          <div class="testi-role">Coach & Formatrice, Liège</div>
-        </div>
-      </div>
-    </div>
-    <div class="testi-card">
-      <div class="stars">★★★★★</div>
-      <p class="testi-text">"Notre boutique en ligne fonctionne parfaitement. Les paiements sont sécurisés, la gestion des commandes est simple et le référencement local nous apporte de nouveaux clients chaque mois."</p>
-      <div class="testi-author">
-        <div class="testi-avatar">KA</div>
-        <div>
-          <div class="testi-name">Karim Amrani</div>
-          <div class="testi-role">E-commerçant, Anvers</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ Section -->
-<section id="faq">
-  <div class="section-header">
-    <div class="section-label">FAQ</div>
-    <h2 class="section-title">Questions fréquentes</h2>
-    <p class="section-sub">Tout ce que vous devez savoir sur la création de votre site internet.</p>
-  </div>
-  <div class="faq-container">
-    <div class="faq-item active">
-      <div class="faq-question">
-        <span>Combien coûte la création d'un site internet en Belgique ?</span>
-        <div class="faq-icon">▼</div>
-      </div>
-      <div class="faq-answer">
-        <p>Les tarifs varient selon la complexité du projet. Un site vitrine simple commence à 600€, un site professionnel complet à 1 200€ et une boutique e-commerce à 2 000€. Chaque devis est personnalisé selon vos besoins spécifiques. Je propose également des facilités de paiement étalées sur plusieurs mois.</p>
-      </div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question">
-        <span>Quel est le délai pour créer un site web ?</span>
-        <div class="faq-icon">▼</div>
-      </div>
-      <div class="faq-answer">
-        <p>Un site vitrine est généralement livré en 5 à 7 jours ouvrés. Un site plus complexe avec plusieurs pages ou fonctionnalités spécifiques prend 2 à 3 semaines. Les délais sont respectés scrupuleusement et vous êtes tenu informé de l'avancement à chaque étape.</p>
-      </div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question">
-        <span>Le site sera-t-il visible sur Google ?</span>
-        <div class="faq-icon">▼</div>
-      </div>
-      <div class="faq-answer">
-        <p>Absolument. Chaque site est optimisé pour le référencement naturel (SEO) dès la conception : structure technique, balises meta, vitesse de chargement, et optimisation mobile. Je vous aide également à créer votre fiche Google Business pour apparaître dans les recherches locales "création site Bruxelles" ou votre secteur d'activité.</p>
-      </div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question">
-        <span>Puis-je modifier mon site moi-même après la livraison ?</span>
-        <div class="faq-icon">▼</div>
-      </div>
-      <div class="faq-answer">
-        <p>Oui, je vous forme à la gestion de votre site lors de la livraison. Vous pourrez modifier textes, images et ajouter des articles de blog facilement. Pour les modifications plus complexes, je propose un forfait maintenance mensuel à 50€ qui inclut les mises à jour et petites modifications.</p>
-      </div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question">
-        <span>Proposez-vous l'hébergement et le nom de domaine ?</span>
-        <div class="faq-icon">▼</div>
-      </div>
-      <div class="faq-answer">
-        <p>Oui, je peux m'occuper de tout : achat du nom de domaine (.be, .com, etc.), hébergement sécurisé SSL et emails professionnels. L'hébergement premier année est souvent offert selon le forfait choisi. Ensuite, le renouvellement coûte environ 100€ par an.</p>
-      </div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question">
-        <span>Travaillez-vous avec des clients hors de Bruxelles ?</span>
-        <div class="faq-icon">▼</div>
-      </div>
-      <div class="faq-answer">
-        <p>Bien sûr ! Je travaille avec des clients partout en Belgique (Wallonie, Flandre, Bruxelles) et même à l'international. Les échanges se font par visioconférence, téléphone ou email selon votre préférence. La distance n'est pas un obstacle pour créer votre projet.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SEO Content Section -->
-<section id="seo-content">
-  <div class="seo-grid">
-    <div class="seo-card">
-      <h3>🚀 Pourquoi un site internet est essentiel ?</h3>
-      <p>En 2025, 85% des Belges recherchent un produit ou service en ligne avant d'acheter. Sans site web professionnel, vous passez à côté de clients potentiels chaque jour. Un site bien conçu est votre meilleur commercial, disponible 24h/24 et 7j/7.</p>
-    </div>
-    <div class="seo-card">
-      <h3>💼 Les avantages d'un site pro</h3>
-      <p>Un site internet professionnel renforce votre crédibilité, vous permet de toucher une audience plus large en Belgique, automatise vos prises de contact et vous aide à vous démarquer de la concurrence. C'est un investissement rentable à long terme.</p>
-    </div>
-    <div class="seo-card">
-      <h3>💡 Combien coûte un site ?</h3>
-      <p>Le prix dépend de vos besoins : vitrine (600€+), e-commerce (2000€+). N'oubliez pas que c'est un investissement, pas une dépense. Un site bien fait génère des clients et se rentabilise rapidement. Demandez un devis personnalisé gratuit.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Contact Section - SIMPLIFIÉ AVEC VOS VRAIS EMAILS -->
-<section id="contact">
-  <div class="section-header">
-    <div class="section-label">Contact</div>
-    <h2 class="section-title">Discutons de votre projet</h2>
-    <p class="section-sub">Cliquez sur l'option qui vous correspond. Je vous réponds sous 24h garantie.</p>
-  </div>
-  
-  <div class="contact-grid">
-    <!-- Demande de devis -->
-    <a href="mailto:devis.sdo.web@gmail.com?subject=Demande%20de%20devis%20-%20Création%20site%20internet&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20obtenir%20un%20devis%20pour%20la%20création%20d'un%20site%20internet.%0D%0A%0D%0A---%20Informations%20---%0D%0ANom%20:%20%0D%0AEntreprise%20:%20%0D%0ATéléphone%20:%20%0D%0A%0D%0A---%20Projet%20---%0D%0AType%20de%20site%20:%20(vitrine%20/%20e-commerce%20/%20landing%20page%20/%20refonte)%0D%0ABudget%20estimé%20:%20%0D%0ADélai%20souhaité%20:%20%0D%0A%0D%0ADescription%20du%20projet%20:%20%0D%0A" class="contact-card">
-      <div class="contact-icon-large">💰</div>
-      <h3>Demander un devis</h3>
-      <p>Vous avez un projet de site web ? Obtenez un devis personnalisé gratuit sous 24h.</p>
-      <span class="contact-email">devis.sdo.web@gmail.com</span>
-    </a>
-
-    <!-- Contact général -->
-    <a href="mailto:contact.sdo.web12@gmail.com?subject=Prise%20de%20contact%20-%20SDO%20Web&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20prendre%20contact%20avec%20vous.%0D%0A%0D%0ANom%20:%20%0D%0AEntreprise%20:%20%0D%0ATéléphone%20:%20%0D%0A%0D%0AMessage%20:%20" class="contact-card">
-      <div class="contact-icon-large">📧</div>
-      <h3>Contact général</h3>
-      <p>Questions, informations, collaboration... Je suis à votre écoute.</p>
-      <span class="contact-email">contact.sdo.web12@gmail.com</span>
-    </a>
-
-    <!-- Support client -->
-    <a href="mailto:support.sdo.web@gmail.com?subject=Support%20client%20-%20Site%20en%20ligne&body=Bonjour,%0D%0A%0D%0AJe%20suis%20client%20et%20j'ai%20besoin%20d'aide%20sur%20mon%20site.%0D%0A%0D%0ANom%20:%20%0D%0ANom%20du%20site%20:%20%0D%0A%0D%0ADescription%20du%20problème%20:%20" class="contact-card">
-      <div class="contact-icon-large">🔧</div>
-      <h3>Support client</h3>
-      <p>Vous avez déjà un site avec moi ? Contactez le support technique.</p>
-      <span class="contact-email">support.sdo.web@gmail.com</span>
-    </a>
-
-    <!-- Administration -->
-    <a href="mailto:admin.sdo.web@gmail.com?subject=Administration%20-%20SDO%20Web&body=Bonjour,%0D%0A%0D%0ACette%20adresse%20est%20réservée%20à%20la%20gestion%20interne.%0D%0A%0D%0ASujet%20:%20" class="contact-card">
-      <div class="contact-icon-large">⚙️</div>
-      <h3>Administration</h3>
-      <p>Pour la gestion interne, facturation et questions administratives.</p>
-      <span class="contact-email">admin.sdo.web@gmail.com</span>
-    </a>
-
-    <!-- CTA Final -->
-    <div class="contact-cta">
-      <h3>Prêt à démarrer votre projet ?</h3>
-      <p>Ne laissez pas vos concurrents prendre de l'avance. Discutons de votre projet et créons ensemble un site qui convertit vos visiteurs en clients.</p>
-      <a href="mailto:devis.sdo.web@gmail.com?subject=Je%20suis%20prêt%20à%20démarrer%20mon%20projet&body=Bonjour,%0D%0A%0D%0AJe%20suis%20prêt%20à%20démarrer%20mon%20projet%20de%20site%20web.%0D%0A%0D%0ANom%20:%20%0D%0AEntreprise%20:%20%0D%0ATéléphone%20:%20%0D%0A%0D%0ADescription%20rapide%20du%20projet%20:%20" class="btn-primary" style="font-size:1.125rem;padding:1.25rem 2.5rem;display:inline-block;margin-top:1rem;">
-        Démarrer mon projet maintenant →
-      </a>
-      <div class="response-badge">
-        <span>⚡</span>
-        <span>Réponse garantie sous 24h</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA Section -->
-<section id="cta">
-  <div class="section-label">Prêt à démarrer ?</div>
-  <h2 class="section-title">Transformez votre présence en ligne dès aujourd'hui</h2>
-  <p class="cta-sub">Ne laissez pas vos concurrents prendre de l'avance. Discutons de votre projet et créons ensemble un site qui convertit vos visiteurs en clients.</p>
-  <a href="mailto:devis.sdo.web@gmail.com?subject=Demande%20de%20devis%20urgente&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20obtenir%20un%20devis%20pour%20mon%20projet." class="btn-primary" style="font-size:1.125rem;padding:1.25rem 2.5rem;">
-    Demander mon devis gratuit →
-  </a>
-</section>
-
-<!-- Footer -->
 <footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <strong>SDO Web</strong>
-      <p>Développeur web freelance spécialisé dans la création de sites internet professionnels à Bruxelles et en Belgique. Sites vitrine, e-commerce et optimisation SEO.</p>
-      <p style="color: rgba(255,255,255,0.4);">© 2025 Silvio De Oliveira. Tous droits réservés.</p>
+  <div class="fin">
+    <div class="fbrand">
+      <strong>SDO<span>Web</span></strong>
+      <span>Création de sites internet — Belgique — © 2025 Silvio De Oliveira</span>
     </div>
-    <div>
-      <div class="footer-title">Navigation</div>
-      <ul class="footer-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#pricing">Tarifs</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-title">Services</div>
-      <ul class="footer-links">
-        <li><a href="#services">Site Vitrine</a></li>
-        <li><a href="#services">E-commerce</a></li>
-        <li><a href="#services">SEO</a></li>
-        <li><a href="#services">Maintenance</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-title">Contact</div>
-      <ul class="footer-links">
-        <li><a href="mailto:contact.sdo.web12@gmail.com">contact.sdo.web12@gmail.com</a></li>
-        <li><a href="mailto:devis.sdo.web@gmail.com">devis.sdo.web@gmail.com</a></li>
-        <li><a href="mailto:support.sdo.web@gmail.com">support.sdo.web@gmail.com</a></li>
-        <li>Bruxelles, Belgique</li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>Création de sites internet Belgique & Bruxelles • Développeur web freelance</p>
-    <p>Mots-clés : création site internet, développeur web freelance, création site Belgique, création site Bruxelles</p>
+    <nav class="fnav">
+      <a href="#services">Services</a>
+      <a href="#portfolio">Réalisations</a>
+      <a href="#pricing">Tarifs</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="https://www.instagram.com/sdo_web" target="_blank" rel="noopener noreferrer" class="fig">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+      @sdo_web
+    </a>
   </div>
 </footer>
 
 <script>
-// Navigation scroll effect
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
-});
+/* NAV */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50), {passive:true});
 
-// Mobile menu
-const burger = document.getElementById('burger');
-const mobileMenu = document.getElementById('mobileMenu');
-const overlay = document.getElementById('overlay');
-
-function toggleMenu() {
-  burger.classList.toggle('active');
-  mobileMenu.classList.toggle('active');
-  overlay.classList.toggle('active');
-  document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+/* BURGER */
+const burger = document.getElementById('burger'), drawer = document.getElementById('drawer'), overlay = document.getElementById('overlay');
+function toggleMenu(state) {
+  const isOpen = state ?? !drawer.classList.contains('open');
+  burger.classList.toggle('open', isOpen);
+  drawer.classList.toggle('open', isOpen);
+  overlay.classList.toggle('open', isOpen);
+  burger.setAttribute('aria-expanded', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
 }
+burger.addEventListener('click', () => toggleMenu());
+overlay.addEventListener('click', () => toggleMenu(false));
+document.querySelectorAll('.dl').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
 
-burger.addEventListener('click', toggleMenu);
-overlay.addEventListener('click', toggleMenu);
-document.querySelectorAll('.mobile-menu a').forEach(link => {
-  link.addEventListener('click', toggleMenu);
-});
-
-// FAQ Accordion
-document.querySelectorAll('.faq-question').forEach(question => {
-  question.addEventListener('click', () => {
-    const item = question.parentElement;
-    const isActive = item.classList.contains('active');
-    
-    // Close all
-    document.querySelectorAll('.faq-item').forEach(faq => {
-      faq.classList.remove('active');
-    });
-    
-    // Open clicked if wasn't active
-    if (!isActive) {
-      item.classList.add('active');
-    }
-  });
-});
-
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    if (this.getAttribute('href').startsWith('#')) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    }
-  });
-});
-
-// Intersection Observer for animations
+/* SCROLL REVEAL */
 const observerOptions = {
   threshold: 0.1,
   rootMargin: '0px 0px -50px 0px'
 };
-
-const observer = new IntersectionObserver((entries) => {
+const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
     }
   });
 }, observerOptions);
+document.querySelectorAll('.sr').forEach(el => revealObserver.observe(el));
 
-// Animate elements on scroll
-document.querySelectorAll('.service-card, .portfolio-card, .why-card, .testi-card, .pricing-card, .process-step, .contact-card').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-  observer.observe(el);
+/* COUNTER */
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && entry.target.dataset.count) {
+      const target = parseInt(entry.target.dataset.count);
+      let current = 0;
+      const increment = target / (2000 / 16);
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          entry.target.textContent = target + '+';
+          clearInterval(timer);
+        } else {
+          entry.target.textContent = Math.floor(current);
+        }
+      }, 16);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, {threshold: 0.5});
+document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+/* FAQ */
+document.querySelectorAll('.faq-q').forEach(question => {
+  const toggle = () => {
+    const item = question.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  };
+  question.addEventListener('click', toggle);
+  question.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggle();
+    }
+  });
+});
+
+/* SMOOTH SCROLL */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
+  });
+});
+
+/* FORM HANDLING */
+const API_URL = '/api/devis';
+const aiForm = document.getElementById('aiForm');
+const aiBtn = document.getElementById('aiBtn');
+const aiAnalyzing = document.getElementById('aiAnalyzing');
+const aiStepEl = document.getElementById('aiStep');
+const aiResult = document.getElementById('aiResult');
+
+const STEPS = [
+  'Analyse de votre demande...',
+  'Évaluation du projet...',
+  'Calcul de l\'estimation...',
+  'Préparation de la réponse...',
+  'Finalisation...'
+];
+let stepTimer = null;
+
+function startSteps() {
+  let i = 0;
+  aiStepEl.textContent = STEPS[0];
+  stepTimer = setInterval(() => {
+    i = (i + 1) % STEPS.length;
+    aiStepEl.style.opacity = '0';
+    setTimeout(() => {
+      aiStepEl.textContent = STEPS[i];
+      aiStepEl.style.opacity = '1';
+    }, 200);
+  }, 1800);
+}
+
+function stopSteps() {
+  clearInterval(stepTimer);
+}
+
+function validateForm() {
+  let isValid = true;
+  
+  const nom = document.getElementById('ai-nom');
+  const fNom = document.getElementById('f-nom');
+  if (!nom.value.trim() || nom.value.trim().length < 2) {
+    fNom.classList.add('has-err');
+    nom.classList.add('err');
+    isValid = false;
+  } else {
+    fNom.classList.remove('has-err');
+    nom.classList.remove('err');
+  }
+  
+  const email = document.getElementById('ai-email');
+  const fEmail = document.getElementById('f-email');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+    fEmail.classList.add('has-err');
+    email.classList.add('err');
+    isValid = false;
+  } else {
+    fEmail.classList.remove('has-err');
+    email.classList.remove('err');
+  }
+  
+  const svc = aiForm.querySelector('input[name="service"]:checked');
+  const errSvc = document.getElementById('err-svc');
+  if (!svc) {
+    errSvc.style.display = 'block';
+    isValid = false;
+  } else {
+    errSvc.style.display = 'none';
+  }
+  
+  const bgt = aiForm.querySelector('input[name="budget"]:checked');
+  const errBgt = document.getElementById('err-bgt');
+  if (!bgt) {
+    errBgt.style.display = 'block';
+    isValid = false;
+  } else {
+    errBgt.style.display = 'none';
+  }
+  
+  const desc = document.getElementById('ai-desc');
+  const fDesc = document.getElementById('f-desc');
+  if (!desc.value.trim() || desc.value.trim().length < 20) {
+    fDesc.classList.add('has-err');
+    desc.classList.add('err');
+    isValid = false;
+  } else {
+    fDesc.classList.remove('has-err');
+    desc.classList.remove('err');
+  }
+  
+  return isValid;
+}
+
+['ai-nom', 'ai-email', 'ai-desc'].forEach(id => {
+  const el = document.getElementById(id);
+  const map = {'ai-nom': 'f-nom', 'ai-email': 'f-email', 'ai-desc': 'f-desc'};
+  el?.addEventListener('input', () => {
+    document.getElementById(map[id])?.classList.remove('has-err');
+    el.classList.remove('err');
+  });
+});
+
+function buildSuccess(data) {
+  const price = (data.prixMin && data.prixMax) 
+    ? `${data.prixMin.toLocaleString('fr-BE')} € – ${data.prixMax.toLocaleString('fr-BE')} €` 
+    : 'Sur devis';
+  const quality = data.qualification || 'MOYEN';
+  
+  return `
+    <div class="rc ok">
+      <div class="rc-hd">
+        <div class="rc-ico">✓</div>
+        <div class="rc-hd-t">
+          <strong>Demande envoyée avec succès</strong>
+          <span>Je vous recontacte sous 24 heures</span>
+        </div>
+      </div>
+      <div class="qual-row">
+        <span class="qb ${quality}">Projet ${quality}</span>
+      </div>
+      <div class="pbox">
+        <div class="pb-lbl">Estimation indicative</div>
+        <div class="pb-val">${price}</div>
+        ${data.delai ? `<div class="pb-del">⏱ ${data.delai}</div>` : ''}
+      </div>
+      <div class="ai-msg">${data.message || 'Merci pour votre confiance. J\'étudie votre projet avec attention et vous contacte très vite pour affiner ensemble les détails.'}</div>
+      ${data.nextStep ? `<div class="nxt">${data.nextStep}</div>` : ''}
+      <div class="rc-actions">
+        <a href="https://www.instagram.com/sdo_web" target="_blank" rel="noopener noreferrer" class="btn-ig">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          Suivre sur Instagram
+        </a>
+        <button class="btn-reset" id="aiReset">Nouvelle demande</button>
+      </div>
+    </div>
+  `;
+}
+
+function buildError(msg) {
+  return `
+    <div class="rc ko">
+      <div class="rc-hd">
+        <div class="rc-ico">!</div>
+        <div class="rc-hd-t">
+          <strong>Une erreur est survenue</strong>
+          <span>${msg}</span>
+        </div>
+      </div>
+      <div class="rc-actions">
+        <a href="https://www.instagram.com/sdo_web" target="_blank" class="btn-ig">Me contacter sur Instagram</a>
+        <button class="btn-reset" id="aiReset">Réessayer</button>
+      </div>
+    </div>
+  `;
+}
+
+if (aiForm) {
+  aiForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+    
+    const payload = {
+      nom: document.getElementById('ai-nom').value.trim(),
+      email: document.getElementById('ai-email').value.trim(),
+      service: aiForm.querySelector('input[name="service"]:checked').value,
+      budget: aiForm.querySelector('input[name="budget"]:checked').value,
+      description: document.getElementById('ai-desc').value.trim()
+    };
+    
+    aiBtn.disabled = true;
+    aiBtn.classList.add('ld');
+    aiAnalyzing.classList.add('show');
+    aiResult.classList.remove('show');
+    aiResult.innerHTML = '';
+    
+    startSteps();
+    aiAnalyzing.scrollIntoView({behavior: 'smooth', block: 'center'});
+    
+    try {
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      
+      if (!res.ok) throw new Error(data.error || `Erreur ${res.status}`);
+      
+      stopSteps();
+      aiAnalyzing.classList.remove('show');
+      aiResult.innerHTML = buildSuccess(data);
+      aiResult.classList.add('show');
+      aiForm.style.display = 'none';
+      aiResult.scrollIntoView({behavior: 'smooth', block: 'start'});
+      
+    } catch(err) {
+      stopSteps();
+      aiAnalyzing.classList.remove('show');
+      aiResult.innerHTML = buildError(err.message || 'Erreur de connexion. Veuillez réessayer.');
+      aiResult.classList.add('show');
+    } finally {
+      aiBtn.disabled = false;
+      aiBtn.classList.remove('ld');
+    }
+  });
+}
+
+document.addEventListener('click', (e) => {
+  if (e.target.id === 'aiReset') {
+    aiForm.style.display = 'block';
+    aiForm.reset();
+    aiResult.innerHTML = '';
+    aiResult.classList.remove('show');
+    document.querySelector('.cform')?.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
 });
 </script>
 
