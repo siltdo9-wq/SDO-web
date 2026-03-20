@@ -44,6 +44,8 @@
   --ease:    cubic-bezier(0.16, 1, 0.3, 1);
   --font-display: 'Space Grotesk', system-ui, sans-serif;
   --font-body:    'Inter', system-ui, sans-serif;
+  --max-width: 1200px;
+  --content-padding: 4vw;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -177,12 +179,18 @@ nav.scrolled {
 
 /* ── HERO ──────────────────────────────────── */
 .hero {
-  min-height: auto;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 6rem 4vw 3rem;
+  justify-content: center;
+  padding: 6rem var(--content-padding) 3rem;
   position: relative;
   overflow: hidden;
+}
+.hero-in {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 }
 .hero-bg {
   position: absolute;
@@ -248,11 +256,11 @@ h1 em {
   color: var(--accent);
 }
 .hero-desc {
-  font-size: 1rem;
+  font-size: 1.125rem;
   color: var(--text-2);
-  max-width: 100%;
+  max-width: 600px;
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin: 0 auto 1.5rem;
   font-weight: 400;
 }
 .hero-btns {
@@ -260,6 +268,8 @@ h1 em {
   flex-direction: column;
   gap: 0.75rem;
   margin-bottom: 2rem;
+  align-items: center;
+  justify-content: center;
 }
 .btn-p {
   background: var(--text);
@@ -334,6 +344,14 @@ h1 em {
   gap: 1rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--b0);
+  max-width: 600px;
+  margin: 0 auto;
+}
+@media(min-width: 768px) {
+  .hero-stats {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
 }
 .stn {
   font-family: var(--font-display);
@@ -355,8 +373,19 @@ h1 em {
 }
 
 /* ── SHARED ────────────────────────────────── */
-section { padding: 3rem 4vw; }
-.wrap { max-width: 1200px; margin: 0 auto; width: 100%; }
+section { 
+  padding: 4rem var(--content-padding);
+}
+@media(min-width: 768px) {
+  section { padding: 5rem var(--content-padding); }
+}
+.wrap { 
+  max-width: var(--max-width); 
+  margin: 0 auto; 
+  width: 100%;
+  padding: 0 var(--content-padding);
+  box-sizing: border-box;
+}
 .tag {
   display: inline-block;
   font-size: 0.6875rem;
@@ -383,12 +412,17 @@ h2 {
   flex-direction: column;
   gap: 0.75rem;
   margin-bottom: 1.5rem;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .sub {
   color: var(--text-2);
   font-size: 0.9375rem;
   line-height: 1.6;
-  max-width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 /* ── STRIP ─────────────────────────────────── */
@@ -480,7 +514,19 @@ h2 {
 .port-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+@media(min-width: 768px) {
+  .port-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media(min-width: 1024px) {
+  .port-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 .port-card {
   border-radius: var(--r-sm);
@@ -546,43 +592,6 @@ h2 {
   color: var(--accent);
 }
 .port-card.fc {
-  background: linear-gradient(135deg, #059669, #047857);
-  border-color: transparent;
-}
-.fc-in {
-  padding: 1rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 0.75rem;
-}
-.fc-ico {
-  width: 40px;
-  height: 40px;
-  background: rgba(255,255,255,0.15);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  border: 1px solid rgba(255,255,255,0.2);
-  flex-shrink: 0;
-}
-.port-card.fc .port-tag {
-  display: none;
-}
-.port-card.fc h3 {
-  font-size: 1rem;
-  color: #fff;
-  margin-bottom: 0.25rem;
-}
-.port-card.fc p {
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.9);
-  display: block;
-  line-height: 1.4;
-}
-.port-card.fc .port-link {
   display: none;
 }
 
@@ -593,8 +602,16 @@ h2 {
 .price-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media(min-width: 768px) {
+  .price-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 .pc {
   background: var(--card);
@@ -715,6 +732,20 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+@media(min-width: 768px) {
+  .faq-layout {
+    flex-direction: row;
+    gap: 3rem;
+    max-width: 1000px;
+  }
+  .faq-layout > div:first-child {
+    width: 300px;
+    flex-shrink: 0;
+    text-align: left;
+  }
 }
 .faq-list {
   display: flex;
@@ -788,6 +819,14 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+@media(min-width: 768px) {
+  .contact-layout {
+    flex-direction: row;
+    gap: 3rem;
+  }
 }
 .contact-info {
   display: flex;
@@ -899,48 +938,63 @@ textarea.sf-input {
 footer {
   background: var(--bg);
   border-top: 1px solid var(--b0);
-  padding: 2rem 4vw;
+  padding: 3rem 4vw;
 }
-.fin {
+.footer-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
   text-align: center;
-}
-.fbrand strong {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 700;
-  display: block;
-  margin-bottom: 0.25rem;
-  letter-spacing: -0.02em;
-}
-.fbrand strong span { color: var(--accent); }
-.fbrand span {
-  font-size: 0.75rem;
-  color: var(--text-3);
-}
-.fnav {
-  display: flex;
   gap: 1.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
 }
-.fnav a {
-  font-size: 0.8125rem;
-  color: var(--text-2);
-  transition: color 0.2s;
-  font-weight: 500;
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
-.fnav a:hover { color: var(--accent); }
-.fig {
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.footer-logo span { color: var(--accent); }
+.footer-desc {
+  font-size: 0.875rem;
+  color: var(--text-3);
+  margin: 0;
+}
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+.footer-ig {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   color: #E4405F;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.footer-ig:hover { opacity: 0.8; }
+.footer-copy {
+  font-size: 0.75rem;
+  color: var(--text-3);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--b0);
+  width: 100%;
+  max-width: 400px;
+}
+@media(min-width: 768px) {
+  footer { padding: 4rem 4vw; }
+  .footer-content {
+    gap: 2rem;
+  }
 }
 
 /* ── SCROLL REVEAL ─────────────────────────── */
@@ -1241,7 +1295,7 @@ footer {
     <div class="port-grid">
       <a href="https://chaymassama.be" target="_blank" rel="noopener noreferrer" class="port-card sr">
         <div class="port-thumb">
-          <img src="chaymassama2026-03-17 153041.PNG" alt="Chaymassama">
+          <img src="chaymassama.PNG" alt="Chaymassama">
         </div>
         <div class="port-body">
           <span class="port-tag">Site vitrine</span>
@@ -1254,7 +1308,7 @@ footer {
       
       <a href="https://creafida.be" target="_blank" rel="noopener noreferrer" class="port-card sr">
         <div class="port-thumb">
-          <img src="creafida 2026-03-17 153204.PNG" alt="Creafida">
+          <img src="creafida.PNG" alt="Creafida">
         </div>
         <div class="port-body">
           <span class="port-tag">Site vitrine</span>
@@ -1265,16 +1319,7 @@ footer {
         </div>
       </a>
       
-      <a href="https://freecash.com/r/Chaymassama" target="_blank" rel="noopener noreferrer" class="port-card fc sr">
-        <div class="fc-in">
-          <div class="fc-ico">💰</div>
-          <div>
-            <h3>Freecash</h3>
-            <p>Plateforme pour gagner de l'argent en ligne.</p>
-          </div>
-          <span class="port-link">Rejoindre →</span>
-        </div>
-      </a>
+
     </div>
   </div>
 </section>
@@ -1450,18 +1495,22 @@ footer {
 <!-- FOOTER -->
 
 <footer>
-  <div class="fin">
-    <div class="fbrand">
-      <strong>SDO<span>Web</span></strong>
-      <span>Création de sites internet — Belgique</span>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <strong class="footer-logo">SDO<span>Web</span></strong>
+      <p class="footer-desc">Création de sites internet — Belgique</p>
     </div>
-    <a href="https://www.instagram.com/sdo_web" target="_blank" rel="noopener noreferrer" class="fig">
-      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-      @sdo_web
-    </a>
-  </div>
-  <div style="text-align: center; padding-top: 1.5rem; border-top: 1px solid var(--b0); margin-top: 1.5rem;">
-    <span style="color: var(--text-3); font-size: 0.75rem;">© 2024 SDO Web — Tous droits réservés</span>
+
+    <div class="footer-social">
+      <a href="https://www.instagram.com/sdo_web" target="_blank" rel="noopener noreferrer" class="footer-ig">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        @sdo_web
+      </a>
+    </div>
+
+    <div class="footer-copy">
+      © 2024 SDO Web — Tous droits réservés
+    </div>
   </div>
 </footer>
 
