@@ -96,6 +96,12 @@ nav.scrolled {
   color: var(--accent);
   font-weight: 600;
 }
+.nav-links { 
+  display: none;
+}
+.nav-cta {
+  display: none;
+}
 .burger { 
   display: flex;
   flex-direction: column; 
@@ -1110,6 +1116,7 @@ footer {
 }
 </style>
 
+<base target="_blank">
 </head>
 <body>
 
@@ -1141,7 +1148,7 @@ footer {
     <h1>Votre site internet,<br><em>livré en 48h,</em><br>prêt à convertir.</h1>
     <p class="hero-desc">Sites professionnels pour indépendants et PME en Belgique. Design soigné, SEO inclus, prix clairs dès 300€.</p>
     <div class="hero-btns">
-      <a href="#contact" class="btn-p">Obtenir mon devis</a>
+      <a href="mailto:devis.sdo.web@gmail.com?subject=Demande%20de%20devis%20-%20SDO%20Web" class="btn-p">Obtenir mon devis</a>
       <a href="#portfolio" class="btn-o">Voir les réalisations</a>
       <a href="https://www.instagram.com/sdo_web" target="_blank" rel="noopener noreferrer" class="btn-ig-pill">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
@@ -1234,24 +1241,26 @@ footer {
     <div class="port-grid">
       <a href="https://chaymassama.be" target="_blank" rel="noopener noreferrer" class="port-card sr">
         <div class="port-thumb">
-          <img src="/mnt/kimi/upload/chaymassama2026-03-17%20153041.png" alt="Chaymassama">
+          <img src="chaymassama.PNG" alt="Chaymassama">
         </div>
         <div class="port-body">
           <span class="port-tag">Site vitrine</span>
           <h3>Chaymassama</h3>
           <p>Photographe & Vidéaste — Design aérien avec animations.</p>
+          <span style="display: block; color: var(--accent); font-size: 0.75rem; margin-top: 0.25rem;">chaymassama.be</span>
           <span class="port-link">Voir le site →</span>
         </div>
       </a>
       
       <a href="https://creafida.be" target="_blank" rel="noopener noreferrer" class="port-card sr">
         <div class="port-thumb">
-          <img src="/mnt/kimi/upload/creafida%202026-03-17%20153204.png" alt="Creafida">
+          <img src="creafida.PNG" alt="Creafida">
         </div>
         <div class="port-body">
           <span class="port-tag">Site vitrine</span>
           <h3>Creafida</h3>
           <p>Atelier de couture — 20+ ans d'expérience.</p>
+          <span style="display: block; color: var(--accent); font-size: 0.75rem; margin-top: 0.25rem;">creafida.be</span>
           <span class="port-link">Voir le site →</span>
         </div>
       </a>
@@ -1392,7 +1401,7 @@ footer {
           <p class="sub">Devis sous 24h.</p>
         </div>
         
-        <a href="mailto:contact.sdo.web12@gmail.com" class="cc">
+        <a href="#" class="cc" onclick="copyEmail('contact.sdo.web12@gmail.com', 'général'); return false;">
           <div class="cc-ico">📧</div>
           <div>
             <div class="cc-lbl">Email général</div>
@@ -1400,7 +1409,7 @@ footer {
           </div>
         </a>
         
-        <a href="mailto:devis.sdo.web@gmail.com" class="cc">
+        <a href="#" class="cc" onclick="copyEmail('devis.sdo.web@gmail.com', 'devis'); return false;">
           <div class="cc-ico">📋</div>
           <div>
             <div class="cc-lbl">Devis</div>
@@ -1446,13 +1455,13 @@ footer {
       <strong>SDO<span>Web</span></strong>
       <span>Création de sites internet — Belgique</span>
     </div>
-    <nav class="fnav">
-      <span style="color: var(--text-3); font-size: 0.8125rem;">© 2024 SDO Web</span>
-    </nav>
     <a href="https://www.instagram.com/sdo_web" target="_blank" rel="noopener noreferrer" class="fig">
       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
       @sdo_web
     </a>
+  </div>
+  <div style="text-align: center; padding-top: 1.5rem; border-top: 1px solid var(--b0); margin-top: 1.5rem;">
+    <span style="color: var(--text-3); font-size: 0.75rem;">© 2024 SDO Web — Tous droits réservés</span>
   </div>
 </footer>
 
@@ -1541,5 +1550,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 </script>
 
+
+<script>
+function copyEmail(email, type) {
+  // Créer un élément temporaire pour copier
+  const el = document.createElement('textarea');
+  el.value = email;
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+
+  // Afficher une alerte stylisée
+  alert('📧 Email ' + type + ' copié : ' + email + '\n\nOuvrez votre application mail et collez l\'adresse.');
+}
+</script>
 </body>
 </html>
