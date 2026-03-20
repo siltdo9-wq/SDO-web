@@ -47,7 +47,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; scroll-behavior: smooth; scroll-padding-top: 80px; }
+html { font-size: 16px; scroll-behavior: smooth; scroll-padding-top: 70px; }
 body {
   font-family: var(--font-body);
   background: var(--bg);
@@ -66,127 +66,79 @@ nav {
   top: 0; 
   left: 0; 
   right: 0; 
-  z-index: 100;
+  z-index: 1000;
   display: flex; 
   align-items: center; 
   justify-content: space-between;
-  padding: 1rem 5vw;
+  padding: 0.75rem 4vw;
   transition: background 0.3s var(--ease), backdrop-filter 0.3s var(--ease);
+  height: 60px;
 }
 nav.scrolled {
-  background: rgba(12,12,14,0.9);
+  background: rgba(12,12,14,0.95);
   backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--b0);
 }
 .logo {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--text);
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.35rem;
   flex-shrink: 0;
   white-space: nowrap;
-  margin-right: 2rem;
-  z-index: 102;
+  z-index: 1001;
 }
 .logo span {
   color: var(--accent);
   font-weight: 600;
 }
-.nav-links { 
-  display: flex; 
-  gap: 2rem; 
-  align-items: center;
-  margin-left: auto;
-  margin-right: 1.5rem;
-}
-.nav-links a {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text-2);
-  transition: color 0.2s ease;
-  position: relative;
-  white-space: nowrap;
-}
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--accent);
-  transition: width 0.3s var(--ease);
-}
-.nav-links a:hover {
-  color: var(--text);
-}
-.nav-links a:hover::after {
-  width: 100%;
-}
-.nav-cta {
-  background: var(--text);
-  color: var(--bg);
-  padding: 0.625rem 1.25rem;
-  border-radius: 100px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  font-family: var(--font-body);
-  transition: all 0.3s var(--ease);
-  letter-spacing: -0.01em;
-  white-space: nowrap;
-  flex-shrink: 0;
-  margin-right: 1rem;
-}
-.nav-cta:hover {
-  background: var(--accent);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 20px var(--accent-glow);
-}
 .burger { 
-  display: none; 
+  display: flex;
   flex-direction: column; 
-  gap: 5px; 
+  gap: 4px; 
   cursor: pointer; 
-  z-index: 101; 
+  z-index: 1001; 
   padding: 0.5rem;
-  flex-shrink: 0;
-  margin-left: 0.5rem;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
 }
 .burger span { 
   display: block; 
-  width: 24px; 
+  width: 22px; 
   height: 2px; 
   background: var(--text); 
   border-radius: 2px; 
   transition: all 0.3s var(--ease); 
 }
-.burger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
-.burger.open span:nth-child(2) { opacity: 0; transform: translateX(-10px); }
-.burger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+.burger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
 .drawer {
   position: fixed; 
   top: 0; 
   right: -100%; 
-  width: min(85vw, 380px); 
+  width: 280px; 
   height: 100vh;
   background: var(--bg-2);
   border-left: 1px solid var(--b0);
-  z-index: 100;
-  padding: 6rem 2rem 2rem;
+  z-index: 999;
+  padding: 5rem 1.5rem 2rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  transition: right 0.5s var(--ease);
+  gap: 0.25rem;
+  transition: right 0.3s var(--ease);
 }
 .drawer.open { right: 0; }
 .drawer a {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 500;
-  padding: 1rem 0;
+  padding: 0.875rem 0;
   border-bottom: 1px solid var(--b0);
   color: var(--text);
   transition: all 0.2s;
@@ -195,14 +147,14 @@ nav.scrolled {
 }
 .drawer a:hover { color: var(--accent); padding-left: 0.5rem; }
 .drawer .d-cta {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   background: var(--accent);
   color: var(--bg);
   text-align: center;
-  padding: 1rem;
+  padding: 0.875rem;
   border-radius: var(--r);
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.9375rem;
   border: none;
 }
 .overlay {
@@ -210,19 +162,19 @@ nav.scrolled {
   inset: 0;
   background: rgba(0,0,0,0.8);
   backdrop-filter: blur(4px);
-  z-index: 99;
+  z-index: 998;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.4s var(--ease);
+  transition: all 0.3s var(--ease);
 }
 .overlay.open { opacity: 1; visibility: visible; }
 
 /* ── HERO ──────────────────────────────────── */
 .hero {
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   align-items: center;
-  padding: 10rem 5vw 5rem;
+  padding: 6rem 4vw 3rem;
   position: relative;
   overflow: hidden;
 }
@@ -235,28 +187,19 @@ nav.scrolled {
 .hero-bg::before {
   content: '';
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 1200px;
-  height: 1200px;
+  width: 600px;
+  height: 600px;
   background: radial-gradient(circle, var(--accent-dim) 0%, transparent 60%);
-  opacity: 0.6;
-}
-.hero-grid {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+  opacity: 0.5;
 }
 .hero-in {
   position: relative;
   z-index: 1;
-  max-width: 720px;
+  max-width: 100%;
+  width: 100%;
 }
 .pill {
   display: inline-flex;
@@ -265,19 +208,18 @@ nav.scrolled {
   background: var(--accent-dim);
   border: 1px solid var(--accent-med);
   color: var(--accent);
-  padding: 0.5rem 1rem;
+  padding: 0.375rem 0.875rem;
   border-radius: 100px;
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  margin-bottom: 2rem;
-  backdrop-filter: blur(10px);
+  margin-bottom: 1.25rem;
 }
 .pill::before {
   content: '';
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   background: var(--accent);
   border-radius: 50%;
   animation: pulse 2s infinite;
@@ -288,47 +230,35 @@ nav.scrolled {
 }
 h1 {
   font-family: var(--font-display);
-  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  font-size: clamp(2rem, 8vw, 3rem);
   font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
   color: var(--text);
 }
 h1 em {
   font-style: normal;
   color: var(--accent);
-  position: relative;
-}
-h1 em::after {
-  content: '';
-  position: absolute;
-  bottom: 0.1em;
-  left: 0;
-  width: 100%;
-  height: 0.15em;
-  background: var(--accent-med);
-  z-index: -1;
-  border-radius: 2px;
 }
 .hero-desc {
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: var(--text-2);
-  max-width: 520px;
-  line-height: 1.7;
-  margin-bottom: 2.5rem;
+  max-width: 100%;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
   font-weight: 400;
 }
 .hero-btns {
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 4rem;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
 }
 .btn-p {
   background: var(--text);
   color: var(--bg);
-  padding: 1rem 2rem;
+  padding: 0.875rem 1.5rem;
   border-radius: 100px;
   font-size: 0.9375rem;
   font-weight: 600;
@@ -336,9 +266,11 @@ h1 em::after {
   transition: all 0.3s var(--ease);
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   border: none;
   cursor: pointer;
+  width: 100%;
 }
 .btn-p:hover {
   background: var(--accent);
@@ -348,7 +280,7 @@ h1 em::after {
 .btn-o {
   background: transparent;
   color: var(--text);
-  padding: 1rem 2rem;
+  padding: 0.875rem 1.5rem;
   border-radius: 100px;
   font-size: 0.9375rem;
   font-weight: 500;
@@ -357,8 +289,10 @@ h1 em::after {
   transition: all 0.3s var(--ease);
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   cursor: pointer;
+  width: 100%;
 }
 .btn-o:hover {
   border-color: var(--accent);
@@ -369,7 +303,7 @@ h1 em::after {
 .btn-ig-pill {
   background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
   color: #fff;
-  padding: 1rem 2rem;
+  padding: 0.875rem 1.5rem;
   border-radius: 100px;
   font-size: 0.9375rem;
   font-weight: 600;
@@ -377,9 +311,11 @@ h1 em::after {
   transition: all 0.3s var(--ease);
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   border: none;
   cursor: pointer;
+  width: 100%;
 }
 .btn-ig-pill:hover {
   transform: translateY(-2px);
@@ -387,15 +323,15 @@ h1 em::after {
   filter: brightness(1.1);
 }
 .hero-stats {
-  display: flex;
-  gap: 4rem;
-  flex-wrap: wrap;
-  padding-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding-top: 1.5rem;
   border-top: 1px solid var(--b0);
 }
 .stn {
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: var(--text);
   line-height: 1;
@@ -403,385 +339,325 @@ h1 em::after {
 }
 .stn span {
   color: var(--accent);
+  font-size: 1.25rem;
 }
 .stt {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: var(--text-3);
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
   font-weight: 500;
 }
 
 /* ── SHARED ────────────────────────────────── */
-section { padding: 6rem 5vw; }
+section { padding: 3rem 4vw; }
 .wrap { max-width: 1200px; margin: 0 auto; width: 100%; }
 .tag {
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 1rem;
-  padding: 0.5rem 1rem;
+  margin-bottom: 0.75rem;
+  padding: 0.375rem 0.875rem;
   background: var(--accent-dim);
   border-radius: 100px;
   border: 1px solid var(--accent-med);
 }
 h2 {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.5rem, 5vw, 2.25rem);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 .sh {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 2rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
 }
 .sub {
   color: var(--text-2);
-  font-size: 1.125rem;
-  line-height: 1.7;
-  max-width: 480px;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  max-width: 100%;
+}
+
+/* ── STRIP ─────────────────────────────────── */
+.strip {
+  background: var(--bg-2);
+  border-top: 1px solid var(--b0);
+  border-bottom: 1px solid var(--b0);
+  padding: 1rem 4vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+.strip-lbl {
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  font-weight: 600;
+}
+.strip-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1.25rem;
+}
+.strip-tag {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-2);
 }
 
 /* ── SERVICES ──────────────────────────────── */
 #services { background: var(--bg-2); }
 .svc-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
 }
 .svc {
   background: var(--card);
-  padding: 2rem;
-  border-radius: var(--r);
+  padding: 1rem;
+  border-radius: var(--r-sm);
   border: 1px solid var(--b0);
-  transition: all 0.4s var(--ease);
-  position: relative;
-  overflow: hidden;
+  transition: all 0.3s var(--ease);
   display: flex;
   flex-direction: column;
-  height: 100%;
-}
-.svc::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  opacity: 0;
-  transition: opacity 0.4s;
 }
 .svc:hover {
   border-color: var(--b1);
-  transform: translateY(-4px);
   background: var(--card-2);
 }
-.svc:hover::before {
-  opacity: 0.5;
-}
 .svc-ico {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
   display: block;
-  filter: grayscale(0.3);
-  transition: filter 0.3s;
-}
-.svc:hover .svc-ico {
-  filter: grayscale(0);
 }
 .svc h3 {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 0.9375rem;
   font-weight: 600;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.375rem;
   color: var(--text);
   letter-spacing: -0.01em;
 }
 .svc p {
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
   color: var(--text-2);
-  line-height: 1.7;
-  flex-grow: 1;
-  margin-bottom: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+  display: none;
 }
 .svc-price {
   display: inline-flex;
   align-self: flex-start;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--accent);
-  padding: 0.5rem 1rem;
+  padding: 0.375rem 0.75rem;
   background: var(--accent-dim);
   border-radius: 100px;
   letter-spacing: 0.02em;
   border: 1px solid var(--accent-med);
+  margin-top: auto;
 }
 
 /* ── PORTFOLIO ─────────────────────────────── */
 #portfolio { background: var(--bg); }
 .port-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 .port-card {
-  border-radius: var(--r);
+  border-radius: var(--r-sm);
   overflow: hidden;
   background: var(--card);
   border: 1px solid var(--b0);
-  transition: all 0.4s var(--ease);
+  transition: all 0.3s var(--ease);
   display: block;
-  position: relative;
 }
 .port-card:hover {
   border-color: var(--b1);
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px -20px rgba(0,0,0,0.5);
-}
-.port-card::after {
-  content: '→';
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  width: 44px;
-  height: 44px;
-  background: var(--text);
-  color: var(--bg);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.3s var(--ease);
-  z-index: 10;
-}
-.port-card:hover::after {
-  opacity: 1;
-  transform: translateY(0);
+  transform: translateY(-4px);
 }
 .port-thumb {
-  height: 240px;
+  height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   background: var(--bg-2);
-  position: relative;
 }
 .port-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s var(--ease);
-}
-.port-card:hover .port-thumb img {
-  transform: scale(1.05);
-}
-.port-thumb::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 100%);
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.port-card:hover .port-thumb::before {
-  opacity: 1;
 }
 .port-body {
-  padding: 1.75rem;
+  padding: 1rem;
 }
 .port-tag {
-  font-size: 0.6875rem;
+  font-size: 0.625rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
   background: var(--accent-dim);
-  padding: 0.375rem 0.875rem;
+  padding: 0.25rem 0.625rem;
   border-radius: 100px;
   display: inline-block;
-  margin-bottom: 0.875rem;
+  margin-bottom: 0.5rem;
   border: 1px solid var(--accent-med);
 }
 .port-body h3 {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.375rem;
   font-family: var(--font-display);
   letter-spacing: -0.01em;
 }
 .port-body p {
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
   color: var(--text-2);
-  line-height: 1.6;
+  line-height: 1.5;
+  display: none;
 }
 .port-link {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  margin-top: 1rem;
-  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
   font-weight: 500;
   color: var(--accent);
-  transition: gap 0.3s;
-}
-.port-card:hover .port-link {
-  gap: 0.5rem;
 }
 .port-card.fc {
   background: linear-gradient(135deg, #059669, #047857);
   border-color: transparent;
 }
-.port-card.fc:hover {
-  box-shadow: 0 20px 50px -20px rgba(5, 150, 105, 0.4);
-}
 .fc-in {
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  height: 100%;
-  color: white;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
 }
 .fc-ico {
-  width: 56px;
-  height: 56px;
+  width: 40px;
+  height: 40px;
   background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   border: 1px solid rgba(255,255,255,0.2);
+  flex-shrink: 0;
 }
 .port-card.fc .port-tag {
-  background: rgba(255,255,255,0.15);
-  color: #fff;
-  border-color: rgba(255,255,255,0.2);
+  display: none;
 }
 .port-card.fc h3 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: #fff;
+  margin-bottom: 0.25rem;
 }
 .port-card.fc p {
+  font-size: 0.75rem;
   color: rgba(255,255,255,0.9);
+  display: block;
+  line-height: 1.4;
 }
 .port-card.fc .port-link {
-  color: #fff;
-  margin-top: auto;
+  display: none;
 }
 
 /* ── PRICING ───────────────────────────────── */
 #pricing { background: var(--bg-2); }
-.price-hd { text-align: center; max-width: 600px; margin: 0 auto 3.5rem; }
+.price-hd { text-align: left; margin-bottom: 1.5rem; }
+.price-hd h2 { text-align: left; }
 .price-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 .pc {
   background: var(--card);
   border: 1px solid var(--b0);
-  border-radius: var(--r);
-  padding: 2rem;
-  transition: all 0.4s var(--ease);
-  position: relative;
+  border-radius: var(--r-sm);
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
 }
-.pc:hover {
-  border-color: var(--b1);
-  transform: translateY(-4px);
-}
 .pc.star {
-  background: var(--bg);
   border-color: var(--accent);
-  box-shadow: 0 0 0 1px var(--accent-med), 0 25px 60px -20px rgba(0,0,0,0.5);
-  position: relative;
-  overflow: hidden;
-}
-.pc.star::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  background: var(--bg);
 }
 .pbadge {
-  font-size: 0.6875rem;
+  font-size: 0.625rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--bg);
   background: var(--accent);
-  padding: 0.5rem 1rem;
+  padding: 0.375rem 0.75rem;
   border-radius: 100px;
   display: inline-flex;
   align-self: flex-start;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
   align-items: center;
-  gap: 0.375rem;
+  gap: 0.25rem;
 }
 .pbadge::before {
   content: '★';
 }
 .pc h3 {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--text-3);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 .pval {
   font-family: var(--font-display);
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   font-weight: 700;
   line-height: 1;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   letter-spacing: -0.02em;
-  white-space: nowrap;
 }
 .pper {
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
   color: var(--text-3);
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 .pc > p {
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: var(--text-2);
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
 }
 .pfs {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-  flex-grow: 1;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 .pf {
   display: flex;
   align-items: flex-start;
-  gap: 0.75rem;
-  font-size: 0.9375rem;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
   color: var(--text-2);
 }
 .pf::before {
@@ -794,62 +670,57 @@ h2 {
   width: 100%;
   justify-content: center;
   margin-top: auto;
+  padding: 0.75rem;
+  font-size: 0.875rem;
 }
 .maint {
   background: var(--card);
   border: 1px solid var(--b0);
-  border-radius: var(--r);
-  padding: 2rem;
+  border-radius: var(--r-sm);
+  padding: 1.25rem;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 .maint h4 {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.25rem;
   font-family: var(--font-display);
 }
 .maint p {
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
   color: var(--text-2);
 }
 .maint-price {
   font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--accent);
-  white-space: nowrap;
 }
 .maint-per {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: var(--text-3);
 }
 
 /* ── FAQ ───────────────────────────────────── */
-#faq { background: var(--bg); }
+#faq { background: var(--bg); padding: 2rem 4vw; }
 .faq-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 6rem;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 .faq-list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 .faq-item {
   background: var(--card);
   border: 1px solid var(--b0);
-  border-radius: var(--r);
+  border-radius: var(--r-sm);
   overflow: hidden;
   transition: all 0.3s var(--ease);
-}
-.faq-item:hover {
-  border-color: var(--b1);
 }
 .faq-item.open {
   border-color: var(--accent-med);
@@ -859,13 +730,13 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
+  padding: 1rem;
   cursor: pointer;
-  font-size: 1.0625rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   color: var(--text);
   transition: color 0.2s;
-  gap: 1rem;
+  gap: 0.75rem;
   line-height: 1.4;
   font-family: var(--font-display);
 }
@@ -873,15 +744,15 @@ h2 {
   color: var(--accent);
 }
 .faq-ico {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
   border-radius: 50%;
   border: 1px solid var(--b1);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 0.875rem;
   transition: all 0.3s var(--ease);
   color: var(--text-3);
   font-weight: 300;
@@ -895,550 +766,145 @@ h2 {
 .faq-a {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s var(--ease), padding 0.5s var(--ease);
-  font-size: 0.9375rem;
+  transition: max-height 0.3s var(--ease), padding 0.3s var(--ease);
+  font-size: 0.8125rem;
   color: var(--text-2);
-  line-height: 1.8;
+  line-height: 1.7;
 }
 .faq-item.open .faq-a {
-  max-height: 300px;
-  padding: 0 1.5rem 1.5rem;
+  max-height: 200px;
+  padding: 0 1rem 1rem;
 }
 
 /* ── CONTACT ───────────────────────────────── */
-#contact { background: var(--bg-2); }
+#contact { background: var(--bg-2); padding: 2rem 4vw; }
 .contact-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 4rem;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 .contact-info {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  position: sticky;
-  top: 100px;
+  gap: 0.75rem;
 }
 .cc {
   background: var(--card);
   border: 1px solid var(--b0);
-  border-radius: var(--r);
-  padding: 1.25rem 1.5rem;
+  border-radius: var(--r-sm);
+  padding: 0.875rem 1rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
   transition: all 0.3s var(--ease);
-}
-.cc:hover {
-  border-color: var(--accent-med);
-  background: var(--card-2);
-  transform: translateX(4px);
 }
 .cc-ico {
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   flex-shrink: 0;
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(--accent-dim);
   border: 1px solid var(--accent-med);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
-  transition: all 0.3s;
-}
-.cc:hover .cc-ico {
-  background: var(--accent);
-  transform: scale(1.05);
+  font-size: 1rem;
 }
 .cc-lbl {
-  font-size: 0.6875rem;
+  font-size: 0.625rem;
   font-weight: 600;
   color: var(--text-3);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.125rem;
 }
 .cc-val {
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--text);
 }
 
-/* Form */
-.cform {
+/* Simple Contact Form */
+.simple-form {
   background: var(--card);
   border: 1px solid var(--b0);
-  border-radius: var(--r);
-  padding: 2rem;
-}
-.cf-title {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.01em;
-}
-.cf-sub {
-  font-size: 1rem;
-  color: var(--text-2);
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-.cf-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--accent);
-  background: var(--accent-dim);
-  border: 1px solid var(--accent-med);
-  padding: 0.5rem 1rem;
-  border-radius: 100px;
-  margin-bottom: 2rem;
-}
-.fs-lbl {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-3);
-  margin-bottom: 1.25rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--b0);
-  font-family: var(--font-display);
-}
-.fs-lbl span {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: var(--accent-dim);
-  border: 1px solid var(--accent-med);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
-  color: var(--accent);
-  font-weight: 700;
-  flex-shrink: 0;
-}
-.fsec { margin-bottom: 2rem; }
-.frow {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-.fd {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-.fd:last-child { margin-bottom: 0; }
-.fd label {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text-2);
-  letter-spacing: -0.01em;
-}
-.fd label em {
-  color: var(--accent);
-  font-style: normal;
-  margin-left: 2px;
-}
-.fd input, .fd textarea {
-  background: var(--bg);
-  border: 1px solid var(--b0);
   border-radius: var(--r-sm);
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 0.9375rem;
-  padding: 0.875rem 1rem;
-  transition: all 0.2s;
-  line-height: 1.5;
+  padding: 1.25rem;
 }
-.fd input:focus, .fd textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-glow);
-}
-.fd textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-.fd input::placeholder, .fd textarea::placeholder {
-  color: var(--text-3);
-}
-.fd input.err, .fd textarea.err {
-  border-color: var(--error) !important;
-  box-shadow: 0 0 0 3px rgba(239,68,68,0.1) !important;
-}
-.fd-err {
-  font-size: 0.8125rem;
-  color: var(--error);
-  margin-top: 0.25rem;
-  display: none;
-  align-items: center;
-  gap: 0.25rem;
-}
-.fd-err::before {
-  content: '•';
-}
-.fd.has-err .fd-err { display: flex; }
-
-/* Radio grids */
-.svc-r {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 0.75rem;
-}
-.sr-opt { position: relative; }
-.sr-opt input {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-.sr-opt label {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  background: var(--bg);
-  border: 1px solid var(--b0);
-  border-radius: var(--r-sm);
-  padding: 1rem 1.25rem;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: var(--text);
-}
-.sr-opt label .si {
-  font-size: 1.25rem;
+.simple-form h3 {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
   margin-bottom: 0.25rem;
 }
-.sr-opt label .sp {
-  font-size: 0.8125rem;
-  color: var(--text-3);
-  font-weight: 400;
+.simple-form > p {
+  font-size: 0.875rem;
+  color: var(--text-2);
+  margin-bottom: 1rem;
 }
-.sr-opt input:checked + label {
-  border-color: var(--accent);
-  background: var(--accent-dim);
-  box-shadow: 0 0 0 1px var(--accent);
+.sf-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
 }
-.sr-opt label:hover {
-  border-color: var(--b2);
-}
-.r-err {
-  font-size: 0.8125rem;
-  color: var(--error);
-  margin-top: 0.5rem;
-  display: none;
-}
-.bgt-r {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.br-opt { position: relative; }
-.br-opt input {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-.br-opt label {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.sf-input {
   background: var(--bg);
   border: 1px solid var(--b0);
   border-radius: var(--r-sm);
-  padding: 0.875rem 1.25rem;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-size: 0.9375rem;
-}
-.br-opt label .brange {
-  font-size: 0.8125rem;
-  color: var(--text-3);
-}
-.br-opt input:checked + label {
-  border-color: var(--accent);
-  background: var(--accent-dim);
-  box-shadow: 0 0 0 1px var(--accent);
-}
-.br-opt label:hover {
-  border-color: var(--b2);
-}
-
-.btn-submit {
-  background: var(--text);
-  color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  padding: 0.75rem;
   width: 100%;
-  padding: 1rem;
-  border: none;
-  border-radius: 100px;
-  font-family: var(--font-body);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s var(--ease);
-  margin-top: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  letter-spacing: -0.01em;
+  transition: all 0.2s;
 }
-.btn-submit:hover:not(:disabled) {
-  background: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px -10px var(--accent-glow);
-}
-.btn-submit:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transform: none !important;
-}
-.btn-submit .spin {
-  width: 18px;
-  height: 18px;
-  border: 2px solid var(--bg);
-  border-top-color: transparent;
-  border-radius: 50%;
-  animation: rot 0.7s linear infinite;
-  display: none;
-  flex-shrink: 0;
-}
-.btn-submit.ld .spin { display: block; }
-.btn-submit.ld .st { display: none; }
-@keyframes rot { to { transform: rotate(360deg); } }
-
-.analyzing {
-  display: none;
-  text-align: center;
-  padding: 3rem;
-  background: var(--accent-dim);
-  border: 1px solid var(--accent-med);
-  border-radius: var(--r);
-  margin-top: 1.5rem;
-}
-.analyzing.show { display: block; }
-.a-spin {
-  width: 48px;
-  height: 48px;
-  border: 2px solid var(--accent-med);
-  border-top-color: var(--accent);
-  border-radius: 50%;
-  animation: rot 1s linear infinite;
-  margin: 0 auto 1.5rem;
-}
-.a-title {
-  font-family: var(--font-display);
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
-}
-.a-step {
-  font-size: 0.875rem;
-  color: var(--text-2);
-  transition: opacity 0.3s;
-}
-
-.ai-res { display: none; margin-top: 1.5rem; }
-.ai-res.show {
-  display: block;
-  animation: fup 0.6s var(--ease) both;
-}
-@keyframes fup {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: none; }
-}
-.rc {
-  border-radius: var(--r);
-  padding: 2rem;
-  border: 1px solid;
-}
-.rc.ok {
-  background: var(--accent-dim);
-  border-color: var(--accent-med);
-}
-.rc.ko {
-  background: rgba(239,68,68,0.05);
-  border-color: rgba(239,68,68,0.2);
-}
-.rc-hd {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-.rc-ico {
-  font-size: 2rem;
-  line-height: 1;
-}
-.rc-hd-t strong {
-  font-size: 1.125rem;
-  font-weight: 600;
-  display: block;
-  font-family: var(--font-display);
-}
-.rc-hd-t span {
-  font-size: 0.875rem;
-  color: var(--text-2);
-}
-.qual-row { margin-bottom: 1.25rem; }
-.qb {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.375rem 1rem;
-  border-radius: 100px;
-  display: inline-block;
-}
-.qb.PREMIUM {
-  background: rgba(251,191,36,0.15);
-  color: var(--accent);
-  border: 1px solid var(--accent-med);
-}
-.qb.MOYEN {
-  background: var(--accent-dim);
-  color: var(--accent);
-  border-color: var(--accent-med);
-}
-.qb.FAIBLE {
-  background: rgba(239,68,68,0.1);
-  color: var(--error);
-  border: 1px solid rgba(239,68,68,0.2);
-}
-.pbox {
-  background: var(--bg);
-  border: 1px solid var(--b0);
-  border-radius: var(--r-sm);
-  padding: 1.25rem;
-  margin-bottom: 1.25rem;
-}
-.pb-lbl {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  color: var(--text-3);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-.pb-val {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1;
-}
-.pb-del {
-  font-size: 0.875rem;
-  color: var(--text-2);
-  margin-top: 0.5rem;
-}
-.ai-msg {
-  font-size: 0.9375rem;
-  color: var(--text);
-  line-height: 1.8;
-  padding: 1.25rem;
-  background: var(--bg);
-  border-radius: var(--r-sm);
-  border: 1px solid var(--b0);
-  white-space: pre-wrap;
-  margin-bottom: 1.25rem;
-}
-.nxt {
-  padding: 1rem 1.25rem;
-  background: var(--bg);
-  border: 1px solid var(--b0);
-  border-radius: var(--r-sm);
-  font-size: 0.875rem;
-  color: var(--text);
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-}
-.nxt::before {
-  content: '→';
-  color: var(--accent);
-  font-weight: 600;
-  flex-shrink: 0;
-}
-.rc-actions {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-.btn-ig {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(45deg,#f09433,#dc2743,#bc1888);
-  color: #fff;
-  padding: 0.875rem 1.5rem;
-  border-radius: 100px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-.btn-ig:hover {
-  filter: brightness(1.1);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px -10px rgba(220,39,67,0.4);
-}
-.btn-reset {
-  background: transparent;
-  border: 1px solid var(--b1);
-  color: var(--text-2);
-  padding: 0.875rem 1.5rem;
-  border-radius: 100px;
-  font-size: 0.875rem;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-family: var(--font-body);
-  font-weight: 500;
-}
-.btn-reset:hover {
+.sf-input:focus {
+  outline: none;
   border-color: var(--accent);
-  color: var(--accent);
-  background: var(--accent-dim);
+  box-shadow: 0 0 0 2px var(--accent-glow);
+}
+.sf-input::placeholder {
+  color: var(--text-3);
+}
+textarea.sf-input {
+  min-height: 80px;
+  resize: vertical;
+  margin-bottom: 0.75rem;
+}
+.sf-btn {
+  background: var(--accent);
+  color: var(--bg);
+  padding: 0.875rem;
+  border-radius: var(--r-sm);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s;
+}
+.sf-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
 }
 
 /* ── FOOTER ────────────────────────────────── */
 footer {
   background: var(--bg);
   border-top: 1px solid var(--b0);
-  padding: 3rem 5vw;
+  padding: 2rem 4vw;
 }
 .fin {
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1rem;
+  text-align: center;
 }
 .fbrand strong {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   display: block;
   margin-bottom: 0.25rem;
@@ -1446,15 +912,17 @@ footer {
 }
 .fbrand strong span { color: var(--accent); }
 .fbrand span {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: var(--text-3);
 }
 .fnav {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .fnav a {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: var(--text-2);
   transition: color 0.2s;
   font-weight: 500;
@@ -1467,108 +935,178 @@ footer {
   font-size: 0.875rem;
   font-weight: 500;
   color: #E4405F;
-  transition: transform 0.2s;
-}
-.fig:hover {
-  transform: translateY(-2px);
-}
-
-/* ── STRIP ─────────────────────────────────── */
-.strip {
-  background: var(--bg-2);
-  border-top: 1px solid var(--b0);
-  border-bottom: 1px solid var(--b0);
-  padding: 1.25rem 5vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  flex-wrap: wrap;
-}
-.strip-lbl {
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-3);
-  font-weight: 600;
-  white-space: nowrap;
-}
-.strip-tags {
-  display: flex;
-  gap: 2.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.strip-tag {
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: var(--text-2);
-  position: relative;
-  transition: color 0.3s;
-}
-.strip-tag:hover {
-  color: var(--accent);
-}
-.strip-tag:not(:last-child)::after {
-  content: '·';
-  position: absolute;
-  right: -1.5rem;
-  color: var(--b1);
 }
 
 /* ── SCROLL REVEAL ─────────────────────────── */
 .sr {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+  transform: translateY(20px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
 }
 .sr.visible {
   opacity: 1;
   transform: none;
 }
 
-/* ── RESPONSIVE ────────────────────────────── */
-@media(max-width: 1024px) {
-  .faq-layout, .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
-  .contact-info { position: static; }
-  .nav-links { gap: 1.5rem; }
-}
-@media(max-width: 900px) {
-  .nav-links { display: none; }
-  .burger { display: flex; }
-  .nav-cta { display: none; }
-}
-@media(max-width: 768px) {
+/* ── DESKTOP BREAKPOINT ────────────────────── */
+@media(min-width: 768px) {
+  html { scroll-padding-top: 80px; }
+  
+  nav {
+    padding: 1rem 5vw;
+    height: 70px;
+  }
+  .nav-links, .nav-cta { display: none !important; }
+  .burger { display: flex !important; }
+  
+  .hero {
+    min-height: 100vh;
+    padding: 8rem 5vw 4rem;
+  }
+  .hero-desc {
+    max-width: 480px;
+    font-size: 1.125rem;
+  }
+  .hero-btns {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .btn-p, .btn-o, .btn-ig-pill {
+    width: auto;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    grid-template-columns: none;
+  }
+  .stn {
+    font-size: 2.25rem;
+  }
+  .stn span {
+    font-size: 1.5rem;
+  }
+  
   section { padding: 4rem 5vw; }
-  .hero { padding: 8rem 5vw 4rem; min-height: auto; }
-  .hero-stats { gap: 2.5rem; }
-  .sh { flex-direction: column; align-items: flex-start; gap: 1rem; }
-  .maint { flex-direction: column; text-align: center; gap: 1.5rem; }
-  .fin { flex-direction: column; text-align: center; }
-  .fnav { justify-content: center; flex-wrap: wrap; }
-  .fig { justify-content: center; }
-  .strip { gap: 1.5rem; }
-  .strip-tags { gap: 1.5rem; }
-  .strip-tag:not(:last-child)::after { display: none; }
-  .port-grid { grid-template-columns: 1fr; }
+  h2 { font-size: 2rem; }
+  
+  .strip {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.25rem 5vw;
+  }
+  
+  .svc-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .svc {
+    padding: 1.5rem;
+  }
+  .svc p {
+    display: block;
+    font-size: 0.875rem;
+  }
+  .svc h3 {
+    font-size: 1.125rem;
+  }
+  
+  .port-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .port-thumb {
+    height: 200px;
+  }
+  .port-body p {
+    display: block;
+  }
+  .port-card.fc {
+    grid-column: span 2;
+  }
+  .fc-in {
+    flex-direction: row;
+    align-items: center;
+    padding: 1.5rem;
+  }
+  .fc-ico {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+  }
+  .port-card.fc h3 {
+    font-size: 1.25rem;
+  }
+  .port-card.fc p {
+    font-size: 0.875rem;
+  }
+  .port-card.fc .port-link {
+    display: inline-flex;
+    margin-left: auto;
+  }
+  
+  .price-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .pval {
+    font-size: 2rem;
+  }
+  .maint {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+  }
+  
+  #faq { padding: 3rem 5vw; }
+  .faq-layout {
+    flex-direction: row;
+    gap: 3rem;
+  }
+  .faq-layout > div:first-child {
+    width: 280px;
+    flex-shrink: 0;
+  }
+  .faq-q {
+    padding: 1.25rem;
+    font-size: 1rem;
+  }
+  .faq-item.open .faq-a {
+    padding: 0 1.25rem 1.25rem;
+  }
+  
+  #contact { padding: 3rem 5vw; }
+  .contact-layout {
+    flex-direction: row;
+    gap: 2rem;
+  }
+  .contact-info {
+    width: 320px;
+    flex-shrink: 0;
+  }
+  .simple-form {
+    flex: 1;
+    padding: 2rem;
+  }
+  
+  .fin {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
 }
-@media(max-width: 480px) {
-  .frow { grid-template-columns: 1fr; }
-  .svc-r { grid-template-columns: 1fr; }
-  .hero-btns { flex-direction: column; }
-  .hero-btns a { width: 100%; justify-content: center; }
-  .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
-  .stn { font-size: 2rem; }
-  nav { padding: 1rem 4vw; }
-  .logo { font-size: 1.25rem; }
-}
-@media(prefers-reduced-motion: reduce) {
-  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-  html { scroll-behavior: auto; }
-}
-::selection {
-  background: var(--accent-dim);
-  color: var(--accent);
+
+@media(min-width: 1024px) {
+  .port-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .port-card.fc {
+    grid-column: span 1;
+  }
+  .port-thumb {
+    height: 220px;
+  }
 }
 </style>
 
@@ -1579,14 +1117,6 @@ footer {
 
 <nav id="nav">
   <a href="#hero" class="logo">SDO<span>Web</span></a>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#portfolio">Réalisations</a></li>
-    <li><a href="#pricing">Tarifs</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="#contact" class="nav-cta">Devis gratuit</a>
   <div class="burger" id="burger" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </div>
@@ -1605,13 +1135,11 @@ footer {
 <!-- HERO -->
 
 <section class="hero" id="hero">
-  <div class="hero-bg" aria-hidden="true">
-    <div class="hero-grid"></div>
-  </div>
+  <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-in">
     <div class="pill">Développeur web freelance — Belgique</div>
     <h1>Votre site internet,<br><em>livré en 48h,</em><br>prêt à convertir.</h1>
-    <p class="hero-desc">Sites professionnels pour indépendants et PME en Belgique. Design soigné, SEO inclus, prix clairs dès 300€. Basé à Bruxelles, intervention dans toute la Belgique.</p>
+    <p class="hero-desc">Sites professionnels pour indépendants et PME en Belgique. Design soigné, SEO inclus, prix clairs dès 300€.</p>
     <div class="hero-btns">
       <a href="#contact" class="btn-p">Obtenir mon devis</a>
       <a href="#portfolio" class="btn-o">Voir les réalisations</a>
@@ -1650,43 +1178,43 @@ footer {
         <div class="tag">Services</div>
         <h2>Ce que je crée</h2>
       </div>
-      <p class="sub">Solutions web sur mesure pour indépendants et PME belges. Chaque projet est unique et traité avec attention.</p>
+      <p class="sub">Solutions web sur mesure pour indépendants et PME belges.</p>
     </div>
     <div class="svc-grid">
       <div class="svc sr">
         <span class="svc-ico">🌐</span>
         <h3>Site vitrine</h3>
-        <p>Présenter votre activité avec élégance et convertir vos visiteurs en prospects qualifiés. Design unique reflétant votre identité.</p>
+        <p>Présenter votre activité avec élégance et convertir vos visiteurs.</p>
         <span class="svc-price">À partir de 600 €</span>
       </div>
       <div class="svc sr">
         <span class="svc-ico">🎯</span>
         <h3>Landing page</h3>
-        <p>Une page de conversion optimisée pour lancer une offre, capturer des leads ou présenter un produit spécifique.</p>
+        <p>Page de conversion optimisée pour capturer des leads.</p>
         <span class="svc-price">À partir de 300 €</span>
       </div>
       <div class="svc sr">
         <span class="svc-ico">🛒</span>
         <h3>E-commerce</h3>
-        <p>Boutique en ligne clé en main avec catalogue produits, panier sécurisé et paiement intégré. Prête à vendre.</p>
+        <p>Boutique en ligne clé en main, prête à vendre.</p>
         <span class="svc-price">À partir de 1 200 €</span>
       </div>
       <div class="svc sr">
         <span class="svc-ico">🔄</span>
         <h3>Refonte</h3>
-        <p>Moderniser votre site existant — plus rapide, plus beau, plus performant. Sans perdre votre référencement.</p>
+        <p>Moderniser votre site existant sans perdre le référencement.</p>
         <span class="svc-price">À partir de 500 €</span>
       </div>
       <div class="svc sr">
         <span class="svc-ico">🔍</span>
-        <h3>SEO & Visibilité</h3>
-        <p>Améliorer votre positionnement sur Google pour les recherches locales belges. Plus de trafic qualifié.</p>
+        <h3>SEO</h3>
+        <p>Améliorer votre positionnement sur Google.</p>
         <span class="svc-price">À partir de 200 €</span>
       </div>
       <div class="svc sr">
         <span class="svc-ico">⚙️</span>
         <h3>Automatisation</h3>
-        <p>Formulaires intelligents, intégrations et workflows pour que votre site travaille pour vous 24h/24.</p>
+        <p>Formulaires intelligents et workflows automatisés.</p>
         <span class="svc-price">Sur devis</span>
       </div>
     </div>
@@ -1702,43 +1230,40 @@ footer {
         <div class="tag">Réalisations</div>
         <h2>Projets récents</h2>
       </div>
-      <a href="https://www.instagram.com/sdo_web" target="_blank" rel="noopener noreferrer" class="btn-o" style="font-size:0.875rem;padding:0.75rem 1.5rem">Voir plus sur Instagram</a>
     </div>
     <div class="port-grid">
-      <!-- Chaymassama -->
       <a href="https://chaymassama.be" target="_blank" rel="noopener noreferrer" class="port-card sr">
         <div class="port-thumb">
-          <img src="chaymassama2026-03-17 153041.PNG" alt="Chaymassama - Site web pour photographe et vidéaste">
+          <img src="/mnt/kimi/upload/chaymassama2026-03-17%20153041.png" alt="Chaymassama">
         </div>
         <div class="port-body">
           <span class="port-tag">Site vitrine</span>
-          <h3>Chaymassama — Photographe & Vidéaste</h3>
-          <p>Design aérien avec animations de nuages, présentation des services (mariages, sport, fêtes) et appel à l'action clair. Interface douce et professionnelle.</p>
-          <span class="port-link">chaymassama.be →</span>
+          <h3>Chaymassama</h3>
+          <p>Photographe & Vidéaste — Design aérien avec animations.</p>
+          <span class="port-link">Voir le site →</span>
         </div>
       </a>
       
-      <!-- Creafida -->
       <a href="https://creafida.be" target="_blank" rel="noopener noreferrer" class="port-card sr">
         <div class="port-thumb">
-          <img src="creafida 2026-03-17 153204.PNG" alt="Creafida - Site web pour atelier de couture">
+          <img src="/mnt/kimi/upload/creafida%202026-03-17%20153204.png" alt="Creafida">
         </div>
         <div class="port-body">
           <span class="port-tag">Site vitrine</span>
-          <h3>Creafida — Atelier de Couture</h3>
-          <p>Site élégant pour un atelier de couture avec 20+ ans d'expérience. Mise en valeur des créations, informations claires et présentation chaleureuse des services.</p>
-          <span class="port-link">creafida.be →</span>
+          <h3>Creafida</h3>
+          <p>Atelier de couture — 20+ ans d'expérience.</p>
+          <span class="port-link">Voir le site →</span>
         </div>
       </a>
       
-      <!-- Freecash -->
       <a href="https://freecash.com/r/Chaymassama" target="_blank" rel="noopener noreferrer" class="port-card fc sr">
         <div class="fc-in">
-          <span class="port-tag">Partenaire recommandé</span>
           <div class="fc-ico">💰</div>
-          <h3>Freecash</h3>
-          <p>Plateforme fiable pour gagner de l'argent en ligne avec des sondages et offres rémunérées. Rejoignez la communauté.</p>
-          <span class="port-link">Rejoindre gratuitement →</span>
+          <div>
+            <h3>Freecash</h3>
+            <p>Plateforme pour gagner de l'argent en ligne.</p>
+          </div>
+          <span class="port-link">Rejoindre →</span>
         </div>
       </a>
     </div>
@@ -1751,65 +1276,61 @@ footer {
   <div class="wrap">
     <div class="price-hd">
       <div class="tag">Tarifs</div>
-      <h2>Prix transparents, sans surprise</h2>
-      <p class="sub" style="margin-top:0.75rem">Pour indépendants et PME belges. Chaque devis est personnalisé selon vos besoins spécifiques.</p>
+      <h2>Prix transparents</h2>
+      <p class="sub">Devis personnalisé selon vos besoins spécifiques.</p>
     </div>
     <div class="price-grid">
       <div class="pc sr">
         <h3>Landing Page</h3>
         <div class="pval">300 € – 500 €</div>
-        <div class="pper">Page unique · Livraison 48h</div>
-        <p>Idéale pour lancer un produit, un service ou capturer des leads qualifiés rapidement.</p>
+        <div class="pper">Page unique · 48h</div>
+        <p>Idéale pour lancer un produit ou capturer des leads.</p>
         <div class="pfs">
-          <span class="pf">Design responsive mobile-first</span>
-          <span class="pf">Formulaire de contact optimisé</span>
-          <span class="pf">SEO de base inclus</span>
-          <span class="pf">Hébergement conseillé</span>
+          <span class="pf">Design responsive</span>
+          <span class="pf">Formulaire de contact</span>
+          <span class="pf">SEO de base</span>
         </div>
-        <a href="#contact" class="btn-o">Demander un devis</a>
+        <a href="mailto:devis.sdo.web@gmail.com?subject=Demande de devis - Landing Page" class="btn-o">Demander un devis</a>
       </div>
       
       <div class="pc star sr">
-        <div class="pbadge">Le plus populaire</div>
-        <h3>Site Vitrine Pro</h3>
+        <div class="pbadge">Populaire</div>
+        <h3>Site Vitrine</h3>
         <div class="pval">900 € – 1 200 €</div>
-        <div class="pper">3 à 5 pages · Livraison 5–7 jours</div>
-        <p>La solution complète pour établir votre présence en ligne professionnelle et générer des contacts.</p>
+        <div class="pper">3-5 pages · 5-7 jours</div>
+        <p>Solution complète pour votre présence en ligne.</p>
         <div class="pfs">
           <span class="pf">Design premium sur mesure</span>
-          <span class="pf">Animations subtiles & interactions</span>
-          <span class="pf">SEO avancé & Google Analytics</span>
-          <span class="pf">Formulaire intelligent & intégrations</span>
-          <span class="pf">Support 30 jours inclus</span>
+          <span class="pf">SEO avancé</span>
+          <span class="pf">Support 30 jours</span>
         </div>
-        <a href="#contact" class="btn-p">Commencer mon projet</a>
+        <a href="mailto:devis.sdo.web@gmail.com?subject=Demande de devis - Site Vitrine" class="btn-p">Commencer</a>
       </div>
       
       <div class="pc sr">
         <h3>E-commerce</h3>
         <div class="pval">1 200 € – 2&nbsp;000 €</div>
-        <div class="pper">Boutique complète · Livraison 2 semaines</div>
-        <p>Boutique en ligne professionnelle prête à vendre avec tous les outils nécessaires.</p>
+        <div class="pper">Boutique complète · 2 sem.</div>
+        <p>Boutique prête à vendre avec paiement sécurisé.</p>
         <div class="pfs">
-          <span class="pf">Catalogue produits illimité</span>
-          <span class="pf">Paiement Stripe & PayPal sécurisé</span>
-          <span class="pf">Gestion stocks & commandes</span>
-          <span class="pf">SEO e-commerce optimisé</span>
+          <span class="pf">Catalogue illimité</span>
+          <span class="pf">Stripe & PayPal</span>
+          <span class="pf">Gestion des stocks</span>
         </div>
-        <a href="#contact" class="btn-o">Demander un devis</a>
+        <a href="mailto:devis.sdo.web@gmail.com?subject=Demande de devis - E-commerce" class="btn-o">Demander un devis</a>
       </div>
     </div>
     
     <div class="maint sr">
-      <div style="text-align:left">
-        <h4>🛠 Maintenance mensuelle</h4>
-        <p>Mises à jour de sécurité, sauvegardes automatiques et support prioritaire.</p>
+      <div>
+        <h4>🛠 Maintenance</h4>
+        <p>Mises à jour, sauvegardes et support prioritaire.</p>
       </div>
-      <div style="text-align:center">
+      <div style="text-align: center;">
         <div class="maint-price">50 € – 120 €</div>
-        <div class="maint-per">par mois</div>
+        <div class="maint-per">/mois</div>
       </div>
-      <a href="#contact" class="btn-o" style="font-size:0.875rem;padding:0.75rem 1.5rem">En savoir plus</a>
+      <a href="mailto:contact.sdo.web12@gmail.com?subject=Demande info maintenance" class="btn-o" style="font-size:0.875rem;padding:0.625rem 1.25rem">En savoir plus</a>
     </div>
   </div>
 </section>
@@ -1821,45 +1342,38 @@ footer {
     <div class="faq-layout">
       <div>
         <div class="tag">FAQ</div>
-        <h2>Questions fréquentes</h2>
-        <p class="sub" style="margin-top:0.75rem;margin-bottom:2rem">Tout ce que vous devez savoir avant de démarrer votre projet. Une question spécifique ?</p>
-        <a href="#contact" class="btn-p" style="font-size:0.9375rem;padding:0.875rem 1.75rem">Me contacter directement</a>
+        <h2>Questions</h2>
+        <p class="sub" style="margin-bottom:1rem">Tout ce que vous devez savoir.</p>
+        <a href="#contact" class="btn-p" style="font-size:0.875rem;padding:0.75rem 1.5rem">Me contacter</a>
       </div>
       <div class="faq-list">
         <div class="faq-item open">
           <div class="faq-q" tabindex="0">
-            Combien coûte un site internet en Belgique ?
+            Combien coûte un site ?
             <span class="faq-ico">+</span>
           </div>
-          <div class="faq-a">Landing page dès 300 €, site vitrine entre 600 € et 1 200 €, e-commerce entre 1 200 € et 2&nbsp;000 €. Chaque projet étant unique, je vous recommande d'utiliser le formulaire de devis pour une estimation précise basée sur vos besoins réels.</div>
+          <div class="faq-a">Landing page dès 300 €, site vitrine 600-1 200 €, e-commerce 1 200-2&nbsp;000 €. Devis personnalisé sur demande.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q" tabindex="0">
-            Quel est le délai de livraison ?
+            Quel est le délai ?
             <span class="faq-ico">+</span>
           </div>
-          <div class="faq-a">Landing page en 48h, site vitrine en 3 à 7 jours, e-commerce en 1 à 2 semaines. Le délai dépend aussi de la rapidité avec laquelle vous fournissez les contenus (textes, logo, images). Je reste toujours disponible pour accélérer si besoin.</div>
+          <div class="faq-a">48h pour une landing page, 3-7 jours pour un site vitrine, 1-2 semaines pour un e-commerce.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q" tabindex="0">
-            Le SEO est-il inclus dans vos prestations ?
+            Le SEO est-il inclus ?
             <span class="faq-ico">+</span>
           </div>
-          <div class="faq-a">Absolument. Balises méta optimisées, structure HTML sémantique, vitesse de chargement optimisée, sitemap XML et version mobile-first sont inclus dans tous mes sites. Une stratégie SEO avancée (contenu, backlinks) est disponible en option.</div>
+          <div class="faq-a">Oui, balises méta, structure HTML, vitesse optimisée et mobile-first sont inclus dans tous les sites.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q" tabindex="0">
-            Travaillez-vous dans toute la Belgique ?
+            Où intervenez-vous ?
             <span class="faq-ico">+</span>
           </div>
-          <div class="faq-a">Oui — Bruxelles, Liège, Charleroi, Namur, Mons, Gand, Anvers et partout ailleurs. Basé à Bruxelles, je me déplace si nécessaire, mais la plupart des échanges se font efficacement par email, téléphone ou visioconférence.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" tabindex="0">
-            Que se passe-t-il si le design ne me convient pas ?
-            <span class="faq-ico">+</span>
-          </div>
-          <div class="faq-a">Votre satisfaction est prioritaire. Une maquette vous est présentée avant développement. Vous bénéficiez de retours et modifications inclus dans le prix jusqu'à validation finale. Pas de mauvaise surprise à la livraison.</div>
+          <div class="faq-a">Dans toute la Belgique : Bruxelles, Liège, Charleroi, Namur, et partout ailleurs. À distance ou sur place.</div>
         </div>
       </div>
     </div>
@@ -1871,158 +1385,55 @@ footer {
 <section id="contact">
   <div class="wrap">
     <div class="contact-layout">
-
-      <!-- Infos -->
       <div class="contact-info">
         <div style="margin-bottom:0.5rem">
           <div class="tag">Contact</div>
           <h2>Parlons de votre projet</h2>
-          <p class="sub" style="margin-top:0.75rem">Remplissez le formulaire pour un devis personnalisé sous 24h. Ou contactez-moi directement par email ou Instagram.</p>
+          <p class="sub">Devis sous 24h.</p>
         </div>
         
-        <div class="cc">
+        <a href="mailto:contact.sdo.web12@gmail.com" class="cc">
           <div class="cc-ico">📧</div>
           <div>
             <div class="cc-lbl">Email général</div>
             <div class="cc-val">contact.sdo.web12@gmail.com</div>
           </div>
-        </div>
+        </a>
         
-        <div class="cc">
+        <a href="mailto:devis.sdo.web@gmail.com" class="cc">
           <div class="cc-ico">📋</div>
           <div>
-            <div class="cc-lbl">Demandes de devis</div>
+            <div class="cc-lbl">Devis</div>
             <div class="cc-val">devis.sdo.web@gmail.com</div>
           </div>
-        </div>
+        </a>
         
-        <div class="cc">
-          <div class="cc-ico">🛠</div>
+        <a href="https://www.instagram.com/sdo_web" target="_blank" class="cc">
+          <div class="cc-ico" style="background:rgba(228,64,95,0.1);border-color:rgba(228,64,95,0.2)">📱</div>
           <div>
-            <div class="cc-lbl">Support clients</div>
-            <div class="cc-val">support.sdo.web@gmail.com</div>
+            <div class="cc-lbl">Instagram</div>
+            <div class="cc-val" style="color:#E4405F">@sdo_web</div>
           </div>
-        </div>
-        
-        <div class="cc">
-          <div class="cc-ico" style="background:rgba(228,64,95,0.1);border-color:rgba(228,64,95,0.2)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E4405F" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-          </div>
-          <div>
-            <div class="cc-lbl">Instagram (réponse rapide)</div>
-            <div class="cc-val" style="color:#E4405F;font-weight:600">@sdo_web</div>
-          </div>
-        </div>
+        </a>
       </div>
 
-      <!-- Formulaire -->
-      <div class="cform sr">
-        <div class="cf-title">Demande de devis</div>
-        <p class="cf-sub">Décrivez votre projet et recevez une estimation personnalisée sous 24 heures.</p>
-        <div class="cf-badge">Réponse garantie sous 24h</div>
-
-        <form id="aiForm" novalidate>
-          <div class="fsec">
-            <div class="fs-lbl"><span>1</span> Vos coordonnées</div>
-            <div class="frow">
-              <div class="fd" id="f-nom">
-                <label for="ai-nom">Nom complet <em>*</em></label>
-                <input type="text" id="ai-nom" name="nom" placeholder="Jean Dupont" autocomplete="name">
-                <div class="fd-err">Veuillez entrer votre nom</div>
-              </div>
-              <div class="fd" id="f-email">
-                <label for="ai-email">Email <em>*</em></label>
-                <input type="email" id="ai-email" name="email" placeholder="jean@entreprise.be" autocomplete="email">
-                <div class="fd-err">Email invalide</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="fsec">
-            <div class="fs-lbl"><span>2</span> Type de projet</div>
-            <div class="svc-r">
-              <div class="sr-opt">
-                <input type="radio" name="service" id="sv1" value="vitrine">
-                <label for="sv1">
-                  <span class="si">🌐</span>
-                  Site vitrine
-                  <span class="sp">600 € – 1 200 €</span>
-                </label>
-              </div>
-              <div class="sr-opt">
-                <input type="radio" name="service" id="sv2" value="landing">
-                <label for="sv2">
-                  <span class="si">🎯</span>
-                  Landing page
-                  <span class="sp">300 € – 500 €</span>
-                </label>
-              </div>
-              <div class="sr-opt">
-                <input type="radio" name="service" id="sv3" value="ecommerce">
-                <label for="sv3">
-                  <span class="si">🛒</span>
-                  E-commerce
-                  <span class="sp">1 200 € – 2&nbsp;000 €</span>
-                </label>
-              </div>
-              <div class="sr-opt">
-                <input type="radio" name="service" id="sv4" value="refonte">
-                <label for="sv4">
-                  <span class="si">🔄</span>
-                  Refonte
-                  <span class="sp">500 € – 1 500 €</span>
-                </label>
-              </div>
-            </div>
-            <div class="r-err" id="err-svc">Veuillez sélectionner un type de projet</div>
-          </div>
-
-          <div class="fsec">
-            <div class="fs-lbl"><span>3</span> Budget estimé</div>
-            <div class="bgt-r">
-              <div class="br-opt">
-                <input type="radio" name="budget" id="bg1" value="<500">
-                <label for="bg1">Démarrage<span class="brange">Moins de 500 €</span></label>
-              </div>
-              <div class="br-opt">
-                <input type="radio" name="budget" id="bg2" value="500-1000">
-                <label for="bg2">Standard<span class="brange">500 € – 1 000 €</span></label>
-              </div>
-              <div class="br-opt">
-                <input type="radio" name="budget" id="bg3" value="1000-2000">
-                <label for="bg3">Professionnel<span class="brange">1 000 € – 2&nbsp;000 €</span></label>
-              </div>
-              <div class="br-opt">
-                <input type="radio" name="budget" id="bg4" value="2000-5000">
-                <label for="bg4">Avancé<span class="brange">2&nbsp;000 € – 5 000 €</span></label>
-              </div>
-            </div>
-            <div class="r-err" id="err-bgt">Veuillez sélectionner une tranche de budget</div>
-          </div>
-
-          <div class="fsec">
-            <div class="fs-lbl"><span>4</span> Votre projet</div>
-            <div class="fd" id="f-desc">
-              <label for="ai-desc">Décrivez vos besoins <em>*</em></label>
-              <textarea id="ai-desc" name="description" rows="4" placeholder="Ex : Je suis coach sportif à Bruxelles et j'ai besoin d'un site vitrine moderne pour présenter mes services, mon parcours et recevoir des demandes de contact. J'aimerais quelque chose d'épuré avec des photos de mes séances."></textarea>
-              <div class="fd-err">Minimum 20 caractères pour décrire votre projet</div>
-            </div>
-          </div>
-
-          <button type="submit" class="btn-submit" id="aiBtn">
-            <span class="st">Envoyer ma demande</span>
-            <div class="spin"></div>
-          </button>
-        </form>
-
-        <div class="analyzing" id="aiAnalyzing">
-          <div class="a-spin"></div>
-          <div class="a-title">Analyse en cours...</div>
-          <div class="a-step" id="aiStep">Lecture de votre demande</div>
+      <form class="simple-form sr" action="mailto:devis.sdo.web@gmail.com" method="post" enctype="text/plain">
+        <h3>Demande de devis</h3>
+        <p>Remplissez le formulaire ci-dessous.</p>
+        <div class="sf-row">
+          <input type="text" name="nom" placeholder="Votre nom" class="sf-input" required>
+          <input type="email" name="email" placeholder="Votre email" class="sf-input" required>
         </div>
-        
-        <div class="ai-res" id="aiResult"></div>
-      </div>
+        <select name="type" class="sf-input" style="margin-bottom: 0.75rem;" required>
+          <option value="">Type de projet</option>
+          <option value="Landing page">Landing page</option>
+          <option value="Site vitrine">Site vitrine</option>
+          <option value="E-commerce">E-commerce</option>
+          <option value="Refonte">Refonte</option>
+        </select>
+        <textarea name="message" placeholder="Décrivez votre projet..." class="sf-input" required></textarea>
+        <button type="submit" class="sf-btn">Envoyer ma demande →</button>
+      </form>
     </div>
   </div>
 </section>
@@ -2033,17 +1444,13 @@ footer {
   <div class="fin">
     <div class="fbrand">
       <strong>SDO<span>Web</span></strong>
-      <span>Création de sites internet — Belgique — © 2025 Silvio De Oliveira</span>
+      <span>Création de sites internet — Belgique</span>
     </div>
     <nav class="fnav">
-      <a href="#services">Services</a>
-      <a href="#portfolio">Réalisations</a>
-      <a href="#pricing">Tarifs</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">Contact</a>
+      <span style="color: var(--text-3); font-size: 0.8125rem;">© 2024 SDO Web</span>
     </nav>
     <a href="https://www.instagram.com/sdo_web" target="_blank" rel="noopener noreferrer" class="fig">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
       @sdo_web
     </a>
   </div>
@@ -2071,7 +1478,7 @@ document.querySelectorAll('.dl').forEach(link => link.addEventListener('click', 
 /* SCROLL REVEAL */
 const observerOptions = {
   threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
+  rootMargin: '0px 0px -30px 0px'
 };
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -2089,7 +1496,7 @@ const counterObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting && entry.target.dataset.count) {
       const target = parseInt(entry.target.dataset.count);
       let current = 0;
-      const increment = target / (2000 / 16);
+      const increment = target / (1500 / 16);
       const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
@@ -2131,221 +1538,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       target.scrollIntoView({behavior: 'smooth', block: 'start'});
     }
   });
-});
-
-/* FORM HANDLING */
-const API_URL = '/api/devis';
-const aiForm = document.getElementById('aiForm');
-const aiBtn = document.getElementById('aiBtn');
-const aiAnalyzing = document.getElementById('aiAnalyzing');
-const aiStepEl = document.getElementById('aiStep');
-const aiResult = document.getElementById('aiResult');
-
-const STEPS = [
-  'Analyse de votre demande...',
-  'Évaluation du projet...',
-  'Calcul de l\'estimation...',
-  'Préparation de la réponse...',
-  'Finalisation...'
-];
-let stepTimer = null;
-
-function startSteps() {
-  let i = 0;
-  aiStepEl.textContent = STEPS[0];
-  stepTimer = setInterval(() => {
-    i = (i + 1) % STEPS.length;
-    aiStepEl.style.opacity = '0';
-    setTimeout(() => {
-      aiStepEl.textContent = STEPS[i];
-      aiStepEl.style.opacity = '1';
-    }, 200);
-  }, 1800);
-}
-
-function stopSteps() {
-  clearInterval(stepTimer);
-}
-
-function validateForm() {
-  let isValid = true;
-  
-  const nom = document.getElementById('ai-nom');
-  const fNom = document.getElementById('f-nom');
-  if (!nom.value.trim() || nom.value.trim().length < 2) {
-    fNom.classList.add('has-err');
-    nom.classList.add('err');
-    isValid = false;
-  } else {
-    fNom.classList.remove('has-err');
-    nom.classList.remove('err');
-  }
-  
-  const email = document.getElementById('ai-email');
-  const fEmail = document.getElementById('f-email');
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
-    fEmail.classList.add('has-err');
-    email.classList.add('err');
-    isValid = false;
-  } else {
-    fEmail.classList.remove('has-err');
-    email.classList.remove('err');
-  }
-  
-  const svc = aiForm.querySelector('input[name="service"]:checked');
-  const errSvc = document.getElementById('err-svc');
-  if (!svc) {
-    errSvc.style.display = 'block';
-    isValid = false;
-  } else {
-    errSvc.style.display = 'none';
-  }
-  
-  const bgt = aiForm.querySelector('input[name="budget"]:checked');
-  const errBgt = document.getElementById('err-bgt');
-  if (!bgt) {
-    errBgt.style.display = 'block';
-    isValid = false;
-  } else {
-    errBgt.style.display = 'none';
-  }
-  
-  const desc = document.getElementById('ai-desc');
-  const fDesc = document.getElementById('f-desc');
-  if (!desc.value.trim() || desc.value.trim().length < 20) {
-    fDesc.classList.add('has-err');
-    desc.classList.add('err');
-    isValid = false;
-  } else {
-    fDesc.classList.remove('has-err');
-    desc.classList.remove('err');
-  }
-  
-  return isValid;
-}
-
-['ai-nom', 'ai-email', 'ai-desc'].forEach(id => {
-  const el = document.getElementById(id);
-  const map = {'ai-nom': 'f-nom', 'ai-email': 'f-email', 'ai-desc': 'f-desc'};
-  el?.addEventListener('input', () => {
-    document.getElementById(map[id])?.classList.remove('has-err');
-    el.classList.remove('err');
-  });
-});
-
-function buildSuccess(data) {
-  const price = (data.prixMin && data.prixMax) 
-    ? `${data.prixMin.toLocaleString('fr-BE')} € – ${data.prixMax.toLocaleString('fr-BE')} €` 
-    : 'Sur devis';
-  const quality = data.qualification || 'MOYEN';
-  
-  return `
-    <div class="rc ok">
-      <div class="rc-hd">
-        <div class="rc-ico">✓</div>
-        <div class="rc-hd-t">
-          <strong>Demande envoyée avec succès</strong>
-          <span>Je vous recontacte sous 24 heures</span>
-        </div>
-      </div>
-      <div class="qual-row">
-        <span class="qb ${quality}">Projet ${quality}</span>
-      </div>
-      <div class="pbox">
-        <div class="pb-lbl">Estimation indicative</div>
-        <div class="pb-val">${price}</div>
-        ${data.delai ? `<div class="pb-del">⏱ ${data.delai}</div>` : ''}
-      </div>
-      <div class="ai-msg">${data.message || 'Merci pour votre confiance. J\'étudie votre projet avec attention et vous contacte très vite pour affiner ensemble les détails.'}</div>
-      ${data.nextStep ? `<div class="nxt">${data.nextStep}</div>` : ''}
-      <div class="rc-actions">
-        <a href="https://www.instagram.com/sdo_web" target="_blank" rel="noopener noreferrer" class="btn-ig">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          Suivre sur Instagram
-        </a>
-        <button class="btn-reset" id="aiReset">Nouvelle demande</button>
-      </div>
-    </div>
-  `;
-}
-
-function buildError(msg) {
-  return `
-    <div class="rc ko">
-      <div class="rc-hd">
-        <div class="rc-ico">!</div>
-        <div class="rc-hd-t">
-          <strong>Une erreur est survenue</strong>
-          <span>${msg}</span>
-        </div>
-      </div>
-      <div class="rc-actions">
-        <a href="https://www.instagram.com/sdo_web" target="_blank" class="btn-ig">Me contacter sur Instagram</a>
-        <button class="btn-reset" id="aiReset">Réessayer</button>
-      </div>
-    </div>
-  `;
-}
-
-if (aiForm) {
-  aiForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!validateForm()) return;
-    
-    const payload = {
-      nom: document.getElementById('ai-nom').value.trim(),
-      email: document.getElementById('ai-email').value.trim(),
-      service: aiForm.querySelector('input[name="service"]:checked').value,
-      budget: aiForm.querySelector('input[name="budget"]:checked').value,
-      description: document.getElementById('ai-desc').value.trim()
-    };
-    
-    aiBtn.disabled = true;
-    aiBtn.classList.add('ld');
-    aiAnalyzing.classList.add('show');
-    aiResult.classList.remove('show');
-    aiResult.innerHTML = '';
-    
-    startSteps();
-    aiAnalyzing.scrollIntoView({behavior: 'smooth', block: 'center'});
-    
-    try {
-      const res = await fetch(API_URL, {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(payload)
-      });
-      const data = await res.json();
-      
-      if (!res.ok) throw new Error(data.error || `Erreur ${res.status}`);
-      
-      stopSteps();
-      aiAnalyzing.classList.remove('show');
-      aiResult.innerHTML = buildSuccess(data);
-      aiResult.classList.add('show');
-      aiForm.style.display = 'none';
-      aiResult.scrollIntoView({behavior: 'smooth', block: 'start'});
-      
-    } catch(err) {
-      stopSteps();
-      aiAnalyzing.classList.remove('show');
-      aiResult.innerHTML = buildError(err.message || 'Erreur de connexion. Veuillez réessayer.');
-      aiResult.classList.add('show');
-    } finally {
-      aiBtn.disabled = false;
-      aiBtn.classList.remove('ld');
-    }
-  });
-}
-
-document.addEventListener('click', (e) => {
-  if (e.target.id === 'aiReset') {
-    aiForm.style.display = 'block';
-    aiForm.reset();
-    aiResult.innerHTML = '';
-    aiResult.classList.remove('show');
-    document.querySelector('.cform')?.scrollIntoView({behavior: 'smooth', block: 'start'});
-  }
 });
 </script>
 
