@@ -1,1 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
 
+<head>
+
+<meta charset="UTF-8">
+
+<title>Devis SDO Web</title>
+
+<script src="https://cdn.jsdelivr.net/npm/jspdf"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/signature_pad"></script>
+
+</head>
+
+<body>
+
+<h1>Demande de devis</h1>
+
+<form id="formDevis">
+
+<input placeholder="Nom" required>
+
+<input placeholder="Email" required>
+
+<select id="typeSite">
+
+<option value="400">Landing page</option>
+
+<option value="1050">Site vitrine</option>
+
+<option value="1600">E-commerce</option>
+
+<option value="500">Refonte</option>
+
+</select>
+
+<input type="number" id="pages" placeholder="Pages en plus">
+
+<label>
+
+<input type="checkbox" value="150">
+
+Blog
+
+</label>
+
+<label>
+
+<input type="checkbox" value="200">
+
+Réservation
+
+</label>
+
+<h2 id="prixTotal">Total : 0€</h2>
+
+<h3>Signature</h3>
+
+<canvas id="signature" width="300" height="150"></canvas>
+
+<button type="button" onclick="clearSignature()">
+
+Effacer signature
+
+</button>
+
+<button type="button" onclick="genererPDF()">
+
+Télécharger devis PDF
+
+</button>
+
+<button type="button" onclick="payerAcompte()">
+
+Payer acompte 50%
+
+</button>
+
+</form>
+
+<script src="devis.js"></script>
+
+<script src="signature.js"></script>
+
+<script src="pdf.js"></script>
+
+</body>
+
+</html>
