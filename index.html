@@ -1171,6 +1171,7 @@ footer {
 </style>
 
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
 
@@ -1188,9 +1189,10 @@ footer {
   <a href="#services" class="dl">Services</a>
   <a href="#portfolio" class="dl">Réalisations</a>
   <a href="#pricing" class="dl">Tarifs</a>
+  <a href="#devis" class="dl" style="color: var(--accent);">📝 Devis en ligne</a>
   <a href="#faq" class="dl">FAQ</a>
   <a href="#contact" class="dl">Contact</a>
-  <a href="#contact" class="d-cta dl">Devis gratuit</a>
+  <a href="#devis" class="d-cta dl">Devis gratuit</a>
 </div>
 
 <!-- HERO -->
@@ -1202,7 +1204,7 @@ footer {
     <h1>Votre site internet,<br><em>livré en 48h,</em><br>prêt à convertir.</h1>
     <p class="hero-desc">Sites professionnels pour indépendants et PME en Belgique. Design soigné, SEO inclus, prix clairs dès 300€.</p>
     <div class="hero-btns">
-      <a href="mailto:devis.sdo.web@gmail.com?subject=Demande%20de%20devis%20-%20SDO%20Web" class="btn-p">Obtenir mon devis</a>
+      <a href="#devis" class="btn-p">📝 Devis en ligne instantané</a>
       <a href="#portfolio" class="btn-o">Voir les réalisations</a>
       <a href="https://www.instagram.com/sdo_web" target="_blank" rel="noopener noreferrer" class="btn-ig-pill">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
@@ -1344,7 +1346,7 @@ footer {
           <span class="pf">Formulaire de contact</span>
           <span class="pf">SEO de base</span>
         </div>
-        <a href="mailto:devis.sdo.web@gmail.com?subject=Demande de devis - Landing Page" class="btn-o">Demander un devis</a>
+        <a href="#devis" onclick="selectService(400)" class="btn-o">Configurer ce devis</a>
       </div>
       
       <div class="pc star sr">
@@ -1358,7 +1360,7 @@ footer {
           <span class="pf">SEO avancé</span>
           <span class="pf">Support 30 jours</span>
         </div>
-        <a href="mailto:devis.sdo.web@gmail.com?subject=Demande de devis - Site Vitrine" class="btn-p">Commencer</a>
+        <a href="#devis" onclick="selectService(1050)" class="btn-p">Configurer ce devis</a>
       </div>
       
       <div class="pc sr">
@@ -1371,7 +1373,7 @@ footer {
           <span class="pf">Stripe & PayPal</span>
           <span class="pf">Gestion des stocks</span>
         </div>
-        <a href="mailto:devis.sdo.web@gmail.com?subject=Demande de devis - E-commerce" class="btn-o">Demander un devis</a>
+        <a href="#devis" onclick="selectService(1600)" class="btn-o">Configurer ce devis</a>
       </div>
     </div>
     
@@ -1384,10 +1386,165 @@ footer {
         <div class="maint-price">50 € – 120 €</div>
         <div class="maint-per">/mois</div>
       </div>
-      <a href="mailto:contact.sdo.web12@gmail.com?subject=Demande info maintenance" class="btn-o" style="font-size:0.875rem;padding:0.625rem 1.25rem">En savoir plus</a>
+      <a href="#devis" onclick="selectService(80)" class="btn-o" style="font-size:0.875rem;padding:0.625rem 1.25rem">Configurer</a>
     </div>
   </div>
 </section>
+
+<!-- DEVIS INTERACTIF -->
+<section id="devis">
+  <div class="wrap">
+    <div class="sh">
+      <div>
+        <div class="tag">Devis en ligne</div>
+        <h2>Créez votre devis personnalisé</h2>
+      </div>
+      <p class="sub">Sélectionnez vos options pour connaître le prix en temps réel et payer votre acompte sécurisé.</p>
+    </div>
+
+    <form id="formDevis" class="devis-form" style="max-width: 700px; margin: 0 auto;">
+      <!-- Type de site -->
+      <div class="form-group" style="margin-bottom: 1.5rem;">
+        <label for="typeSite" style="display: block; font-size: 0.875rem; color: var(--text-2); margin-bottom: 0.5rem; font-weight: 500;">Type de site</label>
+        <select id="typeSite" style="width: 100%; background: var(--bg-2); border: 1px solid var(--b0); border-radius: var(--r-sm); color: var(--text); padding: 0.875rem 1rem; font-family: var(--font-body); font-size: 0.9375rem; cursor: pointer;">
+          <option value="400" data-name="Landing Page">Landing Page — 400€</option>
+          <option value="1050" data-name="Site Vitrine" selected>Site Vitrine — 1 050€</option>
+          <option value="1600" data-name="E-commerce">E-commerce — 1 600€</option>
+          <option value="500" data-name="Refonte">Refonte — 500€</option>
+          <option value="200" data-name="SEO">SEO — 200€</option>
+          <option value="80" data-name="Maintenance">Maintenance — 80€/mois</option>
+        </select>
+      </div>
+
+      <!-- Nombre de pages -->
+      <div class="form-group" style="margin-bottom: 1.5rem;">
+        <label for="pages" style="display: block; font-size: 0.875rem; color: var(--text-2); margin-bottom: 0.5rem; font-weight: 500;">Pages supplémentaires (optionnel)</label>
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <button type="button" onclick="adjustPages(-1)" style="width: 44px; height: 44px; background: var(--card); border: 1px solid var(--b0); border-radius: var(--r-sm); color: var(--text); cursor: pointer; font-size: 1.25rem; display: flex; align-items: center; justify-content: center;">−</button>
+          <input type="number" id="pages" value="0" min="0" max="20" readonly style="flex: 1; background: var(--bg-2); border: 1px solid var(--b0); border-radius: var(--r-sm); color: var(--text); padding: 0.875rem; text-align: center; font-weight: 600;">
+          <button type="button" onclick="adjustPages(1)" style="width: 44px; height: 44px; background: var(--card); border: 1px solid var(--b0); border-radius: var(--r-sm); color: var(--text); cursor: pointer; font-size: 1.25rem; display: flex; align-items: center; justify-content: center;">+</button>
+        </div>
+        <span style="font-size: 0.75rem; color: var(--text-3); margin-top: 0.5rem; display: block;">+80€ par page supplémentaire</span>
+      </div>
+
+      <!-- Options supplémentaires -->
+      <div class="form-group" style="margin-bottom: 1.5rem;">
+        <label style="display: block; font-size: 0.875rem; color: var(--text-2); margin-bottom: 0.75rem; font-weight: 500;">Options additionnelles</label>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.75rem;">
+          <label style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: var(--card); border: 1px solid var(--b0); border-radius: var(--r-sm); cursor: pointer;">
+            <input type="checkbox" value="150" data-name="Blog" style="width: 18px; height: 18px; accent-color: var(--accent);">
+            <span style="flex: 1; font-size: 0.875rem;">Blog intégré</span>
+            <span style="color: var(--accent); font-weight: 600; font-size: 0.875rem;">+150€</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: var(--card); border: 1px solid var(--b0); border-radius: var(--r-sm); cursor: pointer;">
+            <input type="checkbox" value="150" data-name="SEO avancé" style="width: 18px; height: 18px; accent-color: var(--accent);">
+            <span style="flex: 1; font-size: 0.875rem;">SEO avancé</span>
+            <span style="color: var(--accent); font-weight: 600; font-size: 0.875rem;">+150€</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: var(--card); border: 1px solid var(--b0); border-radius: var(--r-sm); cursor: pointer;">
+            <input type="checkbox" value="80" data-name="Galerie" style="width: 18px; height: 18px; accent-color: var(--accent);">
+            <span style="flex: 1; font-size: 0.875rem;">Galerie images</span>
+            <span style="color: var(--accent); font-weight: 600; font-size: 0.875rem;">+80€</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: var(--card); border: 1px solid var(--b0); border-radius: var(--r-sm); cursor: pointer;">
+            <input type="checkbox" value="200" data-name="Réservation" style="width: 18px; height: 18px; accent-color: var(--accent);">
+            <span style="flex: 1; font-size: 0.875rem;">Réservation en ligne</span>
+            <span style="color: var(--accent); font-weight: 600; font-size: 0.875rem;">+200€</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: var(--card); border: 1px solid var(--b0); border-radius: var(--r-sm); cursor: pointer;">
+            <input type="checkbox" value="250" data-name="Paiement en ligne" style="width: 18px; height: 18px; accent-color: var(--accent);">
+            <span style="flex: 1; font-size: 0.875rem;">Paiement en ligne</span>
+            <span style="color: var(--accent); font-weight: 600; font-size: 0.875rem;">+250€</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: var(--card); border: 1px solid var(--b0); border-radius: var(--r-sm); cursor: pointer;">
+            <input type="checkbox" value="100" data-name="Optimisation vitesse" style="width: 18px; height: 18px; accent-color: var(--accent);">
+            <span style="flex: 1; font-size: 0.875rem;">Optimisation vitesse</span>
+            <span style="color: var(--accent); font-weight: 600; font-size: 0.875rem;">+100€</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Total affiché -->
+      <div style="background: var(--card); border: 2px solid var(--accent-med); border-radius: var(--r); padding: 2rem; margin-bottom: 1.5rem; text-align: center;">
+        <div style="font-size: 0.875rem; color: var(--text-2); margin-bottom: 0.5rem;">Estimation totale</div>
+        <div id="prixTotal" style="font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--accent); line-height: 1;">1 050 €</div>
+        <div style="font-size: 0.875rem; color: var(--text-3); margin-top: 0.5rem;">TTC</div>
+        <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--b0);">
+          <span style="font-size: 0.875rem; color: var(--text-2);">Acompte (50%) : </span>
+          <span id="prixAcompte" style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: var(--text);">525 €</span>
+        </div>
+      </div>
+
+      <!-- Bouton pour payer l'acompte -->
+      <button type="button" id="btnPayerAcompte" class="sf-btn" style="width: 100%; padding: 1rem; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+          <line x1="1" y1="10" x2="23" y2="10"></line>
+        </svg>
+        Payer l'acompte (50%)
+      </button>
+      <p style="text-align: center; font-size: 0.75rem; color: var(--text-3); margin-top: 1rem;">🔒 Paiement sécurisé par Stripe · Devis valable 30 jours</p>
+    </form>
+  </div>
+</section>
+
+<script>
+// Calcul du devis en temps réel
+function calculateDevis() {
+  const typeSite = parseInt(document.getElementById('typeSite').value) || 0;
+  const pages = parseInt(document.getElementById('pages').value) || 0;
+  const pagesPrice = pages * 80;
+
+  let optionsPrice = 0;
+  document.querySelectorAll('#formDevis input[type="checkbox"]:checked').forEach(cb => {
+    optionsPrice += parseInt(cb.value) || 0;
+  });
+
+  const total = typeSite + pagesPrice + optionsPrice;
+  const acompte = Math.round(total * 0.5);
+
+  document.getElementById('prixTotal').textContent = new Intl.NumberFormat('fr-FR').format(total) + ' €';
+  document.getElementById('prixAcompte').textContent = new Intl.NumberFormat('fr-FR').format(acompte) + ' €';
+
+  return { total, acompte };
+}
+
+function adjustPages(delta) {
+  const input = document.getElementById('pages');
+  let value = parseInt(input.value) || 0;
+  value = Math.max(0, Math.min(20, value + delta));
+  input.value = value;
+  calculateDevis();
+}
+
+function selectService(price) {
+  const select = document.getElementById('typeSite');
+  if (select) {
+    select.value = price;
+    calculateDevis();
+  }
+}
+
+// Event listeners
+document.getElementById('typeSite')?.addEventListener('change', calculateDevis);
+document.querySelectorAll('#formDevis input[type="checkbox"]').forEach(cb => {
+  cb.addEventListener('change', calculateDevis);
+});
+
+// Paiement Stripe
+document.getElementById('btnPayerAcompte')?.addEventListener('click', function() {
+  const { total, acompte } = calculateDevis();
+  const typeName = document.getElementById('typeSite').options[document.getElementById('typeSite').selectedIndex].dataset.name;
+  alert('Redirection vers le paiement sécurisé Stripe\n\nMontant: ' + acompte + '€\nService: ' + typeName + '\n\nÀ configurer avec votre clé Stripe.');
+});
+
+// Initialisation
+calculateDevis();
+</script>
+
+<!-- FIN DEVIS INTERACTIF -->
+
+
 
 <!-- FAQ -->
 
