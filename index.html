@@ -20,1185 +20,238 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-/* ── VARIABLES ─────────────────────────────── */
 :root {
-  --bg:    #0c0c0e;
-  --bg-2:  #121215;
-  --card:  #18181c;
-  --card-2:#1e1e23;
-  --b0:    rgba(255,255,255,0.04);
-  --b1:    rgba(255,255,255,0.08);
-  --b2:    rgba(255,255,255,0.15);
-  --text:  #fafafa;
-  --text-2:#a1a1aa;
-  --text-3:#71717a;
-  --accent:#fbbf24;
-  --accent-2:#f59e0b;
-  --accent-dim: rgba(251,191,36,0.08);
-  --accent-med: rgba(251,191,36,0.15);
-  --accent-glow: rgba(251,191,36,0.12);
-  --success: #22c55e;
-  --error:   #ef4444;
-  --r:       12px;
-  --r-sm:    8px;
-  --ease:    cubic-bezier(0.16, 1, 0.3, 1);
+  --bg: #0c0c0e; --bg-2: #121215; --card: #18181c; --card-2: #1e1e23;
+  --b0: rgba(255,255,255,0.04); --b1: rgba(255,255,255,0.08);
+  --text: #fafafa; --text-2: #a1a1aa; --text-3: #71717a;
+  --accent: #fbbf24; --accent-dim: rgba(251,191,36,0.08); --accent-med: rgba(251,191,36,0.15);
+  --success: #22c55e; --error: #ef4444; --r: 12px; --r-sm: 8px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --font-display: 'Space Grotesk', system-ui, sans-serif;
-  --font-body:    'Inter', system-ui, sans-serif;
-  --max-width: 1200px;
-  --content-padding: 4vw;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --max-width: 1200px; --content-padding: 4vw;
 }
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; scroll-behavior: smooth; scroll-padding-top: 70px; }
-body {
-  font-family: var(--font-body);
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
+html { 
+  font-size: 16px; 
+  scroll-behavior: smooth; 
+  scroll-padding-top: 70px;
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+body { 
+  font-family: var(--font-body); 
+  background: var(--bg); 
+  color: var(--text); 
+  line-height: 1.6; 
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
 }
 a { text-decoration: none; color: inherit; }
-ul { list-style: none; }
 
-/* ── NAV ───────────────────────────────────── */
-nav {
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  z-index: 1000;
-  display: flex; 
-  align-items: center; 
-  justify-content: space-between;
-  padding: 0.75rem 4vw;
-  transition: background 0.3s var(--ease), backdrop-filter 0.3s var(--ease);
-  height: 60px;
-}
-nav.scrolled {
-  background: rgba(12,12,14,0.95);
-  backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid var(--b0);
-}
-.logo {
-  font-family: var(--font-display);
-  font-size: 1.75rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  flex-shrink: 0;
-  white-space: nowrap;
-  z-index: 1001;
-}
-.logo span {
-  color: var(--accent);
-  font-weight: 600;
-}
-.nav-links { 
-  display: none;
-}
-.nav-cta {
-  display: none;
-}
-.burger { 
-  display: flex;
-  flex-direction: column; 
-  gap: 4px; 
-  cursor: pointer; 
-  z-index: 1001; 
-  padding: 0.5rem;
-  width: 40px;
-  height: 40px;
-  align-items: center;
-  justify-content: center;
-}
-.burger span { 
-  display: block; 
-  width: 22px; 
-  height: 2px; 
-  background: var(--text); 
-  border-radius: 2px; 
-  transition: all 0.3s var(--ease); 
-}
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 4vw; height: 60px; transition: all 0.3s var(--ease); }
+nav.scrolled { background: rgba(12,12,14,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--b0); }
+.logo { font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; color: var(--text); z-index: 1001; }
+.logo span { color: var(--accent); }
+.burger { display: flex; flex-direction: column; gap: 4px; cursor: pointer; z-index: 1001; padding: 0.5rem; }
+.burger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s var(--ease); }
 .burger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
 .burger.open span:nth-child(2) { opacity: 0; }
 .burger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
-.drawer {
-  position: fixed; 
-  top: 0; 
-  right: -100%; 
-  width: 280px; 
-  height: 100vh;
-  background: var(--bg-2);
-  border-left: 1px solid var(--b0);
-  z-index: 999;
-  padding: 5rem 1.5rem 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  transition: right 0.3s var(--ease);
-}
+.drawer { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; background: var(--bg-2); border-left: 1px solid var(--b0); z-index: 999; padding: 5rem 1.5rem 2rem; display: flex; flex-direction: column; gap: 0.25rem; transition: right 0.3s var(--ease); }
 .drawer.open { right: 0; }
-.drawer a {
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 0.875rem 0;
-  border-bottom: 1px solid var(--b0);
-  color: var(--text);
-  transition: all 0.2s;
-  display: block;
-  font-family: var(--font-display);
-}
+.drawer a { font-size: 1rem; font-weight: 500; padding: 0.875rem 0; border-bottom: 1px solid var(--b0); color: var(--text); font-family: var(--font-display); }
 .drawer a:hover { color: var(--accent); padding-left: 0.5rem; }
-.drawer .d-cta {
-  margin-top: 1.5rem;
-  background: var(--accent);
-  color: var(--bg);
-  text-align: center;
-  padding: 0.875rem;
-  border-radius: var(--r);
-  font-weight: 600;
-  font-size: 0.9375rem;
-  border: none;
-}
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.8);
-  backdrop-filter: blur(4px);
-  z-index: 998;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s var(--ease);
-}
+.drawer .d-cta { margin-top: 1.5rem; background: var(--accent); color: var(--bg); text-align: center; padding: 0.875rem; border-radius: var(--r); font-weight: 600; }
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(4px); z-index: 998; opacity: 0; visibility: hidden; transition: all 0.3s var(--ease); }
 .overlay.open { opacity: 1; visibility: visible; }
 
-/* ── HERO ──────────────────────────────────── */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6rem var(--content-padding) 3rem;
-  position: relative;
-  overflow: hidden;
-}
-.hero-in {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-}
-.hero-bg::before {
-  content: '';
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, var(--accent-dim) 0%, transparent 60%);
-  opacity: 0.5;
-}
-.hero-in {
-  position: relative;
-  z-index: 1;
-  max-width: 100%;
-  width: 100%;
-}
-.pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--accent-dim);
-  border: 1px solid var(--accent-med);
-  color: var(--accent);
-  padding: 0.375rem 0.875rem;
-  border-radius: 100px;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin-bottom: 1.25rem;
-}
-.pill::before {
-  content: '';
-  width: 5px;
-  height: 5px;
-  background: var(--accent);
-  border-radius: 50%;
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-h1 {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 8vw, 3rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 1rem;
-  color: var(--text);
-}
-h1 em {
-  font-style: normal;
-  color: var(--accent);
-}
-.hero-desc {
-  font-size: 1.125rem;
-  color: var(--text-2);
-  max-width: 600px;
-  line-height: 1.6;
-  margin: 0 auto 1.5rem;
-  font-weight: 400;
-}
-.hero-btns {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
-  align-items: center;
-  justify-content: center;
-}
-.btn-p {
-  background: var(--text);
-  color: var(--bg);
-  padding: 0.875rem 1.5rem;
-  border-radius: 100px;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  font-family: var(--font-body);
-  transition: all 0.3s var(--ease);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-.btn-p:hover {
-  background: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 40px -10px var(--accent-glow);
-}
-.btn-o {
-  background: transparent;
-  color: var(--text);
-  padding: 0.875rem 1.5rem;
-  border-radius: 100px;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  font-family: var(--font-body);
-  border: 1px solid var(--b1);
-  transition: all 0.3s var(--ease);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  width: 100%;
-}
-.btn-o:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: var(--accent-dim);
-  transform: translateY(-2px);
-}
-.btn-ig-pill {
-  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-  color: #fff;
-  padding: 0.875rem 1.5rem;
-  border-radius: 100px;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  font-family: var(--font-body);
-  transition: all 0.3s var(--ease);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-.btn-ig-pill:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px -10px rgba(220, 39, 67, 0.4);
-  filter: brightness(1.1);
-}
-.hero-stats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--b0);
-  max-width: 600px;
-  margin: 0 auto;
-}
-@media(min-width: 768px) {
-  .hero-stats {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-  }
-}
-.stn {
-  font-family: var(--font-display);
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-.stn span {
-  color: var(--accent);
-  font-size: 1.25rem;
-}
-.stt {
-  font-size: 0.75rem;
-  color: var(--text-3);
-  margin-top: 0.25rem;
-  font-weight: 500;
-}
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 6rem var(--content-padding) 3rem; position: relative; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-bg::before { content: ''; position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, var(--accent-dim) 0%, transparent 60%); opacity: 0.5; }
+.hero-in { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; text-align: center; }
+.pill { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--accent-dim); border: 1px solid var(--accent-med); color: var(--accent); padding: 0.375rem 0.875rem; border-radius: 100px; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.25rem; }
+.pill::before { content: ''; width: 5px; height: 5px; background: var(--accent); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+h1 { font-family: var(--font-display); font-size: clamp(2rem, 8vw, 3rem); font-weight: 700; line-height: 1.1; margin-bottom: 1rem; }
+h1 em { font-style: normal; color: var(--accent); }
+.hero-desc { font-size: 1.125rem; color: var(--text-2); max-width: 600px; margin: 0 auto 1.5rem; }
+.hero-btns { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; align-items: center; }
+.btn-p { background: var(--text); color: var(--bg); padding: 0.875rem 1.5rem; border-radius: 100px; font-size: 0.9375rem; font-weight: 600; transition: all 0.3s var(--ease); display: inline-flex; align-items: center; gap: 0.5rem; border: none; cursor: pointer; width: 100%; justify-content: center; }
+.btn-p:hover { background: var(--accent); transform: translateY(-2px); }
+.btn-o { background: transparent; color: var(--text); padding: 0.875rem 1.5rem; border-radius: 100px; font-size: 0.9375rem; font-weight: 500; border: 1px solid var(--b1); transition: all 0.3s var(--ease); display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; width: 100%; justify-content: center; }
+.btn-o:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+.btn-ig-pill { background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #fff; padding: 0.875rem 1.5rem; border-radius: 100px; font-size: 0.9375rem; font-weight: 600; transition: all 0.3s var(--ease); display: inline-flex; align-items: center; gap: 0.5rem; border: none; cursor: pointer; width: 100%; justify-content: center; }
+.hero-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; padding-top: 1.5rem; border-top: 1px solid var(--b0); max-width: 600px; margin: 0 auto; }
+.stn { font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; }
+.stn span { color: var(--accent); font-size: 1.25rem; }
+.stt { font-size: 0.75rem; color: var(--text-3); margin-top: 0.25rem; }
 
-/* ── SHARED ────────────────────────────────── */
-section { 
-  padding: 4rem var(--content-padding);
-}
-@media(min-width: 768px) {
-  section { padding: 5rem var(--content-padding); }
-}
-.wrap { 
-  max-width: var(--max-width); 
-  margin: 0 auto; 
-  width: 100%;
-  padding: 0 var(--content-padding);
-  box-sizing: border-box;
-}
-.tag {
-  display: inline-block;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
-  padding: 0.375rem 0.875rem;
-  background: var(--accent-dim);
-  border-radius: 100px;
-  border: 1px solid var(--accent-med);
-}
-h2 {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 5vw, 2.25rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.5rem;
-}
-.sh {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.sub {
-  color: var(--text-2);
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  max-width: 500px;
-  margin: 0 auto;
-}
+section { padding: 4rem var(--content-padding); }
+.wrap { max-width: var(--max-width); margin: 0 auto; width: 100%; padding: 0 var(--content-padding); }
+.tag { display: inline-block; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; padding: 0.375rem 0.875rem; background: var(--accent-dim); border-radius: 100px; border: 1px solid var(--accent-med); }
+h2 { font-family: var(--font-display); font-size: clamp(1.5rem, 5vw, 2.25rem); font-weight: 700; line-height: 1.1; margin-bottom: 0.5rem; }
+.sh { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto; }
+.sub { color: var(--text-2); font-size: 0.9375rem; line-height: 1.6; }
 
-/* ── STRIP ─────────────────────────────────── */
-.strip {
-  background: var(--bg-2);
-  border-top: 1px solid var(--b0);
-  border-bottom: 1px solid var(--b0);
-  padding: 1rem 4vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-}
-.strip-lbl {
-  font-size: 0.6875rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-3);
-  font-weight: 600;
-}
-.strip-tags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem 1.25rem;
-}
-.strip-tag {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text-2);
-}
+.strip { background: var(--bg-2); border-top: 1px solid var(--b0); border-bottom: 1px solid var(--b0); padding: 1rem 4vw; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+.strip-lbl { font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); font-weight: 600; }
+.strip-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem 1.25rem; }
 
-/* ── SERVICES ──────────────────────────────── */
 #services { background: var(--bg-2); }
-.svc-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
-}
-.svc {
-  background: var(--card);
-  padding: 1rem;
-  border-radius: var(--r-sm);
-  border: 1px solid var(--b0);
-  transition: all 0.3s var(--ease);
-  display: flex;
-  flex-direction: column;
-}
-.svc:hover {
-  border-color: var(--b1);
-  background: var(--card-2);
-}
-.svc-ico {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  display: block;
-}
-.svc h3 {
-  font-family: var(--font-display);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  margin-bottom: 0.375rem;
-  color: var(--text);
-  letter-spacing: -0.01em;
-}
-.svc p {
-  font-size: 0.8125rem;
-  color: var(--text-2);
-  line-height: 1.5;
-  margin-bottom: 0.75rem;
-  display: none;
-}
-.svc-price {
-  display: inline-flex;
-  align-self: flex-start;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--accent);
-  padding: 0.375rem 0.75rem;
-  background: var(--accent-dim);
-  border-radius: 100px;
-  letter-spacing: 0.02em;
-  border: 1px solid var(--accent-med);
-  margin-top: auto;
-}
+.svc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+.svc { background: var(--card); padding: 1rem; border-radius: var(--r-sm); border: 1px solid var(--b0); display: flex; flex-direction: column; }
+.svc-ico { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.svc h3 { font-family: var(--font-display); font-size: 0.9375rem; font-weight: 600; margin-bottom: 0.375rem; }
+.svc p { font-size: 0.8125rem; color: var(--text-2); display: none; }
+.svc-price { display: inline-flex; align-self: flex-start; font-size: 0.75rem; font-weight: 600; color: var(--accent); padding: 0.375rem 0.75rem; background: var(--accent-dim); border-radius: 100px; border: 1px solid var(--accent-med); margin-top: auto; }
 
-/* ── PORTFOLIO ─────────────────────────────── */
 #portfolio { background: var(--bg); }
-.port-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-@media(min-width: 768px) {
-  .port-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media(min-width: 1024px) {
-  .port-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-.port-card {
-  border-radius: var(--r-sm);
-  overflow: hidden;
-  background: var(--card);
-  border: 1px solid var(--b0);
-  transition: all 0.3s var(--ease);
-  display: block;
-}
-.port-card:hover {
-  border-color: var(--b1);
-  transform: translateY(-4px);
-}
-.port-thumb {
-  height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background: var(--bg-2);
-}
-.port-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.port-body {
-  padding: 1rem;
-}
-.port-tag {
-  font-size: 0.625rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent);
-  background: var(--accent-dim);
-  padding: 0.25rem 0.625rem;
-  border-radius: 100px;
-  display: inline-block;
-  margin-bottom: 0.5rem;
-  border: 1px solid var(--accent-med);
-}
-.port-body h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.375rem;
-  font-family: var(--font-display);
-  letter-spacing: -0.01em;
-}
-.port-body p {
-  font-size: 0.8125rem;
-  color: var(--text-2);
-  line-height: 1.5;
-  display: none;
-}
-.port-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  margin-top: 0.5rem;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--accent);
-}
-.port-card.fc {
-  display: none;
-}
+.port-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+.port-card { border-radius: var(--r-sm); overflow: hidden; background: var(--card); border: 1px solid var(--b0); display: block; }
+.port-card:hover { border-color: var(--b1); transform: translateY(-4px); }
+.port-thumb { height: 180px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--bg-2); }
+.port-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.port-body { padding: 1rem; }
+.port-tag { font-size: 0.625rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); padding: 0.25rem 0.625rem; border-radius: 100px; display: inline-block; margin-bottom: 0.5rem; border: 1px solid var(--accent-med); }
+.port-body h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.375rem; font-family: var(--font-display); }
+.port-body p { font-size: 0.8125rem; color: var(--text-2); display: none; }
+.port-link { display: inline-flex; align-items: center; gap: 0.25rem; margin-top: 0.5rem; font-size: 0.8125rem; font-weight: 500; color: var(--accent); }
 
-/* ── PRICING ───────────────────────────────── */
 #pricing { background: var(--bg-2); }
-.price-hd { text-align: left; margin-bottom: 1.5rem; }
-.price-hd h2 { text-align: left; }
-.price-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-}
-@media(min-width: 768px) {
-  .price-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-.pc {
-  background: var(--card);
-  border: 1px solid var(--b0);
-  border-radius: var(--r-sm);
-  padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-}
-.pc.star {
-  border-color: var(--accent);
-  background: var(--bg);
-}
-.pbadge {
-  font-size: 0.625rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--bg);
-  background: var(--accent);
-  padding: 0.375rem 0.75rem;
-  border-radius: 100px;
-  display: inline-flex;
-  align-self: flex-start;
-  margin-bottom: 0.75rem;
-  align-items: center;
-  gap: 0.25rem;
-}
-.pbadge::before {
-  content: '★';
-}
-.pc h3 {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--text-3);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.5rem;
-}
-.pval {
-  font-family: var(--font-display);
-  font-size: 1.75rem;
-  font-weight: 700;
-  line-height: 1;
-  margin-bottom: 0.25rem;
-  letter-spacing: -0.02em;
-}
-.pper {
-  font-size: 0.8125rem;
-  color: var(--text-3);
-  margin-bottom: 0.75rem;
-}
-.pc > p {
-  font-size: 0.875rem;
-  color: var(--text-2);
-  line-height: 1.6;
-  margin-bottom: 0.75rem;
-}
-.pfs {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-.pf {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  font-size: 0.8125rem;
-  color: var(--text-2);
-}
-.pf::before {
-  content: '—';
-  color: var(--accent);
-  font-weight: 600;
-  flex-shrink: 0;
-}
-.pc .btn-p, .pc .btn-o {
-  width: 100%;
-  justify-content: center;
-  margin-top: auto;
-  padding: 0.75rem;
-  font-size: 0.875rem;
-}
-.maint {
-  background: var(--card);
-  border: 1px solid var(--b0);
-  border-radius: var(--r-sm);
-  padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-.maint h4 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-  font-family: var(--font-display);
-}
-.maint p {
-  font-size: 0.8125rem;
-  color: var(--text-2);
-}
-.maint-price {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--accent);
-}
-.maint-per {
-  font-size: 0.75rem;
-  color: var(--text-3);
-}
+.price-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 1.5rem; max-width: 1000px; margin-left: auto; margin-right: auto; }
+.pc { background: var(--card); border: 1px solid var(--b0); border-radius: var(--r-sm); padding: 1.25rem; display: flex; flex-direction: column; }
+.pc.star { border-color: var(--accent); background: var(--bg); }
+.pbadge { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bg); background: var(--accent); padding: 0.375rem 0.75rem; border-radius: 100px; display: inline-flex; align-self: flex-start; margin-bottom: 0.75rem; }
+.pc h3 { font-size: 0.75rem; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+.pval { font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; line-height: 1; margin-bottom: 0.25rem; }
+.pper { font-size: 0.8125rem; color: var(--text-3); margin-bottom: 0.75rem; }
+.pfs { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+.pf { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.8125rem; color: var(--text-2); }
+.pf::before { content: '—'; color: var(--accent); font-weight: 600; }
+.pc .btn-p, .pc .btn-o { width: 100%; justify-content: center; margin-top: auto; padding: 0.75rem; font-size: 0.875rem; }
+.maint { background: var(--card); border: 1px solid var(--b0); border-radius: var(--r-sm); padding: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.maint-price { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--accent); }
 
-/* ── FAQ ───────────────────────────────────── */
-#faq { background: var(--bg); padding: 2rem 4vw; }
-.faq-layout {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-@media(min-width: 768px) {
-  .faq-layout {
-    flex-direction: row;
-    gap: 3rem;
-    max-width: 1000px;
-  }
-  .faq-layout > div:first-child {
-    width: 300px;
-    flex-shrink: 0;
-    text-align: left;
-  }
-}
-.faq-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.faq-item {
-  background: var(--card);
-  border: 1px solid var(--b0);
-  border-radius: var(--r-sm);
-  overflow: hidden;
-  transition: all 0.3s var(--ease);
-}
-.faq-item.open {
-  border-color: var(--accent-med);
-  background: var(--card-2);
-}
-.faq-q {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  cursor: pointer;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: var(--text);
-  transition: color 0.2s;
-  gap: 0.75rem;
-  line-height: 1.4;
-  font-family: var(--font-display);
-}
-.faq-q:hover {
-  color: var(--accent);
-}
-.faq-ico {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  border: 1px solid var(--b1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.875rem;
-  transition: all 0.3s var(--ease);
-  color: var(--text-3);
-  font-weight: 300;
-}
-.faq-item.open .faq-ico {
-  background: var(--accent-dim);
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: rotate(45deg);
-}
-.faq-a {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s var(--ease), padding 0.3s var(--ease);
-  font-size: 0.8125rem;
-  color: var(--text-2);
-  line-height: 1.7;
-}
-.faq-item.open .faq-a {
-  max-height: 200px;
-  padding: 0 1rem 1rem;
-}
+#devis { background: var(--bg); }
+.devis-form { background: var(--card); border: 1px solid var(--b0); border-radius: var(--r); padding: 1.5rem; }
+.form-group { margin-bottom: 1.5rem; }
+.form-label { display: block; font-size: 0.875rem; color: var(--text-2); margin-bottom: 0.5rem; font-weight: 500; }
+.form-select, .form-input { width: 100%; background: var(--bg-2); border: 1px solid var(--b0); border-radius: var(--r-sm); color: var(--text); padding: 0.875rem 1rem; font-family: var(--font-body); font-size: 0.9375rem; }
+.form-select:focus, .form-input:focus { outline: none; border-color: var(--accent); }
+.counter-row { display: flex; align-items: center; gap: 0.75rem; }
+.counter-btn { width: 44px; height: 44px; background: var(--card-2); border: 1px solid var(--b0); border-radius: var(--r-sm); color: var(--text); cursor: pointer; font-size: 1.25rem; display: flex; align-items: center; justify-content: center; }
+.counter-input { flex: 1; background: var(--bg-2); border: 1px solid var(--b0); border-radius: var(--r-sm); color: var(--text); padding: 0.875rem; text-align: center; font-weight: 600; }
+.counter-hint { font-size: 0.75rem; color: var(--text-3); margin-top: 0.5rem; }
+.options-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+.option-card { display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: var(--bg-2); border: 1px solid var(--b0); border-radius: var(--r-sm); cursor: pointer; }
+.option-card.selected { border-color: var(--accent); background: var(--accent-dim); }
+.option-checkbox { width: 18px; height: 18px; accent-color: var(--accent); }
+.option-text { flex: 1; font-size: 0.875rem; }
+.option-price { color: var(--accent); font-weight: 600; font-size: 0.875rem; }
+.total-box { background: var(--bg-2); border: 2px solid var(--accent-med); border-radius: var(--r); padding: 2rem; margin-bottom: 1.5rem; text-align: center; }
+.total-label { font-size: 0.875rem; color: var(--text-2); margin-bottom: 0.5rem; }
+.total-price { font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--accent); line-height: 1; }
+.total-currency { font-size: 0.875rem; color: var(--text-3); margin-top: 0.5rem; }
+.acompte-box { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--b0); }
+.acompte-label { font-size: 0.875rem; color: var(--text-2); }
+.acompte-price { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: var(--text); }
+.pay-btn { background: var(--accent); color: var(--bg); padding: 1rem; border-radius: var(--r-sm); font-size: 1rem; font-weight: 600; border: none; cursor: pointer; width: 100%; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+.pay-btn:hover:not(:disabled) { filter: brightness(1.1); transform: translateY(-1px); }
+.pay-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.security-note { text-align: center; font-size: 0.75rem; color: var(--text-3); margin-top: 1rem; }
 
-/* ── CONTACT ───────────────────────────────── */
-#contact { background: var(--bg-2); padding: 2rem 4vw; }
-.contact-layout {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-@media(min-width: 768px) {
-  .contact-layout {
-    flex-direction: row;
-    gap: 3rem;
-  }
-}
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-.cc {
-  background: var(--card);
-  border: 1px solid var(--b0);
-  border-radius: var(--r-sm);
-  padding: 0.875rem 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  transition: all 0.3s var(--ease);
-}
-.cc-ico {
-  width: 36px;
-  height: 36px;
-  flex-shrink: 0;
-  border-radius: 8px;
-  background: var(--accent-dim);
-  border: 1px solid var(--accent-med);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-}
-.cc-lbl {
-  font-size: 0.625rem;
-  font-weight: 600;
-  color: var(--text-3);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 0.125rem;
-}
-.cc-val {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text);
-}
+#faq { background: var(--bg-2); padding: 2rem 4vw; }
+.faq-layout { display: flex; flex-direction: column; gap: 1.5rem; max-width: 800px; margin: 0 auto; }
+.faq-list { display: flex; flex-direction: column; gap: 0.5rem; }
+.faq-item { background: var(--card); border: 1px solid var(--b0); border-radius: var(--r-sm); overflow: hidden; }
+.faq-item.open { border-color: var(--accent-med); background: var(--card-2); }
+.faq-q { display: flex; justify-content: space-between; align-items: center; padding: 1rem; cursor: pointer; font-size: 0.9375rem; font-weight: 500; font-family: var(--font-display); }
+.faq-ico { width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--b1); display: flex; align-items: center; justify-content: center; font-size: 0.875rem; color: var(--text-3); transition: all 0.3s; }
+.faq-item.open .faq-ico { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: all 0.3s; font-size: 0.8125rem; color: var(--text-2); }
+.faq-item.open .faq-a { max-height: 200px; padding: 0 1rem 1rem; }
 
-/* Simple Contact Form */
-.simple-form {
-  background: var(--card);
-  border: 1px solid var(--b0);
-  border-radius: var(--r-sm);
-  padding: 1.25rem;
-}
-.simple-form h3 {
-  font-family: var(--font-display);
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-}
-.simple-form > p {
-  font-size: 0.875rem;
-  color: var(--text-2);
-  margin-bottom: 1rem;
-}
-.sf-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-.sf-input {
-  background: var(--bg);
-  border: 1px solid var(--b0);
-  border-radius: var(--r-sm);
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  padding: 0.75rem;
-  width: 100%;
-  transition: all 0.2s;
-}
-.sf-input:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 2px var(--accent-glow);
-}
-.sf-input::placeholder {
-  color: var(--text-3);
-}
-textarea.sf-input {
-  min-height: 80px;
-  resize: vertical;
-  margin-bottom: 0.75rem;
-}
-.sf-btn {
-  background: var(--accent);
-  color: var(--bg);
-  padding: 0.875rem;
-  border-radius: var(--r-sm);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  transition: all 0.2s;
-}
-.sf-btn:hover {
-  filter: brightness(1.1);
-  transform: translateY(-1px);
-}
+#contact { background: var(--bg); padding: 2rem 4vw; }
+.contact-simple { max-width: 600px; margin: 0 auto; text-align: center; }
+.contact-cards { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+.cc { background: var(--card); border: 1px solid var(--b0); border-radius: var(--r-sm); padding: 1rem; display: flex; align-items: center; gap: 0.75rem; transition: all 0.3s; text-decoration: none; color: inherit; }
+.cc:hover { border-color: var(--accent-med); background: var(--card-2); }
+.cc-ico { width: 40px; height: 40px; border-radius: 8px; background: var(--accent-dim); border: 1px solid var(--accent-med); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; }
+.cc-info { text-align: left; flex: 1; }
+.cc-lbl { font-size: 0.625rem; font-weight: 600; color: var(--text-3); letter-spacing: 0.08em; text-transform: uppercase; }
+.cc-val { font-size: 0.9375rem; font-weight: 500; }
+.cc-arrow { color: var(--text-3); }
 
-/* ── FOOTER ────────────────────────────────── */
-footer {
-  background: var(--bg);
-  border-top: 1px solid var(--b0);
-  padding: 3rem 4vw;
-}
-.footer-content {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 1.5rem;
-}
-.footer-brand {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.footer-logo {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text);
-}
+footer { background: var(--bg-2); border-top: 1px solid var(--b0); padding: 3rem 4vw; }
+.footer-content { max-width: var(--max-width); margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; }
+.footer-logo { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; }
 .footer-logo span { color: var(--accent); }
-.footer-desc {
-  font-size: 0.875rem;
-  color: var(--text-3);
-  margin: 0;
-}
-.footer-social {
-  display: flex;
-  gap: 1rem;
-}
-.footer-ig {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: #E4405F;
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-.footer-ig:hover { opacity: 0.8; }
-.footer-copy {
-  font-size: 0.75rem;
-  color: var(--text-3);
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--b0);
-  width: 100%;
-  max-width: 400px;
-}
-@media(min-width: 768px) {
-  footer { padding: 4rem 4vw; }
-  .footer-content {
-    gap: 2rem;
-  }
-}
+.footer-desc { font-size: 0.875rem; color: var(--text-3); }
+.footer-ig { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9375rem; font-weight: 500; color: #E4405F; }
+.footer-copy { font-size: 0.75rem; color: var(--text-3); padding-top: 1.5rem; border-top: 1px solid var(--b0); width: 100%; max-width: 400px; }
 
-/* ── SCROLL REVEAL ─────────────────────────── */
-.sr {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
-}
-.sr.visible {
-  opacity: 1;
-  transform: none;
-}
+.notification { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--card); border: 1px solid var(--accent-med); color: var(--text); padding: 1rem 1.5rem; border-radius: var(--r-sm); font-size: 0.875rem; font-weight: 500; z-index: 9999; opacity: 0; transition: all 0.3s; }
+.notification.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.notification.success { border-color: var(--success); background: rgba(34, 197, 94, 0.1); }
+.notification.error { border-color: var(--error); background: rgba(239, 68, 68, 0.1); }
 
-/* ── DESKTOP BREAKPOINT ────────────────────── */
+.sr { opacity: 0; transform: translateY(20px); transition: all 0.6s var(--ease); }
+.sr.visible { opacity: 1; transform: none; }
+
 @media(min-width: 768px) {
   html { scroll-padding-top: 80px; }
-  
-  nav {
-    padding: 1rem 5vw;
-    height: 70px;
-  }
-  .nav-links, .nav-cta { display: none !important; }
-  .burger { display: flex !important; }
-  
-  .hero {
-    min-height: 100vh;
-    padding: 8rem 5vw 4rem;
-  }
-  .hero-desc {
-    max-width: 480px;
-    font-size: 1.125rem;
-  }
-  .hero-btns {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  .btn-p, .btn-o, .btn-ig-pill {
-    width: auto;
-  }
-  .hero-stats {
-    display: flex;
-    gap: 3rem;
-    grid-template-columns: none;
-  }
-  .stn {
-    font-size: 2.25rem;
-  }
-  .stn span {
-    font-size: 1.5rem;
-  }
-  
+  nav { padding: 1rem 5vw; height: 70px; }
+  .hero { min-height: 100vh; padding: 8rem 5vw 4rem; }
+  .hero-btns { flex-direction: row; flex-wrap: wrap; }
+  .btn-p, .btn-o, .btn-ig-pill { width: auto; }
+  .hero-stats { display: flex; gap: 3rem; }
   section { padding: 4rem 5vw; }
-  h2 { font-size: 2rem; }
-  
-  .strip {
-    flex-direction: row;
-    justify-content: center;
-    gap: 2rem;
-    padding: 1.25rem 5vw;
-  }
-  
-  .svc-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-  .svc {
-    padding: 1.5rem;
-  }
-  .svc p {
-    display: block;
-    font-size: 0.875rem;
-  }
-  .svc h3 {
-    font-size: 1.125rem;
-  }
-  
-  .port-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-  .port-thumb {
-    height: 200px;
-  }
-  .port-body p {
-    display: block;
-  }
-  .port-card.fc {
-    grid-column: span 2;
-  }
-  .fc-in {
-    flex-direction: row;
-    align-items: center;
-    padding: 1.5rem;
-  }
-  .fc-ico {
-    width: 48px;
-    height: 48px;
-    font-size: 1.5rem;
-  }
-  .port-card.fc h3 {
-    font-size: 1.25rem;
-  }
-  .port-card.fc p {
-    font-size: 0.875rem;
-  }
-  .port-card.fc .port-link {
-    display: inline-flex;
-    margin-left: auto;
-  }
-  
-  .price-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-  .pval {
-    font-size: 2rem;
-  }
-  .maint {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem 2rem;
-  }
-  
-  #faq { padding: 3rem 5vw; }
-  .faq-layout {
-    flex-direction: row;
-    gap: 3rem;
-  }
-  .faq-layout > div:first-child {
-    width: 280px;
-    flex-shrink: 0;
-  }
-  .faq-q {
-    padding: 1.25rem;
-    font-size: 1rem;
-  }
-  .faq-item.open .faq-a {
-    padding: 0 1.25rem 1.25rem;
-  }
-  
-  #contact { padding: 3rem 5vw; }
-  .contact-layout {
-    flex-direction: row;
-    gap: 2rem;
-  }
-  .contact-info {
-    width: 320px;
-    flex-shrink: 0;
-  }
-  .simple-form {
-    flex: 1;
-    padding: 2rem;
-  }
-  
-  .fin {
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: left;
-  }
+  .strip { flex-direction: row; justify-content: center; gap: 2rem; }
+  .svc-grid { grid-template-columns: repeat(3, 1fr); }
+  .svc p { display: block; }
+  .port-grid { grid-template-columns: repeat(2, 1fr); }
+  .port-body p { display: block; }
+  .price-grid { grid-template-columns: repeat(3, 1fr); }
+  .maint { flex-direction: row; align-items: center; justify-content: space-between; }
+  .faq-layout { flex-direction: row; gap: 3rem; }
+  .faq-layout > div:first-child { width: 280px; flex-shrink: 0; }
+  .contact-cards { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .cc { width: calc(50% - 0.375rem); }
+  .options-grid { grid-template-columns: repeat(2, 1fr); }
+  .devis-form { padding: 2.5rem; }
 }
 
 @media(min-width: 1024px) {
-  .port-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .port-card.fc {
-    grid-column: span 1;
-  }
-  .port-thumb {
-    height: 220px;
-  }
+  .port-grid { grid-template-columns: repeat(3, 1fr); }
+  .cc { width: calc(33.333% - 0.5rem); }
 }
 </style>
-
 <base target="_blank">
 <base target="_blank">
 </head>
 <body>
 
-<!-- NAV -->
-
 <nav id="nav">
   <a href="#hero" class="logo">SDO<span>Web</span></a>
-  <div class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+  <div class="burger" id="burger" aria-label="Menu">
     <span></span><span></span><span></span>
   </div>
 </nav>
 
 <div class="overlay" id="overlay"></div>
 <div class="drawer" id="drawer">
-  <a href="#services" class="dl">Services</a>
-  <a href="#portfolio" class="dl">Réalisations</a>
-  <a href="#pricing" class="dl">Tarifs</a>
-  <a href="#devis" class="dl" style="color: var(--accent);">📝 Devis en ligne</a>
-  <a href="#faq" class="dl">FAQ</a>
-  <a href="#contact" class="dl">Contact</a>
-  <a href="#devis" class="d-cta dl">Devis gratuit</a>
+  <a href="#services">Services</a>
+  <a href="#portfolio">Réalisations</a>
+  <a href="#pricing">Tarifs</a>
+  <a href="#devis" style="color: var(--accent);">📝 Devis en ligne</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+  <a href="#devis" class="d-cta">Devis gratuit</a>
 </div>
 
-<!-- HERO -->
-
 <section class="hero" id="hero">
-  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-bg"></div>
   <div class="hero-in">
     <div class="pill">Développeur web freelance — Belgique</div>
     <h1>Votre site internet,<br><em>livré en 48h,</em><br>prêt à convertir.</h1>
@@ -1206,10 +259,7 @@ footer {
     <div class="hero-btns">
       <a href="#devis" class="btn-p">📝 Devis en ligne instantané</a>
       <a href="#portfolio" class="btn-o">Voir les réalisations</a>
-      <a href="https://www.instagram.com/sdo_web" target="_blank" rel="noopener noreferrer" class="btn-ig-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-        @sdo_web
-      </a>
+      <a href="https://www.instagram.com/sdo_web" target="_blank" class="btn-ig-pill">📱 @sdo_web</a>
     </div>
     <div class="hero-stats">
       <div><div class="stn" data-count="6">0</div><div class="stt">Sites livrés</div></div>
@@ -1227,186 +277,65 @@ footer {
     <span class="strip-tag">Liège</span>
     <span class="strip-tag">Charleroi</span>
     <span class="strip-tag">Namur</span>
-    <span class="strip-tag">Wallonie</span>
     <span class="strip-tag">Toute la Belgique</span>
   </div>
 </div>
 
-<!-- SERVICES -->
-
 <section id="services">
   <div class="wrap">
     <div class="sh">
-      <div>
-        <div class="tag">Services</div>
-        <h2>Ce que je crée</h2>
-      </div>
-      <p class="sub">Solutions web sur mesure pour indépendants et PME belges.</p>
+      <div class="tag">Services</div>
+      <h2>Ce que je crée</h2>
     </div>
+    <p class="sub" style="text-align:center;margin-bottom:1.5rem">Solutions web sur mesure pour indépendants et PME belges.</p>
     <div class="svc-grid">
-      <div class="svc sr">
-        <span class="svc-ico">🌐</span>
-        <h3>Site vitrine</h3>
-        <p>Présenter votre activité avec élégance et convertir vos visiteurs.</p>
-        <span class="svc-price">À partir de 600 €</span>
-      </div>
-      <div class="svc sr">
-        <span class="svc-ico">🎯</span>
-        <h3>Landing page</h3>
-        <p>Page de conversion optimisée pour capturer des leads.</p>
-        <span class="svc-price">À partir de 300 €</span>
-      </div>
-      <div class="svc sr">
-        <span class="svc-ico">🛒</span>
-        <h3>E-commerce</h3>
-        <p>Boutique en ligne clé en main, prête à vendre.</p>
-        <span class="svc-price">À partir de 1 200 €</span>
-      </div>
-      <div class="svc sr">
-        <span class="svc-ico">🔄</span>
-        <h3>Refonte</h3>
-        <p>Moderniser votre site existant sans perdre le référencement.</p>
-        <span class="svc-price">À partir de 500 €</span>
-      </div>
-      <div class="svc sr">
-        <span class="svc-ico">🔍</span>
-        <h3>SEO</h3>
-        <p>Améliorer votre positionnement sur Google.</p>
-        <span class="svc-price">À partir de 200 €</span>
-      </div>
-      <div class="svc sr">
-        <span class="svc-ico">⚙️</span>
-        <h3>Automatisation</h3>
-        <p>Formulaires intelligents et workflows automatisés.</p>
-        <span class="svc-price">Sur devis</span>
-      </div>
+      <div class="svc sr"><span class="svc-ico">🌐</span><h3>Site vitrine</h3><p>Présenter votre activité avec élégance.</p><span class="svc-price">À partir de 600 €</span></div>
+      <div class="svc sr"><span class="svc-ico">🎯</span><h3>Landing page</h3><p>Page de conversion optimisée.</p><span class="svc-price">À partir de 300 €</span></div>
+      <div class="svc sr"><span class="svc-ico">🛒</span><h3>E-commerce</h3><p>Boutique en ligne clé en main.</p><span class="svc-price">À partir de 1 200 €</span></div>
+      <div class="svc sr"><span class="svc-ico">🔄</span><h3>Refonte</h3><p>Moderniser votre site existant.</p><span class="svc-price">À partir de 500 €</span></div>
+      <div class="svc sr"><span class="svc-ico">🔍</span><h3>SEO</h3><p>Améliorer votre référencement.</p><span class="svc-price">À partir de 200 €</span></div>
+      <div class="svc sr"><span class="svc-ico">⚙️</span><h3>Automatisation</h3><p>Workflows automatisés.</p><span class="svc-price">Sur devis</span></div>
     </div>
   </div>
 </section>
-
-<!-- PORTFOLIO -->
 
 <section id="portfolio">
   <div class="wrap">
-    <div class="sh">
-      <div>
-        <div class="tag">Réalisations</div>
-        <h2>Projets récents</h2>
-      </div>
-    </div>
+    <div class="sh"><div class="tag">Réalisations</div><h2>Projets récents</h2></div>
     <div class="port-grid">
-      <a href="https://chaymassama.be" target="_blank" rel="noopener noreferrer" class="port-card sr">
-        <div class="port-thumb">
-          <img src="chaymassama2026-03-17 153041.PNG" alt="Chaymassama">
-        </div>
-        <div class="port-body">
-          <span class="port-tag">Site vitrine</span>
-          <h3>Chaymassama</h3>
-          <p>Photographe & Vidéaste — Design aérien avec animations.</p>
-          <span style="display: block; color: var(--accent); font-size: 0.75rem; margin-top: 0.25rem;">chaymassama.be</span>
-          <span class="port-link">Voir le site →</span>
-        </div>
+      <a href="https://chaymassama.be" target="_blank" class="port-card sr">
+        <div class="port-thumb"><img src="chaymassama2026-03-17 153041.PNG" alt="Chaymassama"></div>
+        <div class="port-body"><span class="port-tag">Site vitrine</span><h3>Chaymassama</h3><p>Photographe & Vidéaste.</p><span class="port-link">Voir le site →</span></div>
       </a>
-      
-      <a href="https://creafida.be" target="_blank" rel="noopener noreferrer" class="port-card sr">
-        <div class="port-thumb">
-          <img src="creafida 2026-03-17 153204.PNG" alt="Creafida">
-        </div>
-        <div class="port-body">
-          <span class="port-tag">Site vitrine</span>
-          <h3>Creafida</h3>
-          <p>Atelier de couture — 20+ ans d'expérience.</p>
-          <span style="display: block; color: var(--accent); font-size: 0.75rem; margin-top: 0.25rem;">creafida.be</span>
-          <span class="port-link">Voir le site →</span>
-        </div>
+      <a href="https://creafida.be" target="_blank" class="port-card sr">
+        <div class="port-thumb"><img src="creafida 2026-03-17 153204.PNG" alt="Creafida"></div>
+        <div class="port-body"><span class="port-tag">Site vitrine</span><h3>Creafida</h3><p>Atelier de couture.</p><span class="port-link">Voir le site →</span></div>
       </a>
-      
-
     </div>
   </div>
 </section>
-
-<!-- PRICING -->
 
 <section id="pricing">
   <div class="wrap">
-    <div class="price-hd">
-      <div class="tag">Tarifs</div>
-      <h2>Prix transparents</h2>
-      <p class="sub">Devis personnalisé selon vos besoins spécifiques.</p>
-    </div>
+    <div class="sh"><div class="tag">Tarifs</div><h2>Prix transparents</h2></div>
+    <p class="sub" style="text-align:center;margin-bottom:1.5rem">Devis personnalisé selon vos besoins.</p>
     <div class="price-grid">
-      <div class="pc sr">
-        <h3>Landing Page</h3>
-        <div class="pval">300 € – 500 €</div>
-        <div class="pper">Page unique · 48h</div>
-        <p>Idéale pour lancer un produit ou capturer des leads.</p>
-        <div class="pfs">
-          <span class="pf">Design responsive</span>
-          <span class="pf">Formulaire de contact</span>
-          <span class="pf">SEO de base</span>
-        </div>
-        <a href="#devis" onclick="selectService(400)" class="btn-o">Configurer ce devis</a>
-      </div>
-      
-      <div class="pc star sr">
-        <div class="pbadge">Populaire</div>
-        <h3>Site Vitrine</h3>
-        <div class="pval">900 € – 1 200 €</div>
-        <div class="pper">3-5 pages · 5-7 jours</div>
-        <p>Solution complète pour votre présence en ligne.</p>
-        <div class="pfs">
-          <span class="pf">Design premium sur mesure</span>
-          <span class="pf">SEO avancé</span>
-          <span class="pf">Support 30 jours</span>
-        </div>
-        <a href="#devis" onclick="selectService(1050)" class="btn-p">Configurer ce devis</a>
-      </div>
-      
-      <div class="pc sr">
-        <h3>E-commerce</h3>
-        <div class="pval">1 200 € – 2&nbsp;000 €</div>
-        <div class="pper">Boutique complète · 2 sem.</div>
-        <p>Boutique prête à vendre avec paiement sécurisé.</p>
-        <div class="pfs">
-          <span class="pf">Catalogue illimité</span>
-          <span class="pf">Stripe & PayPal</span>
-          <span class="pf">Gestion des stocks</span>
-        </div>
-        <a href="#devis" onclick="selectService(1600)" class="btn-o">Configurer ce devis</a>
-      </div>
+      <div class="pc sr"><h3>Landing Page</h3><div class="pval">300 € – 500 €</div><div class="pper">Page unique · 48h</div><p style="font-size:0.875rem;color:var(--text-2);margin-bottom:0.75rem">Idéale pour lancer un produit.</p><div class="pfs"><span class="pf">Design responsive</span><span class="pf">Formulaire de contact</span><span class="pf">SEO de base</span></div><a href="#devis" onclick="selectService(400)" class="btn-o">Configurer</a></div>
+      <div class="pc star sr"><div class="pbadge">Populaire</div><h3>Site Vitrine</h3><div class="pval">900 € – 1 200 €</div><div class="pper">3-5 pages · 5-7 jours</div><p style="font-size:0.875rem;color:var(--text-2);margin-bottom:0.75rem">Solution complète.</p><div class="pfs"><span class="pf">Design premium</span><span class="pf">SEO avancé</span><span class="pf">Support 30 jours</span></div><a href="#devis" onclick="selectService(1050)" class="btn-p">Configurer</a></div>
+      <div class="pc sr"><h3>E-commerce</h3><div class="pval">1 200 € – 2 000 €</div><div class="pper">Boutique complète · 2 sem.</div><p style="font-size:0.875rem;color:var(--text-2);margin-bottom:0.75rem">Prête à vendre.</p><div class="pfs"><span class="pf">Catalogue illimité</span><span class="pf">Paiement sécurisé</span><span class="pf">Gestion stocks</span></div><a href="#devis" onclick="selectService(1600)" class="btn-o">Configurer</a></div>
     </div>
-    
-    <div class="maint sr">
-      <div>
-        <h4>🛠 Maintenance</h4>
-        <p>Mises à jour, sauvegardes et support prioritaire.</p>
-      </div>
-      <div style="text-align: center;">
-        <div class="maint-price">50 € – 120 €</div>
-        <div class="maint-per">/mois</div>
-      </div>
-      <a href="#devis" onclick="selectService(80)" class="btn-o" style="font-size:0.875rem;padding:0.625rem 1.25rem">Configurer</a>
-    </div>
+    <div class="maint sr"><div><h4>🛠 Maintenance</h4><p style="font-size:0.8125rem;color:var(--text-2)">Mises à jour et support.</p></div><div style="text-align:center"><div class="maint-price">50 € – 120 €</div><div style="font-size:0.75rem;color:var(--text-3)">/mois</div></div><a href="#devis" onclick="selectService(80)" class="btn-o" style="font-size:0.875rem;padding:0.625rem 1.25rem">Configurer</a></div>
   </div>
 </section>
 
-<!-- DEVIS INTERACTIF -->
 <section id="devis">
   <div class="wrap">
-    <div class="sh">
-      <div>
-        <div class="tag">Devis en ligne</div>
-        <h2>Créez votre devis personnalisé</h2>
-      </div>
-      <p class="sub">Sélectionnez vos options pour connaître le prix en temps réel et payer votre acompte sécurisé.</p>
-    </div>
-
-    <form id="formDevis" class="devis-form" style="max-width: 700px; margin: 0 auto;">
-      <!-- Type de site -->
-      <div class="form-group" style="margin-bottom: 1.5rem;">
-        <label for="typeSite" style="display: block; font-size: 0.875rem; color: var(--text-2); margin-bottom: 0.5rem; font-weight: 500;">Type de site</label>
-        <select id="typeSite" style="width: 100%; background: var(--bg-2); border: 1px solid var(--b0); border-radius: var(--r-sm); color: var(--text); padding: 0.875rem 1rem; font-family: var(--font-body); font-size: 0.9375rem; cursor: pointer;">
+    <div class="sh"><div class="tag">Devis en ligne</div><h2>Configurez votre projet</h2></div>
+    <p class="sub" style="text-align:center;margin-bottom:1.5rem">Obtenez un devis instantané et payez votre acompte sécurisé.</p>
+    <form id="formDevis" class="devis-form sr" onsubmit="return false;">
+      <div class="form-group">
+        <label class="form-label">Type de site</label>
+        <select id="typeSite" class="form-select" onchange="calculateDevis()">
           <option value="400" data-name="Landing Page">Landing Page — 400€</option>
           <option value="1050" data-name="Site Vitrine" selected>Site Vitrine — 1 050€</option>
           <option value="1600" data-name="E-commerce">E-commerce — 1 600€</option>
@@ -1415,361 +344,119 @@ footer {
           <option value="80" data-name="Maintenance">Maintenance — 80€/mois</option>
         </select>
       </div>
-
-      <!-- Nombre de pages -->
-      <div class="form-group" style="margin-bottom: 1.5rem;">
-        <label for="pages" style="display: block; font-size: 0.875rem; color: var(--text-2); margin-bottom: 0.5rem; font-weight: 500;">Pages supplémentaires (optionnel)</label>
-        <div style="display: flex; align-items: center; gap: 0.75rem;">
-          <button type="button" onclick="adjustPages(-1)" style="width: 44px; height: 44px; background: var(--card); border: 1px solid var(--b0); border-radius: var(--r-sm); color: var(--text); cursor: pointer; font-size: 1.25rem; display: flex; align-items: center; justify-content: center;">−</button>
-          <input type="number" id="pages" value="0" min="0" max="20" readonly style="flex: 1; background: var(--bg-2); border: 1px solid var(--b0); border-radius: var(--r-sm); color: var(--text); padding: 0.875rem; text-align: center; font-weight: 600;">
-          <button type="button" onclick="adjustPages(1)" style="width: 44px; height: 44px; background: var(--card); border: 1px solid var(--b0); border-radius: var(--r-sm); color: var(--text); cursor: pointer; font-size: 1.25rem; display: flex; align-items: center; justify-content: center;">+</button>
+      <div class="form-group">
+        <label class="form-label">Pages supplémentaires</label>
+        <div class="counter-row">
+          <button type="button" class="counter-btn" onclick="adjustPages(-1)">−</button>
+          <input type="number" id="pages" class="counter-input" value="0" min="0" max="20" readonly>
+          <button type="button" class="counter-btn" onclick="adjustPages(1)">+</button>
         </div>
-        <span style="font-size: 0.75rem; color: var(--text-3); margin-top: 0.5rem; display: block;">+80€ par page supplémentaire</span>
+        <div class="counter-hint">+80€ par page supplémentaire</div>
       </div>
-
-      <!-- Options supplémentaires -->
-      <div class="form-group" style="margin-bottom: 1.5rem;">
-        <label style="display: block; font-size: 0.875rem; color: var(--text-2); margin-bottom: 0.75rem; font-weight: 500;">Options additionnelles</label>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.75rem;">
-          <label style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: var(--card); border: 1px solid var(--b0); border-radius: var(--r-sm); cursor: pointer;">
-            <input type="checkbox" value="150" data-name="Blog" style="width: 18px; height: 18px; accent-color: var(--accent);">
-            <span style="flex: 1; font-size: 0.875rem;">Blog intégré</span>
-            <span style="color: var(--accent); font-weight: 600; font-size: 0.875rem;">+150€</span>
-          </label>
-          <label style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: var(--card); border: 1px solid var(--b0); border-radius: var(--r-sm); cursor: pointer;">
-            <input type="checkbox" value="150" data-name="SEO avancé" style="width: 18px; height: 18px; accent-color: var(--accent);">
-            <span style="flex: 1; font-size: 0.875rem;">SEO avancé</span>
-            <span style="color: var(--accent); font-weight: 600; font-size: 0.875rem;">+150€</span>
-          </label>
-          <label style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: var(--card); border: 1px solid var(--b0); border-radius: var(--r-sm); cursor: pointer;">
-            <input type="checkbox" value="80" data-name="Galerie" style="width: 18px; height: 18px; accent-color: var(--accent);">
-            <span style="flex: 1; font-size: 0.875rem;">Galerie images</span>
-            <span style="color: var(--accent); font-weight: 600; font-size: 0.875rem;">+80€</span>
-          </label>
-          <label style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: var(--card); border: 1px solid var(--b0); border-radius: var(--r-sm); cursor: pointer;">
-            <input type="checkbox" value="200" data-name="Réservation" style="width: 18px; height: 18px; accent-color: var(--accent);">
-            <span style="flex: 1; font-size: 0.875rem;">Réservation en ligne</span>
-            <span style="color: var(--accent); font-weight: 600; font-size: 0.875rem;">+200€</span>
-          </label>
-          <label style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: var(--card); border: 1px solid var(--b0); border-radius: var(--r-sm); cursor: pointer;">
-            <input type="checkbox" value="250" data-name="Paiement en ligne" style="width: 18px; height: 18px; accent-color: var(--accent);">
-            <span style="flex: 1; font-size: 0.875rem;">Paiement en ligne</span>
-            <span style="color: var(--accent); font-weight: 600; font-size: 0.875rem;">+250€</span>
-          </label>
-          <label style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: var(--card); border: 1px solid var(--b0); border-radius: var(--r-sm); cursor: pointer;">
-            <input type="checkbox" value="100" data-name="Optimisation vitesse" style="width: 18px; height: 18px; accent-color: var(--accent);">
-            <span style="flex: 1; font-size: 0.875rem;">Optimisation vitesse</span>
-            <span style="color: var(--accent); font-weight: 600; font-size: 0.875rem;">+100€</span>
-          </label>
+      <div class="form-group">
+        <label class="form-label">Options additionnelles</label>
+        <div class="options-grid">
+          <label class="option-card" onclick="toggleOption(this)"><input type="checkbox" class="option-checkbox" value="150" data-name="Blog" onchange="calculateDevis()"><span class="option-text">Blog intégré</span><span class="option-price">+150€</span></label>
+          <label class="option-card" onclick="toggleOption(this)"><input type="checkbox" class="option-checkbox" value="150" data-name="SEO avancé" onchange="calculateDevis()"><span class="option-text">SEO avancé</span><span class="option-price">+150€</span></label>
+          <label class="option-card" onclick="toggleOption(this)"><input type="checkbox" class="option-checkbox" value="80" data-name="Galerie" onchange="calculateDevis()"><span class="option-text">Galerie images</span><span class="option-price">+80€</span></label>
+          <label class="option-card" onclick="toggleOption(this)"><input type="checkbox" class="option-checkbox" value="200" data-name="Réservation" onchange="calculateDevis()"><span class="option-text">Réservation en ligne</span><span class="option-price">+200€</span></label>
+          <label class="option-card" onclick="toggleOption(this)"><input type="checkbox" class="option-checkbox" value="250" data-name="Paiement" onchange="calculateDevis()"><span class="option-text">Paiement en ligne</span><span class="option-price">+250€</span></label>
+          <label class="option-card" onclick="toggleOption(this)"><input type="checkbox" class="option-checkbox" value="100" data-name="Vitesse" onchange="calculateDevis()"><span class="option-text">Optimisation vitesse</span><span class="option-price">+100€</span></label>
         </div>
       </div>
-
-      <!-- Total affiché -->
-      <div style="background: var(--card); border: 2px solid var(--accent-med); border-radius: var(--r); padding: 2rem; margin-bottom: 1.5rem; text-align: center;">
-        <div style="font-size: 0.875rem; color: var(--text-2); margin-bottom: 0.5rem;">Estimation totale</div>
-        <div id="prixTotal" style="font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--accent); line-height: 1;">1 050 €</div>
-        <div style="font-size: 0.875rem; color: var(--text-3); margin-top: 0.5rem;">TTC</div>
-        <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--b0);">
-          <span style="font-size: 0.875rem; color: var(--text-2);">Acompte (50%) : </span>
-          <span id="prixAcompte" style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: var(--text);">525 €</span>
+      <div class="form-group">
+        <label class="form-label">Vos coordonnées</label>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:0.75rem">
+          <input type="text" id="clientName" class="form-input" placeholder="Votre nom" required>
+          <input type="email" id="clientEmail" class="form-input" placeholder="Votre email" required>
+        </div>
+        <textarea id="clientMessage" class="form-input" placeholder="Décrivez votre projet (optionnel)" rows="3"></textarea>
+      </div>
+      <div class="total-box">
+        <div class="total-label">Estimation totale</div>
+        <div id="prixTotal" class="total-price">1 050 €</div>
+        <div class="total-currency">TTC</div>
+        <div class="acompte-box">
+          <span class="acompte-label">Acompte à payer maintenant (50%) : </span>
+          <span id="prixAcompte" class="acompte-price">525 €</span>
         </div>
       </div>
-
-      <!-- Bouton pour payer l'acompte -->
-      <button type="button" id="btnPayerAcompte" class="sf-btn" style="width: 100%; padding: 1rem; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-          <line x1="1" y1="10" x2="23" y2="10"></line>
-        </svg>
-        Payer l'acompte (50%)
-      </button>
-      <p style="text-align: center; font-size: 0.75rem; color: var(--text-3); margin-top: 1rem;">🔒 Paiement sécurisé par Stripe · Devis valable 30 jours</p>
+      <button type="button" id="btnPayerAcompte" class="pay-btn" onclick="processPayment()">💳 Payer l'acompte (50%)</button>
+      <p class="security-note">🔒 Paiement sécurisé par Stripe · Devis valable 30 jours</p>
     </form>
   </div>
 </section>
 
-<script>
-// Calcul du devis en temps réel
-function calculateDevis() {
-  const typeSite = parseInt(document.getElementById('typeSite').value) || 0;
-  const pages = parseInt(document.getElementById('pages').value) || 0;
-  const pagesPrice = pages * 80;
-
-  let optionsPrice = 0;
-  document.querySelectorAll('#formDevis input[type="checkbox"]:checked').forEach(cb => {
-    optionsPrice += parseInt(cb.value) || 0;
-  });
-
-  const total = typeSite + pagesPrice + optionsPrice;
-  const acompte = Math.round(total * 0.5);
-
-  document.getElementById('prixTotal').textContent = new Intl.NumberFormat('fr-FR').format(total) + ' €';
-  document.getElementById('prixAcompte').textContent = new Intl.NumberFormat('fr-FR').format(acompte) + ' €';
-
-  return { total, acompte };
-}
-
-function adjustPages(delta) {
-  const input = document.getElementById('pages');
-  let value = parseInt(input.value) || 0;
-  value = Math.max(0, Math.min(20, value + delta));
-  input.value = value;
-  calculateDevis();
-}
-
-function selectService(price) {
-  const select = document.getElementById('typeSite');
-  if (select) {
-    select.value = price;
-    calculateDevis();
-  }
-}
-
-// Event listeners
-document.getElementById('typeSite')?.addEventListener('change', calculateDevis);
-document.querySelectorAll('#formDevis input[type="checkbox"]').forEach(cb => {
-  cb.addEventListener('change', calculateDevis);
-});
-
-// Paiement Stripe
-document.getElementById('btnPayerAcompte')?.addEventListener('click', function() {
-  const { total, acompte } = calculateDevis();
-  const typeName = document.getElementById('typeSite').options[document.getElementById('typeSite').selectedIndex].dataset.name;
-  alert('Redirection vers le paiement sécurisé Stripe\n\nMontant: ' + acompte + '€\nService: ' + typeName + '\n\nÀ configurer avec votre clé Stripe.');
-});
-
-// Initialisation
-calculateDevis();
-</script>
-
-<!-- FIN DEVIS INTERACTIF -->
-
-
-
-<!-- FAQ -->
-
 <section id="faq">
   <div class="wrap">
     <div class="faq-layout">
-      <div>
-        <div class="tag">FAQ</div>
-        <h2>Questions</h2>
-        <p class="sub" style="margin-bottom:1rem">Tout ce que vous devez savoir.</p>
-        <a href="#contact" class="btn-p" style="font-size:0.875rem;padding:0.75rem 1.5rem">Me contacter</a>
-      </div>
+      <div><div class="tag">FAQ</div><h2>Questions fréquentes</h2><p class="sub" style="margin-bottom:1rem">Tout ce que vous devez savoir.</p><a href="#contact" class="btn-p" style="font-size:0.875rem;padding:0.75rem 1.5rem">Me contacter</a></div>
       <div class="faq-list">
-        <div class="faq-item open">
-          <div class="faq-q" tabindex="0">
-            Combien coûte un site ?
-            <span class="faq-ico">+</span>
-          </div>
-          <div class="faq-a">Landing page dès 300 €, site vitrine 600-1 200 €, e-commerce 1 200-2&nbsp;000 €. Devis personnalisé sur demande.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" tabindex="0">
-            Quel est le délai ?
-            <span class="faq-ico">+</span>
-          </div>
-          <div class="faq-a">48h pour une landing page, 3-7 jours pour un site vitrine, 1-2 semaines pour un e-commerce.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" tabindex="0">
-            Le SEO est-il inclus ?
-            <span class="faq-ico">+</span>
-          </div>
-          <div class="faq-a">Oui, balises méta, structure HTML, vitesse optimisée et mobile-first sont inclus dans tous les sites.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" tabindex="0">
-            Où intervenez-vous ?
-            <span class="faq-ico">+</span>
-          </div>
-          <div class="faq-a">Dans toute la Belgique : Bruxelles, Liège, Charleroi, Namur, et partout ailleurs. À distance ou sur place.</div>
-        </div>
+        <div class="faq-item open"><div class="faq-q" tabindex="0">Combien coûte un site ?<span class="faq-ico">+</span></div><div class="faq-a">Landing page dès 300 €, site vitrine 600-1 200 €, e-commerce 1 200-2 000 €.</div></div>
+        <div class="faq-item"><div class="faq-q" tabindex="0">Quel est le délai ?<span class="faq-ico">+</span></div><div class="faq-a">48h pour une landing page, 3-7 jours pour un site vitrine, 1-2 semaines pour un e-commerce.</div></div>
+        <div class="faq-item"><div class="faq-q" tabindex="0">Le SEO est-il inclus ?<span class="faq-ico">+</span></div><div class="faq-a">Oui, balises méta, structure HTML, vitesse optimisée et mobile-first sont inclus.</div></div>
+        <div class="faq-item"><div class="faq-q" tabindex="0">Comment se passe le paiement ?<span class="faq-ico">+</span></div><div class="faq-a">50% d'acompte via Stripe (sécurisé), 50% à la livraison. Facture TVA incluse.</div></div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- CONTACT -->
 
 <section id="contact">
   <div class="wrap">
-    <div class="contact-layout">
-      <div class="contact-info">
-        <div style="margin-bottom:0.5rem">
-          <div class="tag">Contact</div>
-          <h2>Parlons de votre projet</h2>
-          <p class="sub">Devis sous 24h.</p>
-        </div>
-        
-        <a href="#" class="cc" onclick="copyEmail('contact.sdo.web12@gmail.com', 'général'); return false;">
-          <div class="cc-ico">📧</div>
-          <div>
-            <div class="cc-lbl">Email général</div>
-            <div class="cc-val">contact.sdo.web12@gmail.com</div>
-          </div>
-        </a>
-        
-        <a href="#" class="cc" onclick="copyEmail('devis.sdo.web@gmail.com', 'devis'); return false;">
-          <div class="cc-ico">📋</div>
-          <div>
-            <div class="cc-lbl">Devis</div>
-            <div class="cc-val">devis.sdo.web@gmail.com</div>
-          </div>
-        </a>
-        
-        <a href="https://www.instagram.com/sdo_web" target="_blank" class="cc">
-          <div class="cc-ico" style="background:rgba(228,64,95,0.1);border-color:rgba(228,64,95,0.2)">📱</div>
-          <div>
-            <div class="cc-lbl">Instagram</div>
-            <div class="cc-val" style="color:#E4405F">@sdo_web</div>
-          </div>
-        </a>
+    <div class="contact-simple">
+      <div class="tag">Contact</div>
+      <h2>Parlons de votre projet</h2>
+      <p class="sub">Une question ? Choisissez votre canal.</p>
+      <div class="contact-cards">
+        <a href="mailto:contact.sdo.web12@gmail.com" class="cc"><div class="cc-ico">📧</div><div class="cc-info"><div class="cc-lbl">Email général</div><div class="cc-val">contact.sdo.web12@gmail.com</div></div><div class="cc-arrow">→</div></a>
+        <a href="mailto:devis.sdo.web@gmail.com" class="cc"><div class="cc-ico">📋</div><div class="cc-info"><div class="cc-lbl">Devis détaillé</div><div class="cc-val">devis.sdo.web@gmail.com</div></div><div class="cc-arrow">→</div></a>
+        <a href="https://www.instagram.com/sdo_web" target="_blank" class="cc"><div class="cc-ico" style="background:rgba(228,64,95,0.1);border-color:rgba(228,64,95,0.2)">📱</div><div class="cc-info"><div class="cc-lbl">Instagram</div><div class="cc-val" style="color:#E4405F">@sdo_web</div></div><div class="cc-arrow">→</div></a>
       </div>
-
-      <form class="simple-form sr" action="mailto:devis.sdo.web@gmail.com" method="post" enctype="text/plain">
-        <h3>Demande de devis</h3>
-        <p>Remplissez le formulaire ci-dessous.</p>
-        <div class="sf-row">
-          <input type="text" name="nom" placeholder="Votre nom" class="sf-input" required>
-          <input type="email" name="email" placeholder="Votre email" class="sf-input" required>
-        </div>
-        <select name="type" class="sf-input" style="margin-bottom: 0.75rem;" required>
-          <option value="">Type de projet</option>
-          <option value="Landing page">Landing page</option>
-          <option value="Site vitrine">Site vitrine</option>
-          <option value="E-commerce">E-commerce</option>
-          <option value="Refonte">Refonte</option>
-        </select>
-        <textarea name="message" placeholder="Décrivez votre projet..." class="sf-input" required></textarea>
-        <button type="submit" class="sf-btn">Envoyer ma demande →</button>
-      </form>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-
 <footer>
   <div class="footer-content">
-    <div class="footer-brand">
-      <strong class="footer-logo">SDO<span>Web</span></strong>
-      <p class="footer-desc">Création de sites internet — Belgique</p>
-    </div>
-
-    <div class="footer-social">
-      <a href="https://www.instagram.com/sdo_web" target="_blank" rel="noopener noreferrer" class="footer-ig">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-        @sdo_web
-      </a>
-    </div>
-
-    <div class="footer-copy">
-      © 2024 SDO Web — Tous droits réservés
-    </div>
+    <div class="footer-brand"><strong class="footer-logo">SDO<span>Web</span></strong><p class="footer-desc">Création de sites internet — Belgique</p></div>
+    <div class="footer-social"><a href="https://www.instagram.com/sdo_web" target="_blank" class="footer-ig">📱 @sdo_web</a></div>
+    <div class="footer-copy">© 2024 SDO Web — Tous droits réservés</div>
   </div>
 </footer>
 
+<div id="notification" class="notification"></div>
+<script src="https://js.stripe.com/v3/"></script>
 <script>
-/* NAV */
+const STRIPE_PUBLISHABLE_KEY = 'pk_test_VOTRE_CLE_PUBLIQUE_ICI';
+let stripe = null;
+if (STRIPE_PUBLISHABLE_KEY && !STRIPE_PUBLISHABLE_KEY.includes('VOTRE_CLE')) { stripe = Stripe(STRIPE_PUBLISHABLE_KEY); }
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50), {passive:true});
-
-/* BURGER */
 const burger = document.getElementById('burger'), drawer = document.getElementById('drawer'), overlay = document.getElementById('overlay');
-function toggleMenu(state) {
-  const isOpen = state ?? !drawer.classList.contains('open');
-  burger.classList.toggle('open', isOpen);
-  drawer.classList.toggle('open', isOpen);
-  overlay.classList.toggle('open', isOpen);
-  burger.setAttribute('aria-expanded', isOpen);
-  document.body.style.overflow = isOpen ? 'hidden' : '';
+function toggleMenu(state) { 
+  const isOpen = state ?? !drawer.classList.contains('open'); 
+  burger.classList.toggle('open', isOpen); 
+  drawer.classList.toggle('open', isOpen); 
+  overlay.classList.toggle('open', isOpen); 
+  document.body.style.overflow = isOpen ? 'hidden' : ''; 
 }
 burger.addEventListener('click', () => toggleMenu());
 overlay.addEventListener('click', () => toggleMenu(false));
-document.querySelectorAll('.dl').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
-
-/* SCROLL REVEAL */
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -30px 0px'
-};
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, observerOptions);
+document.querySelectorAll('.drawer a').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+const revealObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 document.querySelectorAll('.sr').forEach(el => revealObserver.observe(el));
-
-/* COUNTER */
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && entry.target.dataset.count) {
-      const target = parseInt(entry.target.dataset.count);
-      let current = 0;
-      const increment = target / (1500 / 16);
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-          entry.target.textContent = target + '+';
-          clearInterval(timer);
-        } else {
-          entry.target.textContent = Math.floor(current);
-        }
-      }, 16);
-      counterObserver.unobserve(entry.target);
-    }
-  });
-}, {threshold: 0.5});
+const counterObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting && entry.target.dataset.count) { const target = parseInt(entry.target.dataset.count); let current = 0; const increment = target / (1500 / 16); const timer = setInterval(() => { current += increment; if (current >= target) { entry.target.textContent = target + '+'; clearInterval(timer); } else { entry.target.textContent = Math.floor(current); } }, 16); counterObserver.unobserve(entry.target); } }); }, {threshold: 0.5});
 document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
-
-/* FAQ */
-document.querySelectorAll('.faq-q').forEach(question => {
-  const toggle = () => {
-    const item = question.closest('.faq-item');
-    const wasOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-    if (!wasOpen) item.classList.add('open');
-  };
-  question.addEventListener('click', toggle);
-  question.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      toggle();
-    }
-  });
-});
-
-/* SMOOTH SCROLL */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({behavior: 'smooth', block: 'start'});
-    }
-  });
-});
-</script>
-
-
-<script>
-function copyEmail(email, type) {
-  // Créer un élément temporaire pour copier
-  const el = document.createElement('textarea');
-  el.value = email;
-  document.body.appendChild(el);
-  el.select();
-  document.execCommand('copy');
-  document.body.removeChild(el);
-
-  // Afficher une alerte stylisée
-  alert('📧 Email ' + type + ' copié : ' + email + '\n\nOuvrez votre application mail et collez l\'adresse.');
-}
+document.querySelectorAll('.faq-q').forEach(q => { q.addEventListener('click', () => { const item = q.closest('.faq-item'); const wasOpen = item.classList.contains('open'); document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open')); if (!wasOpen) item.classList.add('open'); }); });
+document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function(e) { const target = document.querySelector(this.getAttribute('href')); if (target) { e.preventDefault(); target.scrollIntoView({behavior: 'smooth', block: 'start'}); } }); });
+function calculateDevis() { const typeSite = parseInt(document.getElementById('typeSite').value) || 0; const pages = parseInt(document.getElementById('pages').value) || 0; const pagesPrice = pages * 80; let optionsPrice = 0; document.querySelectorAll('.option-checkbox:checked').forEach(cb => { optionsPrice += parseInt(cb.value) || 0; }); const total = typeSite + pagesPrice + optionsPrice; const acompte = Math.round(total * 0.5); document.getElementById('prixTotal').textContent = new Intl.NumberFormat('fr-FR').format(total) + ' €'; document.getElementById('prixAcompte').textContent = new Intl.NumberFormat('fr-FR').format(acompte) + ' €'; return { total, acompte }; }
+function adjustPages(delta) { const input = document.getElementById('pages'); let value = parseInt(input.value) || 0; value = Math.max(0, Math.min(20, value + delta)); input.value = value; calculateDevis(); }
+function toggleOption(card) { const checkbox = card.querySelector('.option-checkbox'); checkbox.checked = !checkbox.checked; card.classList.toggle('selected', checkbox.checked); calculateDevis(); }
+function selectService(price) { const select = document.getElementById('typeSite'); if (select) { select.value = price; calculateDevis(); document.getElementById('devis').scrollIntoView({behavior: 'smooth'}); } }
+function showNotification(message, type = 'info') { const notif = document.getElementById('notification'); notif.textContent = message; notif.className = 'notification show ' + type; setTimeout(() => notif.classList.remove('show'), 3000); }
+async function processPayment() { const btn = document.getElementById('btnPayerAcompte'); const name = document.getElementById('clientName').value.trim(); const email = document.getElementById('clientEmail').value.trim(); if (!name || !email) { showNotification('Veuillez remplir votre nom et email', 'error'); return; } if (!email.includes('@')) { showNotification('Veuillez entrer un email valide', 'error'); return; } if (!stripe) { showNotification('Configuration Stripe en cours...', 'error'); return; } const { total, acompte } = calculateDevis(); const typeSelect = document.getElementById('typeSite'); const serviceName = typeSelect.options[typeSelect.selectedIndex].dataset.name; const options = []; document.querySelectorAll('.option-checkbox:checked').forEach(cb => options.push(cb.dataset.name)); const pages = parseInt(document.getElementById('pages').value) || 0; const message = document.getElementById('clientMessage').value.trim(); let description = `Acompte ${serviceName}`; if (pages > 0) description += ` +${pages}p`; if (options.length > 0) description += ` +${options.join(',')}`; btn.disabled = true; btn.textContent = 'Redirection vers Stripe...'; try { const { error } = await stripe.redirectToCheckout({ lineItems: [{ price_data: { currency: 'eur', product_data: { name: `SDO Web - ${serviceName}`, description: description }, unit_amount: acompte * 100 }, quantity: 1 }], mode: 'payment', successUrl: window.location.origin + window.location.pathname + '?payment=success', cancelUrl: window.location.origin + window.location.pathname + '?payment=cancelled', customerEmail: email, clientReferenceId: JSON.stringify({ name, email, service: serviceName, total, acompte, pages, options, message, date: new Date().toISOString() }) }); if (error) throw error; } catch (err) { showNotification('Erreur: ' + err.message, 'error'); btn.disabled = false; btn.textContent = "💳 Payer l'acompte (50%)"; } }
+window.addEventListener('load', () => { const urlParams = new URLSearchParams(window.location.search); const payment = urlParams.get('payment'); if (payment === 'success') { showNotification('✅ Paiement réussi ! Je vous contacterai sous 24h.', 'success'); window.history.replaceState({}, document.title, window.location.pathname + '#contact'); } else if (payment === 'cancelled') { showNotification('❌ Paiement annulé.', 'error'); window.history.replaceState({}, document.title, window.location.pathname + '#devis'); } });
+calculateDevis();
 </script>
 </body>
 </html>
