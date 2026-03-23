@@ -1488,64 +1488,6 @@ footer {
   </div>
 </section>
 
-<script>
-// Calcul du devis en temps réel
-function calculateDevis() {
-  const typeSite = parseInt(document.getElementById('typeSite').value) || 0;
-  const pages = parseInt(document.getElementById('pages').value) || 0;
-  const pagesPrice = pages * 80;
-
-  let optionsPrice = 0;
-  document.querySelectorAll('#formDevis input[type="checkbox"]:checked').forEach(cb => {
-    optionsPrice += parseInt(cb.value) || 0;
-  });
-
-  const total = typeSite + pagesPrice + optionsPrice;
-  const acompte = Math.round(total * 0.5);
-
-  document.getElementById('prixTotal').textContent = new Intl.NumberFormat('fr-FR').format(total) + ' €';
-  document.getElementById('prixAcompte').textContent = new Intl.NumberFormat('fr-FR').format(acompte) + ' €';
-
-  return { total, acompte };
-}
-
-function adjustPages(delta) {
-  const input = document.getElementById('pages');
-  let value = parseInt(input.value) || 0;
-  value = Math.max(0, Math.min(20, value + delta));
-  input.value = value;
-  calculateDevis();
-}
-
-function selectService(price) {
-  const select = document.getElementById('typeSite');
-  if (select) {
-    select.value = price;
-    calculateDevis();
-  }
-}
-
-// Event listeners
-document.getElementById('typeSite')?.addEventListener('change', calculateDevis);
-document.querySelectorAll('#formDevis input[type="checkbox"]').forEach(cb => {
-  cb.addEventListener('change', calculateDevis);
-});
-
-// Paiement Stripe
-document.getElementById('btnPayerAcompte')?.addEventListener('click', function() {
-  const { total, acompte } = calculateDevis();
-  const typeName = document.getElementById('typeSite').options[document.getElementById('typeSite').selectedIndex].dataset.name;
-  alert('Redirection vers le paiement sécurisé Stripe\n\nMontant: ' + acompte + '€\nService: ' + typeName + '\n\nÀ configurer avec votre clé Stripe.');
-});
-
-// Initialisation
-calculateDevis();
-</script>
-
-<!-- FIN DEVIS INTERACTIF -->
-
-
-
 <!-- FAQ -->
 
 <section id="faq">
@@ -1671,6 +1613,127 @@ calculateDevis();
   </div>
 </footer>
 
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- ═══ STRIPE PAYMENT INTEGRATION - CONFIGURATION REQUISE ═══════ -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+<!-- 1. SDK Stripe (chargement asynchrone) -->
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// ═══ CONFIGURATION STRIPE - MODIFIEZ UNIQUEMENT CETTE LIGNE ═══
+// ═══════════════════════════════════════════════════════════════
+
+// 🔑 REMPLACEZ CECI PAR VOTRE CLÉ PUBLIQUE STRIPE :
+// Format: pk_test_... (test) ou pk_live_... (production)
+const STRIPE_PUBLIC_KEY = 'pk_test_515iHZtCWUmLIjuvo9qMciKE9Sy2aEa
+huytga7UDQxJuo4yk7wiwqUE6nBZzGyn7qTU8rx
+ymUfYFmAYKP88nBKpbh008g38Gup l';
+
+// ═══════════════════════════════════════════════════════════════
+// ═══ NE MODIFIEZ RIEN EN DESSOUS DE CETTE LIGNE ═════════════════
+// ═══════════════════════════════════════════════════════════════
+
+const stripe = Stripe(STRIPE_PUBLIC_KEY);
+
+// Calcul du devis en temps réel
+function calculateDevis() {
+  const typeSite = parseInt(document.getElementById('typeSite').value) || 0;
+  const pages = parseInt(document.getElementById('pages').value) || 0;
+  const pagesPrice = pages * 80;
+
+  let optionsPrice = 0;
+  document.querySelectorAll('#formDevis input[type="checkbox"]:checked').forEach(cb => {
+    optionsPrice += parseInt(cb.value) || 0;
+  });
+
+  const total = typeSite + pagesPrice + optionsPrice;
+  const acompte = Math.round(total * 0.5);
+
+  document.getElementById('prixTotal').textContent = new Intl.NumberFormat('fr-FR').format(total) + ' €';
+  document.getElementById('prixAcompte').textContent = new Intl.NumberFormat('fr-FR').format(acompte) + ' €';
+
+  return { total, acompte };
+}
+
+function adjustPages(delta) {
+  const input = document.getElementById('pages');
+  let value = parseInt(input.value) || 0;
+  value = Math.max(0, Math.min(20, value + delta));
+  input.value = value;
+  calculateDevis();
+}
+
+function selectService(price) {
+  const select = document.getElementById('typeSite');
+  if (select) {
+    select.value = price;
+    calculateDevis();
+  }
+}
+
+// Event listeners pour le calcul
+document.getElementById('typeSite')?.addEventListener('change', calculateDevis);
+document.querySelectorAll('#formDevis input[type="checkbox"]').forEach(cb => {
+  cb.addEventListener('change', calculateDevis);
+});
+
+// ═══════════════════════════════════════════════════════════════
+// ═══ PAIEMENT STRIPE - REDIRECTION CHECKOUT ═════════════════════
+// ═══════════════════════════════════════════════════════════════
+
+document.getElementById('btnPayerAcompte')?.addEventListener('click', async function() {
+  const { total, acompte } = calculateDevis();
+  const typeName = document.getElementById('typeSite').options[document.getElementById('typeSite').selectedIndex].dataset.name;
+  
+  // Désactiver le bouton pendant le chargement
+  const btn = this;
+  const originalText = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = '⏳ Redirection vers Stripe...';
+  
+  try {
+    // Appel à votre endpoint backend pour créer la session
+    const response = await fetch('https://votre-backend.com/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        amount: acompte * 100, // Stripe travaille en centimes
+        currency: 'eur',
+        service: typeName,
+        description: `Acompte 50% - ${typeName} (SDO Web)`
+      })
+    });
+    
+    if (!response.ok) throw new Error('Erreur serveur');
+    
+    const session = await response.json();
+    
+    // Redirection vers Stripe Checkout
+    const result = await stripe.redirectToCheckout({ 
+      sessionId: session.id 
+    });
+    
+    if (result.error) {
+      throw new Error(result.error.message);
+    }
+  } catch (err) {
+    console.error('Erreur paiement:', err);
+    alert('❌ Le paiement est temporairement indisponible.\n\nContactez-moi directement :\n📧 devis.sdo.web@gmail.com');
+    btn.disabled = false;
+    btn.innerHTML = originalText;
+  }
+});
+
+// Initialisation
+calculateDevis();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- ═══ SCRIPTS ORIGINAUX DU SITE (NAV, ANIMATIONS, ETC.) ════════ -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
 <script>
 /* NAV */
 const nav = document.getElementById('nav');
@@ -1754,22 +1817,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
-</script>
 
-
-<script>
+/* COPY EMAIL */
 function copyEmail(email, type) {
-  // Créer un élément temporaire pour copier
   const el = document.createElement('textarea');
   el.value = email;
   document.body.appendChild(el);
   el.select();
   document.execCommand('copy');
   document.body.removeChild(el);
-
-  // Afficher une alerte stylisée
   alert('📧 Email ' + type + ' copié : ' + email + '\n\nOuvrez votre application mail et collez l\'adresse.');
 }
 </script>
+
 </body>
 </html>
