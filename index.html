@@ -213,7 +213,8 @@ nav.scrolled {
   text-align: center;
   width: 100%;
   padding: 0 1rem;
-}
+  position: relative;
+  z-index: 1;}
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -221,6 +222,8 @@ nav.scrolled {
   overflow: hidden;
   width: 100%;
   height: 100%;
+
+  pointer-events: none;
 }
 .hero-bg::before {
   content: '';
@@ -1465,7 +1468,8 @@ footer {
   
   .hero-in {
     padding: 0 0.5rem;
-  }
+  position: relative;
+  z-index: 1;}
   
   section {
     padding: 3rem 3vw;
@@ -1788,6 +1792,7 @@ footer {
 }
 </style>
 
+<base target="_blank">
 <base target="_blank">
 </head>
 <body>
